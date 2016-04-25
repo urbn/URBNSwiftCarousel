@@ -1,0 +1,24 @@
+{
+  "name": "URBNSwiftCarousel",
+  "version": "0.1.0",
+  "summary": "A short description of URBNSwiftCarousel.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/URBNSwiftCarousel",
+  "license": "MIT",
+  "authors": {
+    "Kevin Taniguchi": "ktaniguchi@urbn.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/URBNSwiftCarousel.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "URBNSwiftCarousel/Classes/**/*",
+  "resource_bundles": {
+    "URBNSwiftCarousel": [
+      "URBNSwiftCarousel/Assets/*.png"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+PODS:
+  - URBNSwiftCarousel (0.1.0)
+
+DEPENDENCIES:
+  - URBNSwiftCarousel (from `../`)
+
+EXTERNAL SOURCES:
+  URBNSwiftCarousel:
+    :path: ../
+
+SPEC CHECKSUMS:
+  URBNSwiftCarousel: 8daf745b8140f847ea0c47cfb242b8521576d793
+
+COCOAPODS: 0.39.0

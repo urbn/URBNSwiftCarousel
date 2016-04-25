@@ -1,0 +1,6 @@
+framework module URBNSwiftCarousel {
+  umbrella header "URBNSwiftCarousel-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_URBNSwiftCarousel_Tests {
+  umbrella header "Pods-URBNSwiftCarousel_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
