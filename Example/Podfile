@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'URBNSwiftCarousel_Example', :exclusive => true do
+  pod 'URBNSwiftCarousel', :path => '../'
+end
+
+target 'URBNSwiftCarousel_Tests', :exclusive => true do
+  pod 'URBNSwiftCarousel', :path => '../'
+
+  
+end
