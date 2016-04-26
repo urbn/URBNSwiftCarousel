@@ -49,7 +49,7 @@ typealias URBNCarouselViewInteractionBeganClosure = (controller: URBNSwCarouselT
  */
 
 
-class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning, UIGestureRecognizerDelegate {
+public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning, UIGestureRecognizerDelegate {
     private(set) var interactive = false
     weak var interactiveDelegate: URBNSwCarouselInteractiveDelegate?
     
@@ -162,11 +162,11 @@ class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnimatedTran
     }
     
     // MARK: UIViewControllerAnimatedTransitioning - Non-Interactive
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.5
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
             toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
             else { return }
@@ -193,7 +193,7 @@ class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnimatedTran
     }
     
     // MARK: UIViewControllerInteractiveTransitioning
-    func startInteractiveTransition(transitionContext: UIViewControllerContextTransitioning) {
+    public func startInteractiveTransition(transitionContext: UIViewControllerContextTransitioning) {
         context = transitionContext
         prepareForTransitionWithContext(transitionContext)
     }
@@ -213,20 +213,20 @@ class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnimatedTran
     }
     
     // MARK: UIViewControllerTransitioningDelegate
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         sourceViewController = source
         return self
     }
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self
     }
     
-    func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    public func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactive == true ? self : nil
     }
 
-    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    public func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactive == true ? self : nil
     }
     
@@ -292,7 +292,7 @@ class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnimatedTran
     }
     
     // MARK: UIGestureRecognizerDelegate
-    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let view = gestureRecognizer.view else { return false }
         let pinch = viewPinchTransitionGestureRecognizers[view]
         let pinchStarted = pinch?.state != UIGestureRecognizerState.Possible
@@ -314,7 +314,7 @@ class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnimatedTran
         return shouldBegin
     }
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
 

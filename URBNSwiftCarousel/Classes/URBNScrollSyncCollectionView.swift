@@ -8,7 +8,7 @@
 
 import UIKit
 
-class URBNScrollSyncCollectionView: UICollectionView, UICollectionViewDelegate {
+public class URBNScrollSyncCollectionView: UICollectionView, UICollectionViewDelegate {
 
     var animateScrollSync = false
     var didSyncBlock: ((collectionView: UICollectionView, indexpath: NSIndexPath) -> Void)?
@@ -28,14 +28,14 @@ class URBNScrollSyncCollectionView: UICollectionView, UICollectionViewDelegate {
         syncedCollectionView = collectionView
     }
     
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    public func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         print("CV: \(collectionView) ITEM: \(indexPath.item)")
         
         guard let syncCV = syncedCollectionView else { return }
         print("SYNCED CV: \(syncCV) CURRENT ITEM \(syncCV.indexPathForItemAtPoint(syncCV.contentOffset)?.item)")
     }
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         guard let path = indexPathForItemAtPoint(contentOffset) else { return }
         
         print("CV: \(collectionView) ITEM: \(path.item)")
@@ -44,7 +44,7 @@ class URBNScrollSyncCollectionView: UICollectionView, UICollectionViewDelegate {
         print("SYNCED CV: \(syncCV) CURRENT ITEM \(syncCV.indexPathForItemAtPoint(syncCV.contentOffset)?.item)")
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

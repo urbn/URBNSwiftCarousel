@@ -8,8 +8,8 @@
 
 import UIKit
 
-class URBNCarouselZoomableCell: UICollectionViewCell, UIScrollViewDelegate {
-    override var frame: CGRect {
+public class URBNCarouselZoomableCell: UICollectionViewCell, UIScrollViewDelegate {
+    override public var frame: CGRect {
         didSet {
             scrollView.setZoomScale(1.0, animated: true)
             contentView.frame = bounds
@@ -37,17 +37,17 @@ class URBNCarouselZoomableCell: UICollectionViewCell, UIScrollViewDelegate {
         scrollView.addSubview(imageView)
     }
     
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+    public func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
     }
     
-    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
+    public func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
         UIView.animateWithDuration(0.2) { 
             view?.center = CGPointMake(scrollView.bounds.size.width / 2 * scale, scrollView.bounds.size.height / 2 * scale)
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

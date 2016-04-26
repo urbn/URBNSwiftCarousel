@@ -6,7 +6,7 @@
 //
 //
 
-extension UIImageView {
+public extension UIImageView {
     static func urbn_aspectFitSizeForImageSize(imageSize: CGSize, rect: CGRect) -> CGSize {
         let hfactor = imageSize.width / rect.width
         let vfactor = imageSize.height / rect.height

@@ -15,18 +15,12 @@ Pod::Spec.new do |s|
 URBNSwiftCarousel is a framework for displaying images in a carousel, or a side scrolling collection view.  It includes a transition controller for a custom zooming transition effect to a full screen carousel.
                        DESC
 
-  s.homepage         = "https://github.com/URBN/URBNSwiftCarousel"
+  s.homepage         = "https://github.com/urbn/URBNSwiftCarousel"
   s.license          = 'MIT'
   s.author           = { "Kevin Taniguchi" => "ktaniguchi@urbn.com" }
-  s.source           = { :git => "git@github.com:urbn/URBNSwiftCarousel.git", :tag => s.version.to_s" }
+  s.source           = { :git => "git@github.com:urbn/URBNSwiftCarousel.git", :tag => s.version.to_s }
 
-  s.ios.deployment_target = '9.0'
+s.ios.deployment_target = '9.0'
 
-  s.source_files = 'URBNSwiftCarousel/Classes/**/*'
-  s.resource_bundles = {
-    'URBNSwiftCarousel' => ['URBNSwiftCarousel/Assets/*.png']
-  }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit'
+s.source_files = 'URBNSwiftCarousel/Classes/**/*'
 end

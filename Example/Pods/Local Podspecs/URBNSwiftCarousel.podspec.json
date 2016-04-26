@@ -1,24 +1,19 @@
 {
   "name": "URBNSwiftCarousel",
   "version": "0.1.0",
-  "summary": "A short description of URBNSwiftCarousel.",
-  "description": "",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/URBNSwiftCarousel",
+  "summary": "A Carousel for use with Side Scrolling Collection Views.",
+  "description": "URBNSwiftCarousel is a framework for displaying images in a carousel, or a side scrolling collection view.  It includes a transition controller for a custom zooming transition effect to a full screen carousel.",
+  "homepage": "https://github.com/urbn/URBNSwiftCarousel",
   "license": "MIT",
   "authors": {
     "Kevin Taniguchi": "ktaniguchi@urbn.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/URBNSwiftCarousel.git",
+    "git": "git@github.com:urbn/URBNSwiftCarousel.git",
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "URBNSwiftCarousel/Classes/**/*",
-  "resource_bundles": {
-    "URBNSwiftCarousel": [
-      "URBNSwiftCarousel/Assets/*.png"
-    ]
-  }
+  "source_files": "URBNSwiftCarousel/Classes/**/*"
 }

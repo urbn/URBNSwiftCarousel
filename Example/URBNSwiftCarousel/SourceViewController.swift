@@ -11,6 +11,8 @@ import URBNSwiftCarousel
 
 class SourceViewController: UIViewController {
     
+    let controller = URBNSwCarouselTransitionController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
