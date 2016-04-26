@@ -46,6 +46,7 @@
 		8124564AF2716A1526B30F00 /* Pods_URBNSwiftCarousel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URBNSwiftCarousel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAFC04CCFDBCC5935A85BA14 /* URBNSwiftCarousel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = URBNSwiftCarousel.podspec; path = ../URBNSwiftCarousel.podspec; sourceTree = "<group>"; };
 		BE3A60D13E41C4A3D5375228 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		F6354F111CD0132700104B4D /* URBNSwiftCarousel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URBNSwiftCarousel.framework; path = "../../../Library/Developer/Xcode/DerivedData/URBNSwiftCarousel-dfrsqnsqurkneebgxjipsaswhrhm/Build/Products/Debug-iphoneos/URBNSwiftCarousel.framework"; sourceTree = "<group>"; };
 		F65E8E741CCE99A100220844 /* DestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +154,7 @@
 		E6A7EB0CBE530A5984594DB0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6354F111CD0132700104B4D /* URBNSwiftCarousel.framework */,
 				8124564AF2716A1526B30F00 /* Pods_URBNSwiftCarousel_Example.framework */,
 				7523C5D589BB17F70BDD6AD8 /* Pods_URBNSwiftCarousel_Tests.framework */,
 			);
