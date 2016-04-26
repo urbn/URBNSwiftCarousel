@@ -17,7 +17,10 @@
 		91C5B33CC1D8A7D6A1FAF08898B01175 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		9413BA9E90CC124C20474E8F78D40026 /* Pods-URBNSwiftCarousel_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D68B04BCA7773BDB557BD2CC9C1D6398 /* Pods-URBNSwiftCarousel_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A80CAD1DC2B4E214437769102B6E4BC7 /* Pods-URBNSwiftCarousel_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A35BDE96ED311F77FD2B38EC6F65AEB6 /* Pods-URBNSwiftCarousel_Tests-dummy.m */; };
-		BAAA25487AB9D5BE0BD0B618C5E5A43A /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376AAF8C33843AD4AB5F289390F5841 /* ReplaceMe.swift */; };
+		F6354F0A1CCF9CBA00104B4D /* UIImageView+URBNImageFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6354F091CCF9CBA00104B4D /* UIImageView+URBNImageFrame.swift */; };
+		F6354F0C1CCFF81A00104B4D /* URBNCarouselZoomableCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6354F0B1CCFF81A00104B4D /* URBNCarouselZoomableCellCollectionViewCell.swift */; };
+		F6354F0E1CCFFD0D00104B4D /* URBNHorizontalPagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6354F0D1CCFFD0D00104B4D /* URBNHorizontalPagedFlowLayout.swift */; };
+		F6354F101CD003CE00104B4D /* URBNScrollSyncCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6354F0F1CD003CE00104B4D /* URBNScrollSyncCollectionView.swift */; };
 		F65E8E771CCEB5C200220844 /* URBNSwCarouselTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65E8E761CCEB5C200220844 /* URBNSwCarouselTransitionController.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +61,6 @@
 		54933E95BC2CF95CF313DD58D6972D34 /* Pods-URBNSwiftCarousel_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-URBNSwiftCarousel_Tests.modulemap"; sourceTree = "<group>"; };
 		54C3C95A6823BA73CFF87DA0B94A29AF /* Pods-URBNSwiftCarousel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftCarousel_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		62032AA78AF40F759E743E8219F84C49 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6376AAF8C33843AD4AB5F289390F5841 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
 		6B57F3B8C146F6AF0EE2DECE863BA744 /* URBNSwiftCarousel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftCarousel-umbrella.h"; sourceTree = "<group>"; };
 		6E5F9497D359F172BB5ABCB346AC50A8 /* Pods-URBNSwiftCarousel_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftCarousel_Example-resources.sh"; sourceTree = "<group>"; };
 		6EFDE9680007592C5F09541A8DF83876 /* Pods-URBNSwiftCarousel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftCarousel_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +80,10 @@
 		D68B04BCA7773BDB557BD2CC9C1D6398 /* Pods-URBNSwiftCarousel_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-URBNSwiftCarousel_Example-umbrella.h"; sourceTree = "<group>"; };
 		D7ED23DA885C5CEEE0B4FA5B47D6AECC /* Pods-URBNSwiftCarousel_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftCarousel_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		F3D7EA932A7858534BFF494BF06EB788 /* Pods-URBNSwiftCarousel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftCarousel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		F6354F091CCF9CBA00104B4D /* UIImageView+URBNImageFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+URBNImageFrame.swift"; sourceTree = "<group>"; };
+		F6354F0B1CCFF81A00104B4D /* URBNCarouselZoomableCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URBNCarouselZoomableCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		F6354F0D1CCFFD0D00104B4D /* URBNHorizontalPagedFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URBNHorizontalPagedFlowLayout.swift; sourceTree = "<group>"; };
+		F6354F0F1CD003CE00104B4D /* URBNScrollSyncCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URBNScrollSyncCollectionView.swift; sourceTree = "<group>"; };
 		F65E8E761CCEB5C200220844 /* URBNSwCarouselTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URBNSwCarouselTransitionController.swift; sourceTree = "<group>"; };
 		FBA2D90AE61807C6499F5B7873BBDA22 /* URBNSwiftCarousel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = URBNSwiftCarousel.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,8 +249,11 @@
 		FB33B9D4A97A42C1A26DC3CD11ADE5FB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6376AAF8C33843AD4AB5F289390F5841 /* ReplaceMe.swift */,
 				F65E8E761CCEB5C200220844 /* URBNSwCarouselTransitionController.swift */,
+				F6354F091CCF9CBA00104B4D /* UIImageView+URBNImageFrame.swift */,
+				F6354F0B1CCFF81A00104B4D /* URBNCarouselZoomableCellCollectionViewCell.swift */,
+				F6354F0D1CCFFD0D00104B4D /* URBNHorizontalPagedFlowLayout.swift */,
+				F6354F0F1CD003CE00104B4D /* URBNScrollSyncCollectionView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -426,9 +435,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAAA25487AB9D5BE0BD0B618C5E5A43A /* ReplaceMe.swift in Sources */,
+				F6354F0E1CCFFD0D00104B4D /* URBNHorizontalPagedFlowLayout.swift in Sources */,
+				F6354F0C1CCFF81A00104B4D /* URBNCarouselZoomableCellCollectionViewCell.swift in Sources */,
 				F65E8E771CCEB5C200220844 /* URBNSwCarouselTransitionController.swift in Sources */,
+				F6354F101CD003CE00104B4D /* URBNScrollSyncCollectionView.swift in Sources */,
 				18928CFC715B587C7EE8868D0089F488 /* URBNSwiftCarousel-dummy.m in Sources */,
+				F6354F0A1CCF9CBA00104B4D /* UIImageView+URBNImageFrame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
