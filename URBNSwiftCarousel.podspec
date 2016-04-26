@@ -26,7 +26,7 @@ URBNSwiftCarousel is a framework for displaying images in a carousel, or a side 
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Kevin Taniguchi" => "ktaniguchi@urbn.com" }
-  s.source           = { :git =>  :git => "git@github.com:urbn/URBNSwiftCarousel.git", :tag => s.version.to_s" }
+  s.source           = { :git => "git@github.com:urbn/URBNSwiftCarousel.git", :tag => s.version.to_s" }
 
   s.ios.deployment_target = '9.0'
 
