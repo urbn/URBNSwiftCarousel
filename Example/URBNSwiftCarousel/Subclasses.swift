@@ -11,15 +11,8 @@ import URBNSwiftCarousel
 
 class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var sourceCV: URBNScrollSyncCollectionView!
-    var data: [String] {
-        var mutable = [String]()
-        for index in 1...7 {
-            mutable.append("\(index)")
-        }
-        return mutable
-    }
-    
-    var cellSelectedCallback: (Int -> Void)?
+    let data = UIImage.testingImages()
+    var cellSelectedCallback: (CVCell -> Void)?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -41,8 +34,7 @@ class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cvCell", forIndexPath: indexPath) as? CVCell else { return CVCell() }
-        cell.label.text = data[indexPath.item]
-        cell.label.backgroundColor = UIColor.colorForIndex(indexPath.item)
+        cell.imageView.image = UIImage.testingImages()[indexPath.item]
         return cell
     }
     
@@ -51,7 +43,8 @@ class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        cellSelectedCallback?(indexPath.item)
+        guard let cell = collectionView.cellForItemAtIndexPath(indexPath) as? CVCell else { return }
+        cellSelectedCallback?(cell)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -59,17 +52,15 @@ class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
     }
 }
 
-class CVCell: UICollectionViewCell {
-    let label = UILabel()
-    
+class CVCell: URBNCarouselZoomableCell {
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        label.textAlignment = .Center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(label)
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[lbl]|", options: [], metrics: nil, views: ["lbl": label]))
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[lbl]|", options: [], metrics: nil, views: ["lbl": label]))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(imageView)
+        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[img]|", options: [], metrics: nil, views: ["img": imageView]))
+        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[img]|", options: [], metrics: nil, views: ["img": imageView]))
     }
     
     required init?(coder aDecoder: NSCoder) {

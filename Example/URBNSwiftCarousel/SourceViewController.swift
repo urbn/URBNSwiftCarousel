@@ -13,8 +13,8 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     let transitionController = URBNSwCarouselTransitionController()
     let tableView = UITableView(frame: CGRectZero, style: .Plain)
-    
-    private var selectedIndex = 0
+    private var selectedCellForTransition: CVCell?
+    private var selectedCollectionViewForTransition: URBNScrollSyncCollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,20 +32,20 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         lbl.sizeToFit()
         tableView.tableHeaderView = lbl
         tableView.tableHeaderView?.frame = lbl.frame
-        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
+        
         NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[tbv]|", options: [], metrics: nil, views: ["tbv": tableView]))
         NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[tbv]|", options: [], metrics: nil, views: ["tbv": tableView]))
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("tbvCell", forIndexPath: indexPath) as? SampleCell else { return SampleCell() }
-        cell.cellSelectedCallback = {[weak self] index in
+        cell.cellSelectedCallback = {[weak self] cvCell in
             guard let weakSelf = self else { return }
-            weakSelf.selectedIndex = index
-            
-            
+            weakSelf.selectedCollectionViewForTransition = cell.sourceCV
+            weakSelf.selectedCellForTransition = cvCell
+            weakSelf.presentDestinationViewController()
         }
         return cell
     }
@@ -61,22 +61,31 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     */
     
     func imageForGalleryTransition() -> UIImage {
-        return UIImage()
+        guard let img = selectedCellForTransition?.imageView.image else { return UIImage() }
+        return img
     }
     
     func fromImageFrameForGalleryTransitionWithContainerView(containerView: UIView) -> CGRect {
-        return CGRectZero
+        guard let imgFrame = selectedCellForTransition?.imageView.urbn_imageFrame() else { return CGRectZero }
+        return containerView.convertRect(imgFrame, fromView: selectedCellForTransition)
     }
     
     func toImageFrameForGalleryTransitionWithContainerView(containerView: UIView, sourceImageFrame: CGRect) -> CGRect {
-        return CGRectZero
+        guard let frameToReturnTo = selectedCellForTransition?.imageView.frame, selectedCell = selectedCellForTransition else { return CGRectZero }
+        let size = UIImageView.urbn_aspectFitSizeForImageSize(sourceImageFrame.size, rect: frameToReturnTo)
+        let toImageWidth = size.width
+        let toImageHeight = size.height
+        let convertedRect = containerView.convertRect(selectedCell.frame, fromView: selectedCollectionViewForTransition)
+        let originX = CGRectGetMidX(convertedRect) - size.width/2
+        let originY = CGRectGetMidY(convertedRect) - size.height/2
+        return CGRectMake(originX, originY, toImageWidth, toImageHeight)
     }
     
     // MARK: Present the Destination View Controller
     func presentDestinationViewController() {
         let destinationViewController = DestinationViewController()
-        
+        // tmep
+        navigationController?.pushViewController(destinationViewController, animated: true)
     }
     
 }
-
