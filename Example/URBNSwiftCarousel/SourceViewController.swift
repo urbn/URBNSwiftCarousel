@@ -9,10 +9,12 @@
 import UIKit
 import URBNSwiftCarousel
 
-class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, URBNSwCarouselTransitioning {
     
-    let controller = URBNSwCarouselTransitionController()
+    let transitionController = URBNSwCarouselTransitionController()
     let tableView = UITableView(frame: CGRectZero, style: .Plain)
+    
+    private var selectedIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,87 +41,42 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("tbvCell", forIndexPath: indexPath) as? SampleCell else { return SampleCell() }
+        cell.cellSelectedCallback = {[weak self] index in
+            guard let weakSelf = self else { return }
+            weakSelf.selectedIndex = index
+            
+            
+        }
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
-}
-
-
-class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    var sourceCV: URBNScrollSyncCollectionView!
-    var data: [String] {
-        var mutable = [String]()
-        for index in 1...7 {
-            mutable.append("\(index)")
-        }
-        return mutable
+    
+    // MARK: URBNSwCarouselTransitioning
+    
+    /*
+     Required methods for the custom zoom view controller transition
+    */
+    
+    func imageForGalleryTransition() -> UIImage {
+        return UIImage()
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        let layout = URBNHorizontalPagedFlowLayout()
-        layout.minimumLineSpacing = 1.0
-        layout.minimumInteritemSpacing = 1.0
-        layout.scrollDirection = .Horizontal
-        layout.itemSize = CGSizeMake(150, 249)
-        sourceCV = URBNScrollSyncCollectionView(frame: CGRectZero, collectionViewLayout: layout)
-        sourceCV.translatesAutoresizingMaskIntoConstraints = false
-        sourceCV.delegate = self
-        sourceCV.dataSource = self
-        sourceCV.registerClass(CVCell.self, forCellWithReuseIdentifier: "cvCell")
-        contentView.addSubview(sourceCV)
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[cv]|", options: [], metrics: nil, views: ["cv": sourceCV]))
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[cv]|", options: [], metrics: nil, views: ["cv": sourceCV]))
+    func fromImageFrameForGalleryTransitionWithContainerView(containerView: UIView) -> CGRect {
+        return CGRectZero
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cvCell", forIndexPath: indexPath) as? CVCell else { return CVCell() }
-        cell.label.text = data[indexPath.item]
-        cell.label.backgroundColor = UIColor.colorForIndex(indexPath.item)
-        return cell
+    func toImageFrameForGalleryTransitionWithContainerView(containerView: UIView, sourceImageFrame: CGRect) -> CGRect {
+        return CGRectZero
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    // MARK: Present the Destination View Controller
+    func presentDestinationViewController() {
+        let destinationViewController = DestinationViewController()
         
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
 
-class CVCell: UICollectionViewCell {
-    let label = UILabel()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        label.textAlignment = .Center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(label)
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[lbl]|", options: [], metrics: nil, views: ["lbl": label]))
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[lbl]|", options: [], metrics: nil, views: ["lbl": label]))
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-extension UIColor {
-    static var colors: [UIColor] {
-        return [UIColor.redColor(), UIColor.orangeColor(), UIColor.purpleColor(), UIColor.cyanColor(), UIColor.blueColor(), UIColor.greenColor(), UIColor.yellowColor()]
-    }
-    
-    static func colorForIndex(index: Int) -> UIColor {
-        return colors[index]
-    }
-}
