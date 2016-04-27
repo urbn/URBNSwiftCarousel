@@ -14,7 +14,7 @@ public class URBNScrollSyncCollectionView: UICollectionView, UICollectionViewDel
     var didSyncBlock: ((collectionView: UICollectionView, indexpath: NSIndexPath) -> Void)?
     private(set) var syncedCollectionView: URBNScrollSyncCollectionView?
     
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+    public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         
         delegate = self
