@@ -16,7 +16,7 @@ public class URBNHorizontalPagedFlowLayout: UICollectionViewFlowLayout {
     }
     
     private var maxContentOffset: CGFloat {
-        guard let cv = collectionView else { return 0.0 }
+        guard let cv = collectionView else { return UIScreen.mainScreen().bounds.width }
         return minContentOffset + cv.contentSize.width - itemSize.width
     }
     
@@ -53,7 +53,7 @@ public class URBNHorizontalPagedFlowLayout: UICollectionViewFlowLayout {
                 break
             }
             
-            if velocity.x > 0.0 {
+            if velX > 0.0 {
                 nextOffSet += snapStep
             }
             else {
@@ -67,7 +67,7 @@ public class URBNHorizontalPagedFlowLayout: UICollectionViewFlowLayout {
     }
     
     func isValidOffset(offSet: CGFloat) -> Bool {
-        return offSet >= minContentOffset
+        return offSet >= minContentOffset && offSet <= maxContentOffset
     }
     
 }

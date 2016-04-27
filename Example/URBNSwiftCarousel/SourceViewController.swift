@@ -17,7 +17,7 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = ""
+        title = "URBNSwifty Carousel"
         
         tableView.rowHeight = 250
         tableView.estimatedRowHeight = UIScreen.mainScreen().bounds.height/3
@@ -48,11 +48,11 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
 }
 
 
-class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
-    var cv: URBNScrollSyncCollectionView!
+class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    var sourceCV: URBNScrollSyncCollectionView!
     var data: [String] {
         var mutable = [String]()
-        for index in 1...20 {
+        for index in 1...7 {
             mutable.append("\(index)")
         }
         return mutable
@@ -66,24 +66,29 @@ class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
         layout.minimumInteritemSpacing = 1.0
         layout.scrollDirection = .Horizontal
         layout.itemSize = CGSizeMake(150, 249)
-        cv = URBNScrollSyncCollectionView(frame: CGRectZero, collectionViewLayout: layout)
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.delegate = self
-        cv.dataSource = self
-        cv.registerClass(CVCell.self, forCellWithReuseIdentifier: "cvCell")
-        contentView.addSubview(cv)
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[cv]|", options: [], metrics: nil, views: ["cv": cv]))
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[cv]|", options: [], metrics: nil, views: ["cv": cv]))
+        sourceCV = URBNScrollSyncCollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        sourceCV.translatesAutoresizingMaskIntoConstraints = false
+        sourceCV.delegate = self
+        sourceCV.dataSource = self
+        sourceCV.registerClass(CVCell.self, forCellWithReuseIdentifier: "cvCell")
+        contentView.addSubview(sourceCV)
+        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[cv]|", options: [], metrics: nil, views: ["cv": sourceCV]))
+        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[cv]|", options: [], metrics: nil, views: ["cv": sourceCV]))
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cvCell", forIndexPath: indexPath) as? CVCell else { return CVCell() }
         cell.label.text = data[indexPath.item]
+        cell.label.backgroundColor = UIColor.colorForIndex(indexPath.item)
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -97,7 +102,6 @@ class CVCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.backgroundColor = UIColor.randomColor()
         label.textAlignment = .Center
         label.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(label)
@@ -110,20 +114,12 @@ class CVCell: UICollectionViewCell {
     }
 }
 
-extension CGFloat {
-    static func random() -> CGFloat {
-        return CGFloat(arc4random()) / CGFloat(UInt32.max)
-    }
-}
-
 extension UIColor {
-    static func randomColor() -> UIColor {
-        let r = CGFloat.random()
-        let g = CGFloat.random()
-        let b = CGFloat.random()
-        
-        // If you wanted a random alpha, just create another
-        // random number for that too.
-        return UIColor(red: r, green: g, blue: b, alpha: 1.0)
+    static var colors: [UIColor] {
+        return [UIColor.redColor(), UIColor.orangeColor(), UIColor.purpleColor(), UIColor.cyanColor(), UIColor.blueColor(), UIColor.greenColor(), UIColor.yellowColor()]
+    }
+    
+    static func colorForIndex(index: Int) -> UIColor {
+        return colors[index]
     }
 }
