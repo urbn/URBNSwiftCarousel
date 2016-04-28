@@ -9,12 +9,13 @@
 import UIKit
 import URBNSwiftCarousel
 
-class DestinationViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, URBNSwCarouselTransitioning {
+class DestinationViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, URBNSwCarouselTransitioning, URBNSynchronizingDelegate {
     
     var destinationCollectionView: UICollectionView!
     var swTransitionController: URBNSwCarouselTransitionController?
-    var selectedCellForTransition: CVCell?
+    var selectedCellForTransition: URBNCarouselZoomableCell?
     var data = UIImage.testingImages()
+    var selectedPath: NSIndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
         layout.minimumLineSpacing = 1.0
  
         destinationCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        destinationCollectionView.registerClass(CVCell.self, forCellWithReuseIdentifier: "desCell")
+        destinationCollectionView.registerClass(URBNCarouselZoomableCell.self, forCellWithReuseIdentifier: "desCell")
         destinationCollectionView.frame = view.bounds
         destinationCollectionView.delegate = self
         destinationCollectionView.dataSource = self
@@ -39,7 +40,9 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
     }
     
     func viewTapped() {
-        selectedCellForTransition = destinationCollectionView.visibleCells().first as? CVCell
+        guard let cell = destinationCollectionView.visibleCells().first as? URBNCarouselZoomableCell else { return }
+        selectedCellForTransition = cell
+        selectedPath = destinationCollectionView.indexPathForCell(cell)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -48,7 +51,7 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("desCell", forIndexPath: indexPath) as? CVCell else { return CVCell() }
+        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("desCell", forIndexPath: indexPath) as? URBNCarouselZoomableCell else { return URBNCarouselZoomableCell() }
         cell.imageView.image = UIImage.testingImages()[indexPath.item]
         cell.scrollView?.userInteractionEnabled = true
         return cell
@@ -75,5 +78,15 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
         let originY = CGRectGetMidY(cell.frame) - size.height/2
         let frame = CGRectMake(originX, originY, size.width, size.height)
         return frame
+    }
+    
+    // MARK Suync Delegate
+    func destinationIndexPath() -> NSIndexPath? {
+        guard let path = selectedPath else { return NSIndexPath(forItem: 0, inSection: 0) }
+        return path
+    }
+    
+    func toCollectionView() -> UICollectionView? {
+        return destinationCollectionView
     }
 }

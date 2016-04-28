@@ -13,7 +13,7 @@ import URBNSwiftCarousel
 class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var sourceCV: UICollectionView!
     let data = UIImage.testingImages()
-    var cellSelectedCallback: (CVCell -> Void)?
+    var cellSelectedCallback: (URBNCarouselZoomableCell -> Void)?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -27,14 +27,14 @@ class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
         sourceCV.translatesAutoresizingMaskIntoConstraints = false
         sourceCV.delegate = self
         sourceCV.dataSource = self
-        sourceCV.registerClass(CVCell.self, forCellWithReuseIdentifier: "cvCell")
+        sourceCV.registerClass(URBNCarouselZoomableCell.self, forCellWithReuseIdentifier: "URBNCarouselZoomableCell")
         contentView.addSubview(sourceCV)
         NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[cv]|", options: [], metrics: nil, views: ["cv": sourceCV]))
         NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[cv]|", options: [], metrics: nil, views: ["cv": sourceCV]))
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cvCell", forIndexPath: indexPath) as? CVCell else { return CVCell() }
+        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("URBNCarouselZoomableCell", forIndexPath: indexPath) as? URBNCarouselZoomableCell else { return URBNCarouselZoomableCell() }
         cell.imageView.image = UIImage.testingImages()[indexPath.item]
         return cell
     }
@@ -44,21 +44,8 @@ class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        guard let cell = collectionView.cellForItemAtIndexPath(indexPath) as? CVCell else { return }
+        guard let cell = collectionView.cellForItemAtIndexPath(indexPath) as? URBNCarouselZoomableCell else { return }
         cellSelectedCallback?(cell)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-class CVCell: URBNCarouselZoomableCell {
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

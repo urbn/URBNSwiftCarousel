@@ -10,12 +10,12 @@
 import UIKit
 import URBNSwiftCarousel
 
-class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, URBNSwCarouselTransitioning {
+class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, URBNSwCarouselTransitioning, URBNSynchronizingDelegate {
     
     let transitionController = URBNSwCarouselTransitionController()
     let tableView = UITableView(frame: CGRectZero, style: .Plain)
-    private var selectedCellForTransition: CVCell?
-    private var selectedCollectionViewForTransition: UICollectionView!
+    private var selectedCellForTransition: URBNCarouselZoomableCell?
+    private var selectedCollectionViewForTransition: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +43,13 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("tbvCell", forIndexPath: indexPath) as? SampleCell else { return SampleCell() }
-        cell.cellSelectedCallback = {[weak self] cvCell in
+        cell.cellSelectedCallback = {[weak self] selectedCell in
             guard let weakSelf = self else { return }
             weakSelf.selectedCollectionViewForTransition = cell.sourceCV
-            weakSelf.selectedCellForTransition = cvCell
+            weakSelf.selectedCellForTransition = selectedCell
             weakSelf.presentDestinationViewController()
         }
+        
         return cell
     }
     
@@ -87,11 +88,18 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func presentDestinationViewController() {
         let destinationViewController = DestinationViewController()
         destinationViewController.transitioningDelegate = transitionController
-        destinationViewController.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
+        destinationViewController.modalPresentationStyle = .CurrentContext
         
-        presentViewController(destinationViewController, animated: true) { 
-            // sync action here
-        }
+        presentViewController(destinationViewController, animated: true , completion: nil)
     }
     
+    // MARK Sync Delegate
+    func sourceIndexPath() -> NSIndexPath? {
+        guard let cv = selectedCollectionViewForTransition, cell = selectedCellForTransition else { return nil }
+        return cv.indexPathForCell(cell)
+    }
+    
+    func sourceCollectionView() -> UICollectionView? {
+        return selectedCollectionViewForTransition
+    }
 }

@@ -20,7 +20,7 @@
 		A80CAD1DC2B4E214437769102B6E4BC7 /* Pods-URBNSwiftCarousel_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A35BDE96ED311F77FD2B38EC6F65AEB6 /* Pods-URBNSwiftCarousel_Tests-dummy.m */; };
 		AEF64F5FBBBD88272A95FD2B25AE118A /* UIImageView+URBNImageFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99713FE91D98DF3389EF407E14FE0417 /* UIImageView+URBNImageFrame.swift */; };
 		EF63B5DF9BB76C53F6869D71070FFEBA /* URBNHorizontalPagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A563F4EBF1CB23783E378F024DB15561 /* URBNHorizontalPagedFlowLayout.swift */; };
-		F604B5FD1CD2454E00947A98 /* URBNCarouselCollectionViewSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F604B5FB1CD2454900947A98 /* URBNCarouselCollectionViewSynchronizer.swift */; };
+		F6861FB21CD25B5F00A66FD4 /* URBNSwiftCarouselProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6861FB11CD25B5F00A66FD4 /* URBNSwiftCarouselProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +75,7 @@
 		D68B04BCA7773BDB557BD2CC9C1D6398 /* Pods-URBNSwiftCarousel_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-URBNSwiftCarousel_Example-umbrella.h"; sourceTree = "<group>"; };
 		D7ED23DA885C5CEEE0B4FA5B47D6AECC /* Pods-URBNSwiftCarousel_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftCarousel_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		F3D7EA932A7858534BFF494BF06EB788 /* Pods-URBNSwiftCarousel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftCarousel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		F604B5FB1CD2454900947A98 /* URBNCarouselCollectionViewSynchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URBNCarouselCollectionViewSynchronizer.swift; sourceTree = "<group>"; };
+		F6861FB11CD25B5F00A66FD4 /* URBNSwiftCarouselProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URBNSwiftCarouselProtocols.swift; sourceTree = "<group>"; };
 		FBA2D90AE61807C6499F5B7873BBDA22 /* URBNSwiftCarousel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = URBNSwiftCarousel.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +114,7 @@
 				03ED57CE2D02AE5F57101B4E210C4FE7 /* URBNCarouselZoomableCellCollectionViewCell.swift */,
 				A563F4EBF1CB23783E378F024DB15561 /* URBNHorizontalPagedFlowLayout.swift */,
 				7B50383A5A646655485298C2C9F6ED4A /* URBNSwCarouselTransitionController.swift */,
-				F604B5FB1CD2454900947A98 /* URBNCarouselCollectionViewSynchronizer.swift */,
+				F6861FB11CD25B5F00A66FD4 /* URBNSwiftCarouselProtocols.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -366,11 +366,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEF64F5FBBBD88272A95FD2B25AE118A /* UIImageView+URBNImageFrame.swift in Sources */,
-				F604B5FD1CD2454E00947A98 /* URBNCarouselCollectionViewSynchronizer.swift in Sources */,
 				6E3D5301694837356A045AB01A0C6AB5 /* URBNCarouselZoomableCellCollectionViewCell.swift in Sources */,
 				EF63B5DF9BB76C53F6869D71070FFEBA /* URBNHorizontalPagedFlowLayout.swift in Sources */,
 				62CAFF3EC638F30E63D9CAC212FEF2D5 /* URBNSwCarouselTransitionController.swift in Sources */,
 				8D4081E9E263CF77F6A94468B6667188 /* URBNSwiftCarousel-dummy.m in Sources */,
+				F6861FB21CD25B5F00A66FD4 /* URBNSwiftCarouselProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

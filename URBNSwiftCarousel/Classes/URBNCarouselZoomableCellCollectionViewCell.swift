@@ -6,7 +6,6 @@
 //
 //
 
-
 import UIKit
 
 public class URBNCarouselZoomableCell: UICollectionViewCell, UIScrollViewDelegate {
@@ -35,7 +34,6 @@ public class URBNCarouselZoomableCell: UICollectionViewCell, UIScrollViewDelegat
         imageView.contentMode = .ScaleAspectFit
         sv.addSubview(imageView)
     }
-    
     
     // MARL: UIScrollView Delegate
     public func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {

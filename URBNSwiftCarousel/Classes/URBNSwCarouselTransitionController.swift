@@ -6,39 +6,6 @@
 //
 //
 
-typealias URBNCarouselViewInteractionBeganClosure = (controller: URBNSwCarouselTransitionController, view: UIView) -> Void
-
-@objc public enum TranstionDirection: Int {
-    case ScaleUp = 0
-    case ScaleDown
-}
-
-@objc public enum URBNCarouselTransitionState: Int {
-    case Start = 0
-    case End
-}
-
-@objc public protocol URBNSwCarouselInteractiveDelegate {
-    optional func shouldBeginInteractiveTransitionWithView(view: UIView, direction: TranstionDirection) -> Bool
-}
-
-
-/*
-    This is the protocol your source and destination view controllers must adapt to implement the zoom out / zoom in view controller transition animation
-*/
-@objc public protocol URBNSwCarouselTransitioning {
-    
-    optional func shouldBeginInteractiveTransitionWithDirection(direction: TranstionDirection) -> Bool
-    optional func willBeginGalleryTransitionWithImageView(imageView: UIImageView, isToVC: Bool)
-    optional func didEndGalleryTransitionWithImageView(imageView: UIImageView, isToVC: Bool)
-    // Called inside the animation block of a non-interactive transition.
-    optional func configureAnimatingTransitionImageView(imageView: UIImageView)
-
-    // Required Methods to conform to this protocol
-    func imageForGalleryTransition() -> UIImage
-    func fromImageFrameForGalleryTransitionWithContainerView(containerView: UIView) -> CGRect
-    func toImageFrameForGalleryTransitionWithContainerView(containerView: UIView, sourceImageFrame: CGRect) -> CGRect
-}
 
 /**
  Animation controller built to handle transitions between two images in separate view controllers.
@@ -54,7 +21,6 @@ typealias URBNCarouselViewInteractionBeganClosure = (controller: URBNSwCarouselT
 
 public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning, UIGestureRecognizerDelegate {
     private(set) var interactive = false
-    weak var interactiveDelegate: URBNSwCarouselInteractiveDelegate?
     private var viewInteractionBlocks = [UIView: URBNCarouselViewInteractionBeganClosure]()
     private var viewPinchTransitionGestureRecognizers = [UIView: UIPinchGestureRecognizer]()
     private weak var context: UIViewControllerContextTransitioning?
@@ -64,6 +30,9 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     private var springCompletionSpeed: Double = 0.6
     private var completionSpeed: Double = 0.2
     private var sourceViewController = UIViewController()
+
+    public weak var interactiveDelegate: URBNSwCarouselInteractiveDelegate?
+    
     
     // MARK: Set Up and Tear Down
     func restoreTransitionViewToState(state: URBNCarouselTransitionState, context: UIViewControllerContextTransitioning) {
@@ -147,12 +116,25 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         let fromView = fromVC.view
         let toView = toVC.view
         
-        guard let topFromVC = trueContextViewControllerFromContext(context, key: UITransitionContextFromViewControllerKey) as? URBNSwCarouselTransitioning, topToVC = trueContextViewControllerFromContext(context, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning else {
-            print("Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol")
-            return }
+        if let topFromVC = trueContextViewControllerFromContext(context, key: UITransitionContextFromViewControllerKey) as? URBNSwCarouselTransitioning,
+               topToVC = trueContextViewControllerFromContext(context, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning {
+            
+            topFromVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: false)
+            topToVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: true)
+        }
         
-        topFromVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: false)
-        topToVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: true)
+        if let destinationVC = context.viewControllerForKey(UITransitionContextToViewControllerKey) as? URBNSynchronizingDelegate,
+               sourceVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey) as? URBNSynchronizingDelegate {
+        
+            print("SYNC DEST VC\(destinationVC)")
+            if let sourceIP = sourceVC.sourceIndexPath?() {
+                print("SOURCE IP{ : \(sourceIP)")
+            }
+            
+            if let destinationIP = destinationVC.destinationIndexPath?() {
+                print("DEST IP \(destinationIP)")
+            }
+        }
         
         transitionView.removeFromSuperview()
         startScale = -1
@@ -206,10 +188,9 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
             let state = cancelled == true ? URBNCarouselTransitionState.Start : URBNCarouselTransitionState.End
             self.restoreTransitionViewToState(state, context: transitionContext)
         }) { (finished) in
-            guard let ctx = self.context else { return }
-            self.finishTransition(withContext: ctx)
-            ctx.cancelInteractiveTransition()
-            ctx.completeTransition(!cancelled)
+            self.finishTransition(withContext: transitionContext)
+            transitionContext.cancelInteractiveTransition()
+            transitionContext.completeTransition(!cancelled)
         }
         
         UIView.animateWithDuration(completionSpeed) {
@@ -235,10 +216,12 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     // MARK: UIViewControllerTransitioningDelegate
     public func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         sourceViewController = source
+//        synchronizer.handleTransitionToDestinationCollectionView()
         return self
     }
     
     public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        synchronizer.handleTransitionToSourceCollectionView()
         return self
     }
     
@@ -299,7 +282,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
             let scale = pinch?.scale
             guard scale != 1 else { return false }
             let direction = scale > 1 ? TranstionDirection.ScaleUp : TranstionDirection.ScaleDown
-            shouldBeginTransition = del.shouldBeginInteractiveTransitionWithView!(view, direction: direction)
+            shouldBeginTransition = del.shouldBeginInteractiveTransitionWithView(view, direction: direction)
         }
         
         if isPinch && !pinchStarted && shouldBeginTransition {
