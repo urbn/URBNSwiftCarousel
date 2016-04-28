@@ -99,8 +99,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         guard let transitionContext = context else { return }
         
         guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
-            toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey),
-            containerView = transitionContext.containerView()
+            toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
             else { return }
         
         let fromView = fromVC.view
@@ -285,7 +284,6 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     }
 
     func handleRotation(rotate: UIRotationGestureRecognizer) {
-        guard let ctx = context else { return }
         let rotation = rotate.rotation
         transitionView.transform = CGAffineTransformRotate(transitionView.transform, rotation)
         rotate.rotation = 0
