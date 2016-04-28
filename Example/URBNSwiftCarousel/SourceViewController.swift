@@ -21,6 +21,7 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         title = "URBNSwifty Carousel"
         
+        definesPresentationContext = true
         tableView.rowHeight = 250
         tableView.estimatedRowHeight = UIScreen.mainScreen().bounds.height/3
         tableView.registerClass(SampleCell.self, forCellReuseIdentifier: "tbvCell")
@@ -83,9 +84,10 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: Present the Destination View Controller
     func presentDestinationViewController() {
-        let destinationViewController = DestinationViewController()
-        // tmep
-        navigationController?.pushViewController(destinationViewController, animated: true)
+        let destinationViewController = DestinationViewController(transitionController: transitionController)
+        destinationViewController.transitioningDelegate = transitionController
+        destinationViewController.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
+        presentViewController(destinationViewController, animated: true, completion: nil)
     }
     
 }

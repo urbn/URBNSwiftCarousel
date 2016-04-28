@@ -145,7 +145,8 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         
         transitionView.removeFromSuperview()
         startScale = -1
-        toView.alpha = 0
+        fromView.alpha = 1
+        toView.alpha = 1
         fromVC.view = fromView
         toVC.view = toView
         interactive = false
@@ -377,6 +378,4 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         
         return CGSizeMake(xScale, yScale)
     }
-
-    
 }

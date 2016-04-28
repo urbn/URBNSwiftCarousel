@@ -40,6 +40,14 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
         view.addSubview(destinationCollectionView)
         
         destinationCollectionView.reloadData()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func viewTapped() {
+        selectedCellForTransition = destinationCollectionView.visibleCells().first as? CVCell
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -53,11 +61,6 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        guard let cell = collectionView.cellForItemAtIndexPath(indexPath) as? CVCell else { return }
-        selectedCellForTransition = cell
-    }
-    
     // MARK URBNSwCarouselTransitioning Delegate
     func imageForGalleryTransition() -> UIImage {
         guard let img = selectedCellForTransition?.imageView.image else { return UIImage() }
@@ -65,36 +68,19 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
     }
     
     func toImageFrameForGalleryTransitionWithContainerView(containerView: UIView, sourceImageFrame: CGRect) -> CGRect {
-        return CGRectZero
-        
-        
-        
-        //    self.destinationCollectionView.hidden = YES;
-        //    CGSize size = [UIImageView urbn_aspectFitSizeForImageSize:sourceImageFrame.size inRect:self.view.bounds];
-        //    CGFloat originX = CGRectGetMidX(self.view.bounds) - (size.width / 2);
-        //    CGFloat originY = CGRectGetMidY(self.view.bounds) - (size.height / 2);
-        //    CGRect frame = CGRectMake(originX, originY, size.width, size.height);
-        //    return frame;
-        
-        //    CGSize size = [UIImageView urbn_aspectFitSizeForImageSize:self.selectedCell.imageView.image.size inRect:self.selectedCell.imageView.frame];
-        //
-        //    CGFloat originX = CGRectGetMidX(self.selectedCell.frame) - (size.width / 2);
-        //    CGFloat originY = CGRectGetMidY(self.selectedCell.frame) - (size.height / 2);
-        //    CGRect frame = CGRectMake(originX, originY, size.width, size.height);
-        //    frame = [containerView convertRect:frame fromView:self.destinationCollectionView];
-        //    return frame;
+        let size = UIImageView.urbn_aspectFitSizeForImageSize(sourceImageFrame.size, rect: view.bounds)
+        let originX = CGRectGetMidX(view.bounds) - size.width/2
+        let originY = CGRectGetMidY(view.bounds) - size.height/2
+        let frame = CGRectMake(originX, originY, size.width, size.height)
+        return frame
     }
     
     func fromImageFrameForGalleryTransitionWithContainerView(containerView: UIView) -> CGRect {
-        return CGRectZero
-        
-        //    NSAssert(self.selectedCell, @"Cell should be selected for \"from\" transition");
-        //    CGSize size = [UIImageView urbn_aspectFitSizeForImageSize:self.selectedCell.imageView.image.size inRect:self.selectedCell.imageView.frame];
-        //
-        //    CGFloat originX = CGRectGetMidX(self.selectedCell.frame) - (size.width / 2);
-        //    CGFloat originY = CGRectGetMidY(self.selectedCell.frame) - (size.height / 2);
-        //    CGRect frame = CGRectMake(originX, originY, size.width, size.height);
-        //    frame = [containerView convertRect:frame fromView:self.destinationCollectionView];
-        //    return frame;
+        guard let cell = selectedCellForTransition, img = selectedCellForTransition?.imageView, imgSize = img.image?.size else { return CGRectZero }
+        let size = UIImageView.urbn_aspectFitSizeForImageSize(imgSize , rect: img.frame)
+        let originX = CGRectGetMidX(cell.frame) - size.width/2
+        let originY = CGRectGetMidY(cell.frame) - size.height/2
+        let frame = CGRectMake(originX, originY, size.width, size.height)
+        return frame
     }
 }
