@@ -6,8 +6,6 @@
 //
 //
 
-import UIKit
-
 typealias URBNCarouselViewInteractionBeganClosure = (controller: URBNSwCarouselTransitionController, view: UIView) -> Void
 
 @objc public enum TranstionDirection: Int {

@@ -6,6 +6,7 @@
 //
 //
 
+
 import UIKit
 
 public class URBNCarouselZoomableCell: UICollectionViewCell, UIScrollViewDelegate {

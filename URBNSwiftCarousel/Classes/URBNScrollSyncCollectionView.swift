@@ -9,7 +9,7 @@
 import UIKit
 
 public class URBNScrollSyncCollectionView: UICollectionView, UICollectionViewDelegate {
-
+    
     var animateScrollSync = false
     var didSyncBlock: ((collectionView: UICollectionView, indexpath: NSIndexPath) -> Void)?
     private(set) var syncedCollectionView: URBNScrollSyncCollectionView?

@@ -9,7 +9,7 @@
 import UIKit
 
 public class URBNHorizontalPagedFlowLayout: UICollectionViewFlowLayout {
-
+    
     private var minContentOffset: CGFloat {
         guard let cv = collectionView else { return 0.0 }
         return -cv.contentInset.left
@@ -23,9 +23,9 @@ public class URBNHorizontalPagedFlowLayout: UICollectionViewFlowLayout {
     private var snapStep: CGFloat {
         return itemSize.width + minimumLineSpacing
     }
-
-//    This offsets the cell's image so that a full image is shown on the left of the collectionview
-//    Modified from: http://stackoverflow.com/questions/13492037/targetcontentoffsetforproposedcontentoffsetwithscrollingvelocity-without-subcla
+    
+    //    This offsets the cell's image so that a full image is shown on the left of the collectionview
+    //    Modified from: http://stackoverflow.com/questions/13492037/targetcontentoffsetforproposedcontentoffsetwithscrollingvelocity-without-subcla
     override public func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         guard let cv = collectionView else { return CGPointZero }
         var offSetAdjustment = CGFloat.max
