@@ -88,7 +88,10 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let destinationViewController = DestinationViewController(transitionController: transitionController)
         destinationViewController.transitioningDelegate = transitionController
         destinationViewController.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
-        presentViewController(destinationViewController, animated: true, completion: nil)
+        
+        presentViewController(destinationViewController, animated: true) { 
+            self.selectedCollectionViewForTransition?.registerForSynchronizationWithCollectionView(destinationViewController.destinationCollectionView)
+        }
     }
     
 }

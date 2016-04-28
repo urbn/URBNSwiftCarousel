@@ -8,40 +8,23 @@
 
 import UIKit
 
-public class URBNScrollSyncCollectionView: UICollectionView, UICollectionViewDelegate {
+public class URBNScrollSyncCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout {
     
-    var animateScrollSync = false
-    var didSyncBlock: ((collectionView: UICollectionView, indexpath: NSIndexPath) -> Void)?
+    public var animateScrollSync = false
+    public var didSyncBlock: ((collectionView: UICollectionView, indexpath: NSIndexPath) -> Void)?
+    
     private(set) var syncedCollectionView: URBNScrollSyncCollectionView?
-    
+
     public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        
-        delegate = self
     }
     
-    func didSyncBlock( didSyncBlock: (collectionView: UICollectionView, indexpath: NSIndexPath) -> Void) {
+    public func didSyncBlock( didSyncBlock: (collectionView: UICollectionView, indexpath: NSIndexPath) -> Void) {
         
     }
     
-    func registerForSynchronizationWithCollectionView(collectionView: URBNScrollSyncCollectionView) {
+    public func registerForSynchronizationWithCollectionView(collectionView: URBNScrollSyncCollectionView) {
         syncedCollectionView = collectionView
-    }
-    
-    public func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        print("CV: \(collectionView) ITEM: \(indexPath.item)")
-        
-        guard let syncCV = syncedCollectionView else { return }
-        print("SYNCED CV: \(syncCV) CURRENT ITEM \(syncCV.indexPathForItemAtPoint(syncCV.contentOffset)?.item)")
-    }
-    
-    public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        guard let path = indexPathForItemAtPoint(contentOffset) else { return }
-        
-        print("CV: \(collectionView) ITEM: \(path.item)")
-        
-        guard let syncCV = syncedCollectionView else { return }
-        print("SYNCED CV: \(syncCV) CURRENT ITEM \(syncCV.indexPathForItemAtPoint(syncCV.contentOffset)?.item)")
     }
     
     required public init?(coder aDecoder: NSCoder) {
