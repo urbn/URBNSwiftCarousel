@@ -69,12 +69,8 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     
     // MARK: Set Up and Tear Down
     func restoreTransitionViewToState(state: URBNCarouselTransitionState, context: UIViewControllerContextTransitioning) {
-        guard let fromVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey),
-            toVC = context.viewControllerForKey(UITransitionContextToViewControllerKey),
-            containerView = context.containerView()
-            else { return }
         
-        guard let topFromVC = trueContextViewControllerFromContext(context, key: UITransitionContextFromViewControllerKey) as? URBNSwCarouselTransitioning, topToVC = trueContextViewControllerFromContext(context, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning else {
+        guard let topFromVC = trueContextViewControllerFromContext(context, key: UITransitionContextFromViewControllerKey) as? URBNSwCarouselTransitioning, topToVC = trueContextViewControllerFromContext(context, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning, containerView = context.containerView() else {
             print("Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol")
             return }
         
