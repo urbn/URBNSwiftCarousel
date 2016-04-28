@@ -15,7 +15,7 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let transitionController = URBNSwCarouselTransitionController()
     let tableView = UITableView(frame: CGRectZero, style: .Plain)
     private var selectedCellForTransition: CVCell?
-    private var selectedCollectionViewForTransition: URBNScrollSyncCollectionView?
+    private var selectedCollectionViewForTransition: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,12 +85,12 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: Present the Destination View Controller
     func presentDestinationViewController() {
-        let destinationViewController = DestinationViewController(transitionController: transitionController)
+        let destinationViewController = DestinationViewController()
         destinationViewController.transitioningDelegate = transitionController
         destinationViewController.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
         
         presentViewController(destinationViewController, animated: true) { 
-            self.selectedCollectionViewForTransition?.registerForSynchronizationWithCollectionView(destinationViewController.destinationCollectionView)
+            // sync action here
         }
     }
     

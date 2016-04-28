@@ -11,7 +11,7 @@ import UIKit
 import URBNSwiftCarousel
 
 class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    var sourceCV: URBNScrollSyncCollectionView!
+    var sourceCV: UICollectionView!
     let data = UIImage.testingImages()
     var cellSelectedCallback: (CVCell -> Void)?
     
@@ -23,7 +23,7 @@ class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
         layout.minimumInteritemSpacing = 1.0
         layout.scrollDirection = .Horizontal
         layout.itemSize = CGSizeMake(150, 249)
-        sourceCV = URBNScrollSyncCollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        sourceCV = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
         sourceCV.translatesAutoresizingMaskIntoConstraints = false
         sourceCV.delegate = self
         sourceCV.dataSource = self
@@ -58,10 +58,7 @@ class CVCell: URBNCarouselZoomableCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(imageView)
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[img]|", options: [], metrics: nil, views: ["img": imageView]))
-        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[img]|", options: [], metrics: nil, views: ["img": imageView]))
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

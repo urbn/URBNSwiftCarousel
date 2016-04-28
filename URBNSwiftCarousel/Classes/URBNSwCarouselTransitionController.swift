@@ -55,12 +55,10 @@ typealias URBNCarouselViewInteractionBeganClosure = (controller: URBNSwCarouselT
 public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning, UIGestureRecognizerDelegate {
     private(set) var interactive = false
     weak var interactiveDelegate: URBNSwCarouselInteractiveDelegate?
-    
     private var viewInteractionBlocks = [UIView: URBNCarouselViewInteractionBeganClosure]()
     private var viewPinchTransitionGestureRecognizers = [UIView: UIPinchGestureRecognizer]()
     private weak var context: UIViewControllerContextTransitioning?
     private var transitionView = UIImageView()
-    
     private var originalSelectedCellFrame = CGRectZero
     private var startScale: CGFloat = -1.0
     private var springCompletionSpeed: Double = 0.6
@@ -93,56 +91,6 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         
         transitionView.center = center
         transitionView.transform = transForm
-    }
-
-    func finishInteractiveTransition(cancelled: Bool, velocity: CGFloat) {
-        guard let transitionContext = context else { return }
-        
-        guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
-            toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-            else { return }
-        
-        let fromView = fromVC.view
-        let toView = toVC.view
-        
-        UIView.animateWithDuration(springCompletionSpeed, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: velocity, options: [], animations: { 
-            let state = cancelled == true ? URBNCarouselTransitionState.Start : URBNCarouselTransitionState.End
-            self.restoreTransitionViewToState(state, context: transitionContext)
-            }) { (finished) in
-                guard let ctx = self.context else { return }
-                self.finishTransition(withContext: ctx)
-                ctx.cancelInteractiveTransition()
-                ctx.completeTransition(!cancelled)
-        }
-        
-        UIView.animateWithDuration(completionSpeed) { 
-            toView.alpha = cancelled ? 0.0: 1.0
-            fromView.alpha = cancelled ? 1.0 : 0.0
-        }
-    }
-    
-    func finishTransition(withContext context: UIViewControllerContextTransitioning) {
-        guard let fromVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey),
-            toVC = context.viewControllerForKey(UITransitionContextToViewControllerKey)
-            else { return }
-        
-        let fromView = fromVC.view
-        let toView = toVC.view
-        
-        guard let topFromVC = trueContextViewControllerFromContext(context, key: UITransitionContextFromViewControllerKey) as? URBNSwCarouselTransitioning, topToVC = trueContextViewControllerFromContext(context, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning else {
-            print("Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol")
-            return }
-        
-        topFromVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: false)
-        topToVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: true)
-        
-        transitionView.removeFromSuperview()
-        startScale = -1
-        fromView.alpha = 1
-        toView.alpha = 1
-        fromVC.view = fromView
-        toVC.view = toView
-        interactive = false
     }
     
     func trueContextViewControllerFromContext(transitionContext: UIViewControllerContextTransitioning, key: String) -> UIViewController? {
@@ -191,10 +139,83 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         }
     }
     
+    func finishTransition(withContext context: UIViewControllerContextTransitioning) {
+        guard let fromVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey),
+            toVC = context.viewControllerForKey(UITransitionContextToViewControllerKey)
+            else { return }
+        
+        let fromView = fromVC.view
+        let toView = toVC.view
+        
+        guard let topFromVC = trueContextViewControllerFromContext(context, key: UITransitionContextFromViewControllerKey) as? URBNSwCarouselTransitioning, topToVC = trueContextViewControllerFromContext(context, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning else {
+            print("Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol")
+            return }
+        
+        topFromVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: false)
+        topToVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: true)
+        
+        transitionView.removeFromSuperview()
+        startScale = -1
+        fromView.alpha = 1
+        toView.alpha = 1
+        fromVC.view = fromView
+        toVC.view = toView
+        interactive = false
+    }
+    
     // MARK: UIViewControllerInteractiveTransitioning
+    func registerInteractiveGestures(withView view: UIView, interactionBeganClosure:(controller: URBNSwCarouselTransitionController, view: UIView) -> Void) {
+        if let gestures = view.gestureRecognizers {
+            for gesture in gestures {
+                view.removeGestureRecognizer(gesture)
+            }
+        }
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        pan.delegate = self
+        view.addGestureRecognizer(pan)
+        
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
+        pinch.delegate = self
+        view.addGestureRecognizer(pinch)
+        
+        let rotation = UIRotationGestureRecognizer(target: self, action: #selector(handleRotation))
+        rotation.delegate = self
+        view.addGestureRecognizer(rotation)
+        
+        viewInteractionBlocks[view] = interactionBeganClosure
+        viewPinchTransitionGestureRecognizers[view] = pinch
+    }
+    
     public func startInteractiveTransition(transitionContext: UIViewControllerContextTransitioning) {
         context = transitionContext
         prepareForTransitionWithContext(transitionContext)
+    }
+    
+    public func finishInteractiveTransition(cancelled: Bool, velocity: CGFloat) {
+        guard let transitionContext = context else { return }
+        
+        guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
+            toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+            else { return }
+        
+        let fromView = fromVC.view
+        let toView = toVC.view
+        
+        UIView.animateWithDuration(springCompletionSpeed, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: velocity, options: [], animations: {
+            let state = cancelled == true ? URBNCarouselTransitionState.Start : URBNCarouselTransitionState.End
+            self.restoreTransitionViewToState(state, context: transitionContext)
+        }) { (finished) in
+            guard let ctx = self.context else { return }
+            self.finishTransition(withContext: ctx)
+            ctx.cancelInteractiveTransition()
+            ctx.completeTransition(!cancelled)
+        }
+        
+        UIView.animateWithDuration(completionSpeed) {
+            toView.alpha = cancelled ? 0.0: 1.0
+            fromView.alpha = cancelled ? 1.0 : 0.0
+        }
     }
     
     func updateWithPercent(percent: CGFloat) {
@@ -227,29 +248,6 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
 
     public func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactive == true ? self : nil
-    }
-    
-    func registerInteractiveGestures(withView view: UIView, interactionBeganClosure:(controller: URBNSwCarouselTransitionController, view: UIView) -> Void) {
-        if let gestures = view.gestureRecognizers {
-            for gesture in gestures {
-                view.removeGestureRecognizer(gesture)
-            }
-        }
-        
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-        pan.delegate = self
-        view.addGestureRecognizer(pan)
-        
-        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
-        pinch.delegate = self
-        view.addGestureRecognizer(pinch)
-        
-        let rotation = UIRotationGestureRecognizer(target: self, action: #selector(handleRotation))
-        rotation.delegate = self
-        view.addGestureRecognizer(rotation)
-        
-        viewInteractionBlocks[view] = interactionBeganClosure
-        viewPinchTransitionGestureRecognizers[view] = pinch
     }
     
     func handlePinch(pinch: UIPinchGestureRecognizer) {

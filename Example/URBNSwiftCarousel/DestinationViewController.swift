@@ -10,29 +10,22 @@ import UIKit
 import URBNSwiftCarousel
 
 class DestinationViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, URBNSwCarouselTransitioning {
-    var destinationCollectionView: URBNScrollSyncCollectionView!
+    
+    var destinationCollectionView: UICollectionView!
     var swTransitionController: URBNSwCarouselTransitionController?
-    
     var selectedCellForTransition: CVCell?
-    
     var data = UIImage.testingImages()
-    
-    convenience init(transitionController: URBNSwCarouselTransitionController) {
-        self.init()
-        
-        swTransitionController = transitionController
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let layout = URBNHorizontalPagedFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height - 100)
+        layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height)
         layout.scrollDirection = .Horizontal
         layout.minimumInteritemSpacing = 1.0
         layout.minimumLineSpacing = 1.0
  
-        destinationCollectionView = URBNScrollSyncCollectionView(frame: view.bounds, collectionViewLayout: layout)
+        destinationCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         destinationCollectionView.registerClass(CVCell.self, forCellWithReuseIdentifier: "desCell")
         destinationCollectionView.frame = view.bounds
         destinationCollectionView.delegate = self
@@ -57,7 +50,7 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("desCell", forIndexPath: indexPath) as? CVCell else { return CVCell() }
         cell.imageView.image = UIImage.testingImages()[indexPath.item]
-        cell.scrollView.userInteractionEnabled = true
+        cell.scrollView?.userInteractionEnabled = true
         return cell
     }
     
