@@ -7,4 +7,342 @@
 //
 
 
+/**
+ Animation controller built to handle transitions between two images in separate view controllers.
+ By default, this class supports non-interactive transitions. To enable interactive transitions, register
+ a view for them using the registration method provided.
+ 
+ This class implements the UIViewControllerTransitioningDelegate protocol. As a consumer, you only need to implement
+ the URBNCarouselTransitioning protocol.
+ 
+ For the time being, this controller only supports transitions between images.
+ */
 
+
+public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIViewControllerInteractiveTransitioning, UIGestureRecognizerDelegate {
+    private(set) var interactive = false
+    private var viewInteractionBlocks = [UIView: URBNCarouselViewInteractionBeganClosure]()
+    private var viewPinchTransitionGestureRecognizers = [UIView: UIPinchGestureRecognizer]()
+    private weak var context: UIViewControllerContextTransitioning?
+    private var transitionView = UIImageView()
+    private var originalSelectedCellFrame = CGRectZero
+    private var startScale: CGFloat = -1.0
+    private var springCompletionSpeed: Double = 0.6
+    private var completionSpeed: Double = 0.2
+    private var sourceViewController = UIViewController()
+
+    public weak var interactiveDelegate: URBNSwCarouselInteractiveDelegate?
+    
+    
+    // MARK: Set Up and Tear Down
+    func restoreTransitionViewToState(state: URBNCarouselTransitionState, context: UIViewControllerContextTransitioning) {
+        
+        guard let topFromVC = trueContextViewControllerFromContext(context, key: UITransitionContextFromViewControllerKey) as? URBNSwCarouselTransitioning, topToVC = trueContextViewControllerFromContext(context, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning, containerView = context.containerView() else {
+            assertionFailure("Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol")
+            return }
+        
+        let convertedStartingFrame = topFromVC.fromImageFrameForGalleryTransitionWithContainerView(containerView)
+        let convertedEndingFrame = topToVC.toImageFrameForGalleryTransitionWithContainerView(containerView, sourceImageFrame: convertedStartingFrame)
+        
+        var center = CGPoint()
+        var transForm = CGAffineTransform()
+        
+        if state == .start {
+            let scaleX = convertedStartingFrame.size.width / convertedEndingFrame.size.width
+            let scaleY = convertedStartingFrame.size.height / convertedEndingFrame.size.height
+            transForm = CGAffineTransformMakeScale(scaleX, scaleY)
+            center = CGPointMake(CGRectGetMidX(convertedStartingFrame), CGRectGetMidY(convertedStartingFrame));
+        }
+        else {
+            transForm = CGAffineTransformIdentity
+            center = CGPointMake(CGRectGetMidX(convertedEndingFrame), CGRectGetMidY(convertedEndingFrame))
+        }
+        
+        transitionView.center = center
+        transitionView.transform = transForm
+    }
+    
+    public func trueContextViewControllerFromContext(transitionContext: UIViewControllerContextTransitioning, key: String) -> UIViewController? {
+        
+        guard var vc = transitionContext.viewControllerForKey(key) else { return nil }
+        
+        if !vc.conformsToProtocol(URBNSwCarouselTransitioning) {
+            vc = sourceViewController
+        }
+        
+        if let topVC = vc.navigationController?.topViewController {
+            vc = topVC
+        }
+        
+        return vc
+    }
+    
+    // MARK: UIViewControllerAnimatedTransitioning - Non-Interactive
+    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+        return 0.5
+    }
+    
+    public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
+            toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+            else { return }
+        
+        let fromView = fromVC.view
+        let toView = toVC.view
+        
+        guard let topToVC = trueContextViewControllerFromContext(transitionContext, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning else { return }
+        
+        prepareForTransitionWithContext(transitionContext)
+        
+        let duration = transitionDuration(transitionContext)
+        
+        UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: {
+            fromView.alpha = 0.0
+            toView.alpha = 1.0
+            self.restoreTransitionViewToState(.end, context: transitionContext)
+            topToVC.configureAnimatingTransitionImageView?(self.transitionView)
+            
+            }) { (finished) in
+            self.finishTransition(withContext: transitionContext)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+        }
+    }
+    
+    func finishTransition(withContext context: UIViewControllerContextTransitioning) {
+        guard let fromVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey),
+            toVC = context.viewControllerForKey(UITransitionContextToViewControllerKey)
+            else { return }
+        
+        let fromView = fromVC.view
+        let toView = toVC.view
+        
+        if let topFromVC = trueContextViewControllerFromContext(context, key: UITransitionContextFromViewControllerKey) as? URBNSwCarouselTransitioning,
+               topToVC = trueContextViewControllerFromContext(context, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning {
+            
+            topFromVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: false)
+            topToVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: true)
+        }
+        
+        transitionView.removeFromSuperview()
+        startScale = -1
+        fromView.alpha = 1
+        toView.alpha = 1
+        fromVC.view = fromView
+        toVC.view = toView
+        interactive = false
+    }
+    
+    // MARK: UIViewControllerInteractiveTransitioning
+    func registerInteractiveGestures(withView view: UIView, interactionBeganClosure:(controller: URBNSwCarouselTransitionController, view: UIView) -> Void) {
+        if let gestures = view.gestureRecognizers {
+            for gesture in gestures {
+                view.removeGestureRecognizer(gesture)
+            }
+        }
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        pan.delegate = self
+        view.addGestureRecognizer(pan)
+        
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
+        pinch.delegate = self
+        view.addGestureRecognizer(pinch)
+        
+        let rotation = UIRotationGestureRecognizer(target: self, action: #selector(handleRotation))
+        rotation.delegate = self
+        view.addGestureRecognizer(rotation)
+        
+        viewInteractionBlocks[view] = interactionBeganClosure
+        viewPinchTransitionGestureRecognizers[view] = pinch
+    }
+    
+    public func startInteractiveTransition(transitionContext: UIViewControllerContextTransitioning) {
+        context = transitionContext
+        prepareForTransitionWithContext(transitionContext)
+    }
+    
+    public func finishInteractiveTransition(cancelled: Bool, velocity: CGFloat) {
+        guard let transitionContext = context else { return }
+        
+        guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
+            toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+            else { return }
+        
+        let fromView = fromVC.view
+        let toView = toVC.view
+        
+        UIView.animateWithDuration(springCompletionSpeed, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: velocity, options: [], animations: {
+            let state = cancelled == true ? URBNCarouselTransitionState.start : URBNCarouselTransitionState.end
+            self.restoreTransitionViewToState(state, context: transitionContext)
+        }) { (finished) in
+            self.finishTransition(withContext: transitionContext)
+            transitionContext.cancelInteractiveTransition()
+            transitionContext.completeTransition(!cancelled)
+        }
+        
+        UIView.animateWithDuration(completionSpeed) {
+            toView.alpha = cancelled ? 0.0: 1.0
+            fromView.alpha = cancelled ? 1.0 : 0.0
+        }
+    }
+    
+    func updateWithPercent(percent: CGFloat) {
+        guard let ctx = context else { return }
+        ctx.updateInteractiveTransition(percent)
+        guard let fromVC = ctx.viewControllerForKey(UITransitionContextFromViewControllerKey),
+            toVC = ctx.viewControllerForKey(UITransitionContextToViewControllerKey)
+            else { return }
+        
+        let fromView = fromVC.view
+        let toView = toVC.view
+        
+        fromView.alpha = 1 - percent
+        toView.alpha = percent
+    }
+    
+    // MARK: UIViewControllerTransitioningDelegate
+    public func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        sourceViewController = source
+        return self
+    }
+    
+    public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        dismissed.edgesForExtendedLayout = .None
+        return self
+    }
+    
+    public func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactive == true ? self : nil
+    }
+
+    public func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactive == true ? self : nil
+    }
+    
+    func handlePinch(pinch: UIPinchGestureRecognizer) {
+        guard let view = pinch.view else { return }
+        let scale = pinch.scale
+        switch pinch.state {
+        case .Began:
+            let closure = viewInteractionBlocks[view]
+            closure?(controller: self, view: view)
+        case .Changed:
+            if startScale < 0 {
+                startScale = scaleForTransForm(transitionView.transform).width
+            }
+            transitionView.transform = CGAffineTransformScale(transitionView.transform, scale, scale)
+            let percent = transitionViewPercentScaledForStartScale(startScale)
+            pinch.scale = 1
+            updateWithPercent(percent)
+        case .Ended, .Cancelled:
+            let percent = transitionViewPercentScaledForStartScale(startScale)
+            let cancelled = percent < 0.4
+            finishInteractiveTransition(cancelled, velocity: pinch.velocity)
+        case .Possible, .Failed:
+            return
+        }
+    }
+
+    func handlePan(gesture: UIPanGestureRecognizer) {
+        guard let ctx = context, containerView = ctx.containerView() else { return }
+        let translation = gesture.translationInView(containerView)
+        transitionView.center = CGPointMake(transitionView.center.x + translation.x, transitionView.center.y + translation.y);
+        gesture.setTranslation(CGPointZero, inView: containerView)
+    }
+
+    func handleRotation(rotate: UIRotationGestureRecognizer) {
+        let rotation = rotate.rotation
+        transitionView.transform = CGAffineTransformRotate(transitionView.transform, rotation)
+        rotate.rotation = 0
+    }
+    
+    // MARK: UIGestureRecognizerDelegate
+    public func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard let view = gestureRecognizer.view else { return false }
+        let pinch = viewPinchTransitionGestureRecognizers[view]
+        let pinchStarted = pinch?.state != UIGestureRecognizerState.Possible
+        let isPinch = gestureRecognizer == pinch
+        
+        var shouldBeginTransition = true
+        if let del = interactiveDelegate where isPinch && !pinchStarted {
+            let scale = pinch?.scale
+            guard scale != 1 else { return false }
+            let direction = scale > 1 ? TranstionDirection.scaleUp : TranstionDirection.scaleDown
+            shouldBeginTransition = del.shouldBeginInteractiveTransitionWithView(view, direction: direction)
+        }
+        
+        if isPinch && !pinchStarted && shouldBeginTransition {
+            interactive = true
+        }
+        
+        let shouldBegin = shouldBeginTransition || (!isPinch && pinchStarted)
+        return shouldBegin
+    }
+    
+    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+
+    // MARK: Convenience
+    func prepareForTransitionWithContext(context: UIViewControllerContextTransitioning) {
+        guard let fromVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey),
+            toVC = context.viewControllerForKey(UITransitionContextToViewControllerKey),
+            containerView = context.containerView()
+            else { return }
+        let fromView = fromVC.view
+        let toView = toVC.view
+        
+        guard let topFromVC = trueContextViewControllerFromContext(context, key: UITransitionContextFromViewControllerKey) as? URBNSwCarouselTransitioning, topToVC = trueContextViewControllerFromContext(context, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning else {
+            assertionFailure("Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol")
+            return }
+        
+        toView.frame = containerView.bounds
+        toView.setNeedsLayout()
+        
+        // create view for animation
+        let image = topFromVC.imageForGalleryTransition()
+        let convertedStartingFrame = topFromVC.fromImageFrameForGalleryTransitionWithContainerView(containerView)
+        let convertedEndingFrame = topToVC.toImageFrameForGalleryTransitionWithContainerView(containerView, sourceImageFrame: convertedStartingFrame)
+        
+        // handle Synchonrization of collection views if they subscribe to the synchonrization protocol
+        if let destSyncVC = topToVC as? URBNSynchronizingDelegate, sourceVC =  topFromVC as? URBNSynchronizingDelegate, path = sourceVC.sourceIndexPath(), cv = destSyncVC.toCollectionView() {
+            cv.scrollToItemAtIndexPath(path, atScrollPosition: .None, animated: true)
+            cv.reloadItemsAtIndexPaths([path])
+            if let cell = cv.cellForItemAtIndexPath(path) as? URBNCarouselZoomableCell {
+                destSyncVC.updateSourceSelectedCell?(cell)
+            }
+        }
+        
+        // Set the view's frame to the final dimensions and transform it down to match starting dimensions.
+        transitionView = UIImageView(frame: convertedEndingFrame)
+        transitionView.contentMode = .ScaleToFill
+        transitionView.image = image
+        
+        let scaleX = convertedStartingFrame.width / convertedEndingFrame.width
+        let scaleY = convertedStartingFrame.height / convertedEndingFrame.height
+        
+        let transform = CGAffineTransformMakeScale(scaleX, scaleY)
+        transitionView.transform = transform
+        transitionView.center = CGPointMake(CGRectGetMidX(convertedStartingFrame), CGRectGetMidY(convertedStartingFrame))
+        
+        containerView.addSubview(toView)
+        containerView.addSubview(fromView)
+        containerView.addSubview(transitionView)
+        
+        topFromVC.willBeginGalleryTransitionWithImageView?(transitionView, isToVC: false)
+        topToVC.willBeginGalleryTransitionWithImageView?(transitionView, isToVC: true)
+    }
+    
+    func transitionViewPercentScaledForStartScale(startScale: CGFloat) -> CGFloat {
+        let scale = scaleForTransForm(transitionView.transform)
+        let percent = scale.width - startScale / 1 - startScale
+        return percent
+    }
+    
+    func scaleForTransForm(transform: CGAffineTransform) -> CGSize {
+        let xScale = sqrt(transform.a * transform.a + transform.c * transform.c)
+        let yScale = sqrt(transform.b * transform.b + transform.d * transform.d)
+        
+        return CGSizeMake(xScale, yScale)
+    }
+}
