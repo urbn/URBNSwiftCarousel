@@ -103,5 +103,7 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return selectedCollectionViewForTransition
     }
     
-    
+    func updateSourceSelectedCell(cell: URBNCarouselZoomableCell) {
+        selectedCellForTransition = cell
+    }
 }

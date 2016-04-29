@@ -307,9 +307,9 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         if let destSyncVC = topToVC as? URBNSynchronizingDelegate, sourceVC =  topFromVC as? URBNSynchronizingDelegate, path = sourceVC.sourceIndexPath(), cv = destSyncVC.toCollectionView() {
             cv.scrollToItemAtIndexPath(path, atScrollPosition: .None, animated: true)
             cv.reloadItemsAtIndexPaths([path])
-            let cell = cv.cellForItemAtIndexPath(path) as? URBNCarouselZoomableCell
-            
-            print("CELL: \(cell?.index) FRAME : \(cell?.frame)")
+            if let cell = cv.cellForItemAtIndexPath(path) as? URBNCarouselZoomableCell {
+                destSyncVC.updateSourceSelectedCell?(cell)
+            }
         }
         
         // Set the view's frame to the final dimensions and transform it down to match starting dimensions.

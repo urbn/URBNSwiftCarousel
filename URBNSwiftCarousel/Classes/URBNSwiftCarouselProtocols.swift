@@ -25,6 +25,8 @@ typealias URBNCarouselViewInteractionBeganClosure = (controller: URBNSwCarouselT
 }
 
 @objc public protocol URBNSynchronizingDelegate {
+    optional func updateSourceSelectedCell(cell: URBNCarouselZoomableCell)
+    
     func sourceIndexPath() -> NSIndexPath?
     func toCollectionView() -> UICollectionView?
 }
