@@ -19,6 +19,8 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
 
         let layout = URBNHorizontalPagedFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height)
@@ -52,7 +54,7 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("desCell", forIndexPath: indexPath) as? URBNCarouselZoomableCell else { return URBNCarouselZoomableCell() }
         cell.imageView.image = UIImage.testingImages()[indexPath.item]
-        cell.scrollView?.userInteractionEnabled = true
+        cell.scrollView.userInteractionEnabled = true
         return cell
     }
     

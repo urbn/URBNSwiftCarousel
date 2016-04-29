@@ -9,33 +9,28 @@
 import UIKit
 
 public class URBNCarouselZoomableCell: UICollectionViewCell, UIScrollViewDelegate {
-    public var scrollView: UIScrollView?
+    public let scrollView = UIScrollView()
     public let imageView = UIImageView()
-    
-    
-    public var index = 0
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
-        scrollView = UIScrollView(frame: bounds)
-        guard let sv = scrollView else { return }
-        sv.userInteractionEnabled = false
-        sv.maximumZoomScale = 2.0
-        sv.minimumZoomScale = 1.0
-        sv.zoomScale = 1.0
-        sv.delegate = self
+        scrollView.userInteractionEnabled = false
+        scrollView.maximumZoomScale = 2.0
+        scrollView.minimumZoomScale = 1.0
+        scrollView.zoomScale = 1.0
+        scrollView.delegate = self
         
-        scrollView?.setZoomScale(1.0, animated: true)
+        scrollView.setZoomScale(1.0, animated: true)
         contentView.frame = bounds
-        scrollView?.frame = contentView.bounds
+        scrollView.frame = contentView.bounds
         imageView.frame = contentView.bounds
-        scrollView?.contentSize = imageView.bounds.size
+        scrollView.contentSize = imageView.bounds.size
         
-        contentView.addSubview(sv)
+        contentView.addSubview(scrollView)
         
         imageView.contentMode = .ScaleAspectFit
-        sv.addSubview(imageView)
+        scrollView.addSubview(imageView)
     }
     
     // MARL: UIScrollView Delegate

@@ -313,7 +313,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         }
         
         // Set the view's frame to the final dimensions and transform it down to match starting dimensions.
-        transitionView = UIImageView.init(frame: convertedEndingFrame)
+        transitionView = UIImageView(frame: convertedEndingFrame)
         transitionView.contentMode = .ScaleToFill
         transitionView.image = image
         

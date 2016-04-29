@@ -28,7 +28,7 @@ public extension UIImageView {
         
         let imageSmallerThanFrame = imgSize.width < frameSize.width && imgSize.height < frameSize.height
         
-        if imageSmallerThanFrame == true {
+        if imageSmallerThanFrame {
             resultFrame.size = imgSize
         }
         else {
