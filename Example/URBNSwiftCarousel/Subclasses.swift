@@ -36,6 +36,7 @@ class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("URBNCarouselZoomableCell", forIndexPath: indexPath) as? URBNCarouselZoomableCell else { return URBNCarouselZoomableCell() }
         cell.imageView.image = UIImage.testingImages()[indexPath.item]
+        cell.index = indexPath.item
         return cell
     }
     

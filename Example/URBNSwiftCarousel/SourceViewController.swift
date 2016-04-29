@@ -99,7 +99,9 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cv.indexPathForCell(cell)
     }
     
-    func sourceCollectionView() -> UICollectionView? {
+    func toCollectionView() -> UICollectionView? {
         return selectedCollectionViewForTransition
     }
+    
+    
 }

@@ -32,7 +32,6 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
         destinationCollectionView.delegate = self
         destinationCollectionView.dataSource = self
         view.addSubview(destinationCollectionView)
-        
         destinationCollectionView.reloadData()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
@@ -74,14 +73,17 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
     func fromImageFrameForGalleryTransitionWithContainerView(containerView: UIView) -> CGRect {
         guard let cell = selectedCellForTransition, img = selectedCellForTransition?.imageView, imgSize = img.image?.size else { return CGRectZero }
         let size = UIImageView.urbn_aspectFitSizeForImageSize(imgSize , rect: img.frame)
-        let originX = CGRectGetMidX(cell.frame) - size.width/2
-        let originY = CGRectGetMidY(cell.frame) - size.height/2
-        let frame = CGRectMake(originX, originY, size.width, size.height)
-        return frame
+        var frame = cell.frame
+        frame.origin.x = 0
+        frame.origin.y = 0
+        let originX = CGRectGetMidX(frame) - size.width/2
+        let originY = CGRectGetMidY(frame) - size.height/2
+        let xframe = CGRectMake(originX, originY, size.width, size.height)
+        return xframe
     }
     
     // MARK Suync Delegate
-    func destinationIndexPath() -> NSIndexPath? {
+    func sourceIndexPath() -> NSIndexPath? {
         guard let path = selectedPath else { return NSIndexPath(forItem: 0, inSection: 0) }
         return path
     }

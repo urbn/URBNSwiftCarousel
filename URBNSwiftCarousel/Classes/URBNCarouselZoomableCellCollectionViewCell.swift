@@ -12,6 +12,9 @@ public class URBNCarouselZoomableCell: UICollectionViewCell, UIScrollViewDelegat
     public var scrollView: UIScrollView?
     public let imageView = UIImageView()
     
+    
+    public var index = 0
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         

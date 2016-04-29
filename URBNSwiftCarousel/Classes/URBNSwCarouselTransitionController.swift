@@ -62,7 +62,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         transitionView.transform = transForm
     }
     
-    func trueContextViewControllerFromContext(transitionContext: UIViewControllerContextTransitioning, key: String) -> UIViewController? {
+    public func trueContextViewControllerFromContext(transitionContext: UIViewControllerContextTransitioning, key: String) -> UIViewController? {
         
         guard var vc = transitionContext.viewControllerForKey(key) else { return nil }
         
@@ -121,19 +121,6 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
             
             topFromVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: false)
             topToVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: true)
-        }
-        
-        if let destinationVC = context.viewControllerForKey(UITransitionContextToViewControllerKey) as? URBNSynchronizingDelegate,
-               sourceVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey) as? URBNSynchronizingDelegate {
-        
-            print("SYNC DEST VC\(destinationVC)")
-            if let sourceIP = sourceVC.sourceIndexPath?() {
-                print("SOURCE IP{ : \(sourceIP)")
-            }
-            
-            if let destinationIP = destinationVC.destinationIndexPath?() {
-                print("DEST IP \(destinationIP)")
-            }
         }
         
         transitionView.removeFromSuperview()
@@ -216,12 +203,10 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     // MARK: UIViewControllerTransitioningDelegate
     public func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         sourceViewController = source
-//        synchronizer.handleTransitionToDestinationCollectionView()
         return self
     }
     
     public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        synchronizer.handleTransitionToSourceCollectionView()
         return self
     }
     
@@ -318,6 +303,14 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         let image = topFromVC.imageForGalleryTransition()
         let convertedStartingFrame = topFromVC.fromImageFrameForGalleryTransitionWithContainerView(containerView)
         let convertedEndingFrame = topToVC.toImageFrameForGalleryTransitionWithContainerView(containerView, sourceImageFrame: convertedStartingFrame)
+        
+        if let destSyncVC = topToVC as? URBNSynchronizingDelegate, sourceVC =  topFromVC as? URBNSynchronizingDelegate, path = sourceVC.sourceIndexPath(), cv = destSyncVC.toCollectionView() {
+            cv.scrollToItemAtIndexPath(path, atScrollPosition: .None, animated: true)
+            cv.reloadItemsAtIndexPaths([path])
+            let cell = cv.cellForItemAtIndexPath(path) as? URBNCarouselZoomableCell
+            
+            print("CELL: \(cell?.index) FRAME : \(cell?.frame)")
+        }
         
         // Set the view's frame to the final dimensions and transform it down to match starting dimensions.
         transitionView = UIImageView.init(frame: convertedEndingFrame)

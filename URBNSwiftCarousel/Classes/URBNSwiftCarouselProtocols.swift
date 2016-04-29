@@ -25,10 +25,8 @@ typealias URBNCarouselViewInteractionBeganClosure = (controller: URBNSwCarouselT
 }
 
 @objc public protocol URBNSynchronizingDelegate {
-    optional func sourceIndexPath() -> NSIndexPath?
-    optional func destinationIndexPath() -> NSIndexPath?
-    optional func fromCollectionView() -> UICollectionView?
-    optional func toCollectionView() -> UICollectionView?
+    func sourceIndexPath() -> NSIndexPath?
+    func toCollectionView() -> UICollectionView?
 }
 
 /*
