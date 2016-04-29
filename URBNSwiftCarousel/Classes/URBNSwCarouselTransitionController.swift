@@ -304,6 +304,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         let convertedStartingFrame = topFromVC.fromImageFrameForGalleryTransitionWithContainerView(containerView)
         let convertedEndingFrame = topToVC.toImageFrameForGalleryTransitionWithContainerView(containerView, sourceImageFrame: convertedStartingFrame)
         
+        // handle Synchonrization of collection views if they subscribe to the synchonrization protocol
         if let destSyncVC = topToVC as? URBNSynchronizingDelegate, sourceVC =  topFromVC as? URBNSynchronizingDelegate, path = sourceVC.sourceIndexPath(), cv = destSyncVC.toCollectionView() {
             cv.scrollToItemAtIndexPath(path, atScrollPosition: .None, animated: true)
             cv.reloadItemsAtIndexPaths([path])
