@@ -38,7 +38,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     func restoreTransitionViewToState(state: URBNCarouselTransitionState, context: UIViewControllerContextTransitioning) {
         
         guard let topFromVC = trueContextViewControllerFromContext(context, key: UITransitionContextFromViewControllerKey) as? URBNSwCarouselTransitioning, topToVC = trueContextViewControllerFromContext(context, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning, containerView = context.containerView() else {
-            print("Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol")
+            assertionFailure("Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol")
             return }
         
         let convertedStartingFrame = topFromVC.fromImageFrameForGalleryTransitionWithContainerView(containerView)
@@ -293,7 +293,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         let toView = toVC.view
         
         guard let topFromVC = trueContextViewControllerFromContext(context, key: UITransitionContextFromViewControllerKey) as? URBNSwCarouselTransitioning, topToVC = trueContextViewControllerFromContext(context, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning else {
-            print("Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol")
+            assertionFailure("Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol")
             return }
         
         toView.frame = containerView.bounds
