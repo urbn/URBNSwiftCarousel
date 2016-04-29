@@ -11,13 +11,13 @@ import Foundation
 typealias URBNCarouselViewInteractionBeganClosure = (controller: URBNSwCarouselTransitionController, view: UIView) -> Void
 
 @objc public enum TranstionDirection: Int {
-    case ScaleUp = 0
-    case ScaleDown
+    case scaleUp = 0
+    case scaleDown
 }
 
 @objc public enum URBNCarouselTransitionState: Int {
-    case Start = 0
-    case End
+    case start = 0
+    case end
 }
 
 @objc public protocol URBNSwCarouselInteractiveDelegate {

@@ -47,7 +47,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         var center = CGPoint()
         var transForm = CGAffineTransform()
         
-        if state == .Start {
+        if state == .start {
             let scaleX = convertedStartingFrame.size.width / convertedEndingFrame.size.width
             let scaleY = convertedStartingFrame.size.height / convertedEndingFrame.size.height
             transForm = CGAffineTransformMakeScale(scaleX, scaleY)
@@ -99,7 +99,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: {
             fromView.alpha = 0.0
             toView.alpha = 1.0
-            self.restoreTransitionViewToState(.End, context: transitionContext)
+            self.restoreTransitionViewToState(.end, context: transitionContext)
             topToVC.configureAnimatingTransitionImageView?(self.transitionView)
             
             }) { (finished) in
@@ -172,7 +172,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         let toView = toVC.view
         
         UIView.animateWithDuration(springCompletionSpeed, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: velocity, options: [], animations: {
-            let state = cancelled == true ? URBNCarouselTransitionState.Start : URBNCarouselTransitionState.End
+            let state = cancelled == true ? URBNCarouselTransitionState.start : URBNCarouselTransitionState.end
             self.restoreTransitionViewToState(state, context: transitionContext)
         }) { (finished) in
             self.finishTransition(withContext: transitionContext)
@@ -267,7 +267,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         if let del = interactiveDelegate where isPinch && !pinchStarted {
             let scale = pinch?.scale
             guard scale != 1 else { return false }
-            let direction = scale > 1 ? TranstionDirection.ScaleUp : TranstionDirection.ScaleDown
+            let direction = scale > 1 ? TranstionDirection.scaleUp : TranstionDirection.scaleDown
             shouldBeginTransition = del.shouldBeginInteractiveTransitionWithView(view, direction: direction)
         }
         
