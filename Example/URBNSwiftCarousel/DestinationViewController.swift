@@ -16,11 +16,10 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
     var selectedCellForTransition: URBNCarouselZoomableCell?
     var data = UIImage.testingImages()
     var selectedPath: NSIndexPath?
+    var dismissCallback: (Void -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.setNavigationBarHidden(true, animated: false)
 
         let layout = URBNHorizontalPagedFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height)
@@ -44,7 +43,7 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
         guard let cell = destinationCollectionView.visibleCells().first as? URBNCarouselZoomableCell else { return }
         selectedCellForTransition = cell
         selectedPath = destinationCollectionView.indexPathForCell(cell)
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissCallback?()
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

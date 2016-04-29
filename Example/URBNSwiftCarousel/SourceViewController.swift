@@ -89,8 +89,14 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let destinationViewController = DestinationViewController()
         destinationViewController.transitioningDelegate = transitionController
         destinationViewController.modalPresentationStyle = .CurrentContext
+        navigationController?.setNavigationBarHidden(true, animated: true)
         
         presentViewController(destinationViewController, animated: true , completion: nil)
+        
+        destinationViewController.dismissCallback = { [weak self] in
+            self?.navigationController?.setNavigationBarHidden(false, animated: true)
+            self?.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     // MARK Sync Delegate

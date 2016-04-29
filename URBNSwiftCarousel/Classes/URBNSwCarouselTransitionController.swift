@@ -207,6 +207,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     }
     
     public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        dismissed.edgesForExtendedLayout = .None
         return self
     }
     
@@ -297,7 +298,6 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         
         toView.frame = containerView.bounds
         toView.setNeedsLayout()
-        toView.layoutIfNeeded()
         
         // create view for animation
         let image = topFromVC.imageForGalleryTransition()
