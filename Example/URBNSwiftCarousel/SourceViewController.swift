@@ -88,7 +88,7 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func presentDestinationViewController() {
         let destinationViewController = DestinationViewController()
         destinationViewController.transitioningDelegate = transitionController
-        destinationViewController.modalPresentationStyle = .CurrentContext
+        destinationViewController.modalPresentationStyle = .Custom
         navigationController?.setNavigationBarHidden(true, animated: true)
         
         presentViewController(destinationViewController, animated: true , completion: nil)
