@@ -29,6 +29,7 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
  
         destinationCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         destinationCollectionView.registerClass(URBNCarouselZoomableCell.self, forCellWithReuseIdentifier: "desCell")
+        destinationCollectionView.pagingEnabled = true
         destinationCollectionView.frame = view.bounds
         destinationCollectionView.delegate = self
         destinationCollectionView.dataSource = self
@@ -83,7 +84,7 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
         return xframe
     }
     
-    // MARK Suync Delegate
+    // MARK Sync Delegate
     func sourceIndexPath() -> NSIndexPath? {
         guard let path = selectedPath else { return NSIndexPath(forItem: 0, inSection: 0) }
         return path
