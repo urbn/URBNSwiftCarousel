@@ -33,6 +33,8 @@ class URBNPresentationController: UIPresentationController {
         
         setUpImageForTransition(sourceVC, destinationVC: destinationVC, containingView: containingView)
         
+        synchronizeCollectionViews(sourceVC, destinationVC: destinationVC)
+        
         transitionCoordinator.animateAlongsideTransition({ (context ) in
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: { 
             self.setFinalTransformForImage(sourceVC, destinationVC: destinationVC, containingView: containingView)
@@ -54,6 +56,8 @@ class URBNPresentationController: UIPresentationController {
             assertionFailure(assertionWarning)
             return
         }
+        
+        synchronizeCollectionViews(sourceVC, destinationVC: destinationVC)
         setUpImageForTransition(sourceVC, destinationVC: destinationVC, containingView: containingView)
         
         transitionCoordinator.animateAlongsideTransition({ (contextd) in
@@ -90,7 +94,6 @@ class URBNPresentationController: UIPresentationController {
         transitionView.transform = transform
         transitionView.center = CGPointMake(CGRectGetMidX(convertedStartingFrame), CGRectGetMidY(convertedStartingFrame))
         
-        print(transitionView.frame)
         containingView.addSubview(transitionView)
         
         sourceVC.willBeginGalleryTransitionWithImageView?(transitionView, isToVC: false)
@@ -111,10 +114,19 @@ class URBNPresentationController: UIPresentationController {
         transitionView.transform = transForm
     }
     
-    
     func fireDelegatesAndReset(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning, containingView: UIView) {
         sourceVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: false)
         destinationVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: true)
         transitionView.removeFromSuperview()
+    }
+    
+    func synchronizeCollectionViews(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning) {
+        guard let destSyncVC = destinationVC as? URBNSynchronizingDelegate, sourceSyncVC = sourceVC as? URBNSynchronizingDelegate, path = sourceSyncVC.sourceIndexPath(), cv = destSyncVC.toCollectionView() else { return }
+        
+        cv.scrollToItemAtIndexPath(path, atScrollPosition: .None, animated: false)
+        cv.reloadItemsAtIndexPaths([path])
+        if let cell = cv.cellForItemAtIndexPath(path) as? URBNCarouselZoomableCell {
+            destSyncVC.updateSourceSelectedCell?(cell)
+        }
     }
 }

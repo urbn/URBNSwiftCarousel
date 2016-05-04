@@ -29,7 +29,6 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
  
         destinationCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         destinationCollectionView.registerClass(URBNCarouselZoomableCell.self, forCellWithReuseIdentifier: "desCell")
-        destinationCollectionView.pagingEnabled = true
         destinationCollectionView.frame = view.bounds
         destinationCollectionView.delegate = self
         destinationCollectionView.dataSource = self

@@ -64,7 +64,6 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         var toView = toVC.view
         
         guard let topToVC = trueContextViewControllerFromContext(transitionContext, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning else { return }
-        synchronizeCollectionViews(forContext: transitionContext)
         
         let duration = transitionDuration(transitionContext)
         
@@ -96,19 +95,5 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         isDismissing = true
         return self
     }
-    
-    func synchronizeCollectionViews(forContext context: UIViewControllerContextTransitioning) {
-        // handle Synchonrization of collection views if they subscribe to the synchonrization protocol
-        guard let topFromVC = trueContextViewControllerFromContext(context, key: UITransitionContextFromViewControllerKey) as? URBNSwCarouselTransitioning, topToVC = trueContextViewControllerFromContext(context, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning else {
-            assertionFailure("Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol")
-            return }
-        
-        if let destSyncVC = topToVC as? URBNSynchronizingDelegate, sourceVC =  topFromVC as? URBNSynchronizingDelegate, path = sourceVC.sourceIndexPath(), cv = destSyncVC.toCollectionView() {
-            cv.scrollToItemAtIndexPath(path, atScrollPosition: .None, animated: false)
-            cv.reloadItemsAtIndexPaths([path])
-            if let cell = cv.cellForItemAtIndexPath(path) as? URBNCarouselZoomableCell {
-                destSyncVC.updateSourceSelectedCell?(cell)
-            }
-        }
-    }
+
 }
