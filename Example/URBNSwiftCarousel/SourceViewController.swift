@@ -88,13 +88,14 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func presentDestinationViewController() {
         let destinationViewController = DestinationViewController()
         destinationViewController.transitioningDelegate = transitionController
+        /*
+            In order to use URBNSwiftCarousel, the modalPresentationStyle must be set to .Custom
+        */
         destinationViewController.modalPresentationStyle = .Custom
-        navigationController?.setNavigationBarHidden(true, animated: true)
         
         presentViewController(destinationViewController, animated: true , completion: nil)
         
         destinationViewController.dismissCallback = { [weak self] in
-            self?.navigationController?.setNavigationBarHidden(false, animated: true)
             self?.dismissViewControllerAnimated(true, completion: nil)
         }
     }

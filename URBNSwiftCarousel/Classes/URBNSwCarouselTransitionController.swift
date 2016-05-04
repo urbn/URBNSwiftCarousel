@@ -30,8 +30,6 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     private var springCompletionSpeed: Double = 0.6
     private var completionSpeed: Double = 0.2
     private var sourceViewController = UIViewController()
-    
-    private var isDismissing = false
 
     public weak var interactiveDelegate: URBNSwCarouselInteractiveDelegate?
 
@@ -86,13 +84,10 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     
     public func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         sourceViewController = source
-        isDismissing = false
         return self
     }
     
     public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        dismissed.edgesForExtendedLayout = .None
-        isDismissing = true
         return self
     }
 

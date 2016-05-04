@@ -9,6 +9,8 @@
 import UIKit
 
 class URBNPresentationController: UIPresentationController {
+    public var maskingNavBarColor: UIColor?
+    
     private var transitionView = UIImageView()
     private let assertionWarning = "Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol"
     
@@ -17,11 +19,32 @@ class URBNPresentationController: UIPresentationController {
         return nav?.topViewController as? URBNSwCarouselTransitioning
     }
     
+    private var navBarOfPresentingViewController: UIView? {
+        guard let nav = presentingViewController as? UINavigationController else { return nil }
+        let snapShotOfNavbar = nav.navigationBar.snapshotViewAfterScreenUpdates(true)
+        snapShotOfNavbar.translatesAutoresizingMaskIntoConstraints = false
+        return snapShotOfNavbar
+    }
+    
+    lazy private var navBarCoverView = UIView()
+    
     override func presentationTransitionWillBegin() {
-        guard let sourceVC = topFromVC, destinationVC = presentedViewController as? URBNSwCarouselTransitioning, containingView = containerView, transitionCoordinator = presentingViewController.transitionCoordinator()
+        guard let destinationVC = presentedViewController as? URBNSwCarouselTransitioning, containingView = containerView, transitionCoordinator = presentingViewController.transitionCoordinator()
             else {
                 assertionFailure(assertionWarning)
                 return
+        }
+        
+        var sourceVC: URBNSwCarouselTransitioning
+        if let topVC = topFromVC {
+            sourceVC = topVC
+        }
+        else {
+            guard let vc = presentingViewController as? URBNSwCarouselTransitioning else {
+                assertionFailure(assertionWarning)
+                return
+            }
+            sourceVC = vc
         }
         
         guard let nav = presentingViewController as? UINavigationController, fromVC = nav.topViewController else { return }
@@ -32,10 +55,9 @@ class URBNPresentationController: UIPresentationController {
         containingView.addSubview(toView)
         
         setUpImageForTransition(sourceVC, destinationVC: destinationVC, containingView: containingView)
-        
         synchronizeCollectionViews(sourceVC, destinationVC: destinationVC)
         
-        transitionCoordinator.animateAlongsideTransition({ (context ) in
+        transitionCoordinator.animateAlongsideTransition({ (context) in
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: { 
             self.setFinalTransformForImage(sourceVC, destinationVC: destinationVC, containingView: containingView)
                 }, completion: nil)
@@ -60,11 +82,32 @@ class URBNPresentationController: UIPresentationController {
         synchronizeCollectionViews(sourceVC, destinationVC: destinationVC)
         setUpImageForTransition(sourceVC, destinationVC: destinationVC, containingView: containingView)
         
-        transitionCoordinator.animateAlongsideTransition({ (contextd) in
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: { 
+        if let navBar = navBarOfPresentingViewController, nav = presentingViewController as? UINavigationController {
+            let rect = nav.view.convertRect(nav.navigationBar.frame, toView: nil)
+            if let color = maskingNavBarColor {
+                navBar.backgroundColor = color
+            }
+            else {
+                navBar.backgroundColor = UIColor.whiteColor()
+            }
+            navBar.frame = rect
+            navBarCoverView.addSubview(navBar)
+            navBarCoverView.translatesAutoresizingMaskIntoConstraints = false
+            containingView.addSubview(navBarCoverView)
+            navBarCoverView.backgroundColor = UIColor.whiteColor()
+            NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[cover]|", options: [], metrics: nil, views: ["cover": navBarCoverView]))
+            navBarCoverView.topAnchor.constraintEqualToAnchor(containingView.topAnchor).active = true
+            navBarCoverView.heightAnchor.constraintEqualToConstant(20 + rect.height).active = true
+//            NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("", options: [], metrics: nil, views: ["bar": navBar]))
+        }
+        
+        transitionCoordinator.animateAlongsideTransition({ (context) in
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: {
                 self.setFinalTransformForImage(sourceVC, destinationVC: destinationVC, containingView: containingView)
                 }, completion: nil)
             }, completion: nil)
+        
+        // TODO if cover view, animate it to 0.0 alpha
     }
     
     override func dismissalTransitionDidEnd(completed: Bool) {
