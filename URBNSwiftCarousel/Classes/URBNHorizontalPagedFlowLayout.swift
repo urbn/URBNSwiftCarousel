@@ -8,6 +8,10 @@
 
 import UIKit
 
+/**
+ This is a subclass of UICollectionViewFlowLayout that offsets the cells so that a full cell always appears on the left side.
+*/
+
 public class URBNHorizontalPagedFlowLayout: UICollectionViewFlowLayout {
     
     private var minContentOffset: CGFloat {

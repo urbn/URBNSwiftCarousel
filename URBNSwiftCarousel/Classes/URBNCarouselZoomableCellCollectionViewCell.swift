@@ -8,6 +8,11 @@
 
 import UIKit
 
+/**
+ 
+ This subclass of UICollectionViewCell has a zoomable UIImageView on top of a scrollView.
+ 
+*/
 public class URBNCarouselZoomableCell: UICollectionViewCell, UIScrollViewDelegate {
     public let scrollView = UIScrollView()
     public let imageView = UIImageView()

@@ -8,6 +8,11 @@
 
 import UIKit
 
+/**
+    This subclass of UIPresentationController manages the UIImageView that zooms in and out between the source and destination view controllers.
+    It also handles synchonizaton of the collection views
+*/
+
 public class URBNPresentationController: UIPresentationController {
     
     // MARK: Public Variables
