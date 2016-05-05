@@ -59,7 +59,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
             else { return }
         
         let fromView = fromVC.view
-        var toView = toVC.view
+        let toView = toVC.view
         
         guard let topToVC = trueContextViewControllerFromContext(transitionContext, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning else { return }
         

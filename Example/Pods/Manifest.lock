@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  URBNSwiftCarousel: 33d1267c61f6f9446d6dbcb9940f3327653dbe73
+  URBNSwiftCarousel: 6867d2a22c7be11a457d47aacfbc5da9463115d5
 
 COCOAPODS: 0.39.0

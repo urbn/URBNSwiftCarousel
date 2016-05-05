@@ -9,7 +9,7 @@
 import UIKit
 
 class URBNPresentationController: UIPresentationController {
-    public var maskingNavBarColor: UIColor?
+    internal var maskingNavBarColor: UIColor?
     
     private var transitionView = UIImageView()
     private let assertionWarning = "Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol"
@@ -47,8 +47,7 @@ class URBNPresentationController: UIPresentationController {
             sourceVC = vc
         }
         
-        guard let nav = presentingViewController as? UINavigationController, fromVC = nav.topViewController else { return }
-        var toView = presentedViewController.view
+        let toView = presentedViewController.view
         
         toView.frame = containingView.bounds
         toView.setNeedsLayout()
@@ -97,7 +96,7 @@ class URBNPresentationController: UIPresentationController {
     }
     
     override func dismissalTransitionDidEnd(completed: Bool) {
-        guard let sourceVC = presentedViewController as? URBNSwCarouselTransitioning, destinationVC = topFromVC, containingView = containerView, transitionCoordinator = presentingViewController.transitionCoordinator() else {
+        guard let sourceVC = presentedViewController as? URBNSwCarouselTransitioning, destinationVC = topFromVC, containingView = containerView else {
             assertionFailure(assertionWarning)
             return
         }
@@ -141,7 +140,7 @@ class URBNPresentationController: UIPresentationController {
         transitionView.transform = transForm
     }
     
-    func fireDelegatesAndReset(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning, containingView: UIView) {
+    private func fireDelegatesAndReset(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning, containingView: UIView) {
         sourceVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: false)
         destinationVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: true)
         transitionView.removeFromSuperview()
