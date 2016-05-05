@@ -72,23 +72,23 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: Present the Destination View Controller
     func presentDestinationViewController() {
         
-        /*
-         This is the view controller we are going to transition to.
+        /**
+        * This is the view controller we are going to transition to.
         */
         let destinationViewController = DestinationViewController()
         
-        /*
-         Set this property if your view controller is a child of a navigation controller.  
-         */
+        /**
+        * Set this property if your view controller is a child of a navigation controller.
+        */
         transitionController.presentationController?.maskingNavBarColor = navigationController?.navigationBar.barTintColor
         
-        /*
-         The destinationViewController must be set as the transitioning delegate of the transitionController to trigger the transition controller's methods
+        /**
+        * The destinationViewController must be set as the transitioning delegate of the transitionController to trigger the transition controller's methods
         */
         destinationViewController.transitioningDelegate = transitionController
-        /*
-         In order to use URBNSwiftCarousel, the modalPresentationStyle must be set to .Custom
-         */
+        /**
+        * In order to use URBNSwiftCarousel, the modalPresentationStyle must be set to .Custom
+        */
         destinationViewController.modalPresentationStyle = .Custom
         
         presentViewController(destinationViewController, animated: true , completion: nil)
@@ -99,32 +99,32 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     // MARK: URBNSwCarouselTransitioning
-    /*
-     Required methods for the custom zoom view controller transition
+    /**
+    * Required methods for the custom zoom view controller transition
     */
     func imageForGalleryTransition() -> UIImage {
         guard let img = selectedCellForTransition?.imageView.image else { return UIImage() }
         return img
     }
     
-    /*
-     When your SourceViewController calls presentViewController(destinationViewController), the SOURCE view controller calls this method.
-     
-     When dismissViewController is called by either the source or destination, the DESTINATION view controller calls this method.
-     
-     Calculate and return the frame you want the animating imageView to return to.
+    /**
+     * When your SourceViewController calls presentViewController(destinationViewController), the SOURCE view controller calls this method.
+     *
+     * When dismissViewController is called by either the source or destination, the DESTINATION view controller calls this method.
+     *
+     * Calculate and return the frame you want the animating imageView to return to.
      */
     func fromImageFrameForGalleryTransitionWithContainerView(containerView: UIView) -> CGRect {
         guard let imgFrame = selectedCellForTransition?.imageView.urbn_imageFrame() else { return CGRectZero }
         return containerView.convertRect(imgFrame, fromView: selectedCellForTransition)
     }
     
-    /*
-     When your SourceViewController calls presentViewController(destinationViewController), the DESTINATION view controller calls this method.
-     
-     When dismissViewController is called by either the source or destination, the SOURCE view controller calls this method.
-     
-     Calculate and return the frame you want the animating imageView to zoom out to.
+    /**
+     * When your SourceViewController calls presentViewController(destinationViewController), the DESTINATION view controller calls this method.
+     *
+     * When dismissViewController is called by either the source or destination, the SOURCE view controller calls this method.
+     *
+     * Calculate and return the frame you want the animating imageView to zoom out to.
      */
     func toImageFrameForGalleryTransitionWithContainerView(containerView: UIView, sourceImageFrame: CGRect) -> CGRect {
         guard let frameToReturnTo = selectedCellForTransition?.imageView.frame, selectedCell = selectedCellForTransition else { return CGRectZero }
@@ -139,8 +139,9 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK URBNSynchronizingDelegate Delegate Methods
     
-    /*
-     Here we tell the UIPresentationController that is managing the animation transitions what index path was the origin of the transition.  This path is passed to the destination collection view so it can scroll to the corresponding cell.
+    /**
+    * Here we tell the UIPresentationController that is managing the animation transitions what index path was the origin of the transition.
+    * This path is passed to the *destination collection view so it can scroll to the corresponding cell.
     */
     func sourceIndexPath() -> NSIndexPath? {
         guard let cv = selectedCollectionViewForTransition, cell = selectedCellForTransition else { return nil }

@@ -109,9 +109,9 @@ public class URBNPresentationController: UIPresentationController {
     }
     
     // MARK: Convenience
-    /*
-        These methods handle the image view that is animated during the zoom out / zoom transitions.
-     */
+    /**
+    *   These methods handle the image view that is animated during the zoom out / zoom transitions.
+    */
     private func setUpImageForTransition(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning, containingView: UIView) {
         let convertedStartingFrame = sourceVC.fromImageFrameForGalleryTransitionWithContainerView(containingView)
         let convertedEndingFrame = destinationVC.toImageFrameForGalleryTransitionWithContainerView(containingView, sourceImageFrame: convertedStartingFrame)
@@ -154,9 +154,10 @@ public class URBNPresentationController: UIPresentationController {
         transitionView.removeFromSuperview()
     }
     
-    /*
-        This method syncs the cells between collection views by taking in the index path of the cell selected for zooming.  That index path is sent to the destination collection view which scrolls to that index path.
-     */
+    /**
+    *    This method syncs the cells between collection views by taking in the index path of the cell selected for zooming.  
+    *    That index path is sent to the destination collection view which scrolls to that index path.
+    */
     private func synchronizeCollectionViews(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning) {
         guard let destSyncVC = destinationVC as? URBNSynchronizingDelegate, sourceSyncVC = sourceVC as? URBNSynchronizingDelegate, path = sourceSyncVC.sourceIndexPath(), cv = destSyncVC.toCollectionView() else { return }
         
@@ -167,10 +168,11 @@ public class URBNPresentationController: UIPresentationController {
         }
     }
     
-    /*
-        Sometimes the presentingViewController will be the navigation controller of the presenting view controller.
-        If the selected collectionViewCell is underneath the navigation bar at the time of animation, upon return it will overlay the navigation bar.  We get a screen shot of the navigation bar and use it as part of the animation transition so that the animating image view goes behind it.
-     */
+    /**
+    *    Sometimes the presentingViewController will be the navigation controller of the presenting view controller.
+    *    If the selected collectionViewCell is underneath the navigation bar at the time of animation, upon return it will overlay the navigation bar.  
+    *     We get a screen shot of the navigation bar and use it as part of the animation transition so that the animating image view goes behind it.
+    */
     private func coverNavigationBarIfNecessary(containingView: UIView) {
         guard let navBar = navBarOfPresentingViewController, nav = presentingViewController as? UINavigationController else { return }
         let rect = nav.view.convertRect(nav.navigationBar.frame, toView: nil)
