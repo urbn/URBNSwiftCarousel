@@ -12,9 +12,8 @@ import URBNSwiftCarousel
 class DestinationViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, URBNSwCarouselTransitioning, URBNSynchronizingDelegate {
     
     var destinationCollectionView: UICollectionView!
-    var swTransitionController: URBNSwCarouselTransitionController?
     var selectedCellForTransition: URBNCarouselZoomableCell?
-    var data = UIImage.testingImages()
+    var exampleData = UIImage.testingImages()
     var selectedPath: NSIndexPath?
     var dismissCallback: (Void -> Void)?
 
@@ -47,7 +46,7 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return exampleData.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

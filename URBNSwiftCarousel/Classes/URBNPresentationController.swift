@@ -9,10 +9,19 @@
 import UIKit
 
 class URBNPresentationController: UIPresentationController {
-    internal var maskingNavBarColor: UIColor?
     
+    // MARK: Public Variables
+    /*
+     
+    */
+    public var maskingNavBarColor: UIColor?
+    
+    // MARK: Private Variables
     private var transitionView = UIImageView()
+    
     private let assertionWarning = "Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol"
+    
+    lazy private var navBarCoverView = UIView()
     
     private var topFromVC: URBNSwCarouselTransitioning? {
         let nav = presentingViewController as? UINavigationController
@@ -26,8 +35,7 @@ class URBNPresentationController: UIPresentationController {
         return snapShotOfNavbar
     }
     
-    lazy private var navBarCoverView = UIView()
-    
+    // MARK: Public Overrides of UIPresentationController's view tracking methods
     override func presentationTransitionWillBegin() {
         guard let destinationVC = presentedViewController as? URBNSwCarouselTransitioning, containingView = containerView, transitionCoordinator = presentingViewController.transitionCoordinator()
             else {
@@ -104,6 +112,9 @@ class URBNPresentationController: UIPresentationController {
     }
     
     // MARK: Convenience
+    /*
+        These methods handle the image view that is animated during the zoom out / zoom transitions.
+     */
     private func setUpImageForTransition(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning, containingView: UIView) {
         let convertedStartingFrame = sourceVC.fromImageFrameForGalleryTransitionWithContainerView(containingView)
         let convertedEndingFrame = destinationVC.toImageFrameForGalleryTransitionWithContainerView(containingView, sourceImageFrame: convertedStartingFrame)
@@ -146,6 +157,9 @@ class URBNPresentationController: UIPresentationController {
         transitionView.removeFromSuperview()
     }
     
+    /*
+        This method syncs the cells between collection views by taking in the index path of the cell selected for zooming.  That index path is sent to the destination collection view which scrolls to that index path.
+     */
     private func synchronizeCollectionViews(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning) {
         guard let destSyncVC = destinationVC as? URBNSynchronizingDelegate, sourceSyncVC = sourceVC as? URBNSynchronizingDelegate, path = sourceSyncVC.sourceIndexPath(), cv = destSyncVC.toCollectionView() else { return }
         
@@ -156,6 +170,9 @@ class URBNPresentationController: UIPresentationController {
         }
     }
     
+    /*
+     
+     */
     private func coverNavigationBarIfNecessary(containingView: UIView) {
         guard let navBar = navBarOfPresentingViewController, nav = presentingViewController as? UINavigationController else { return }
         let rect = nav.view.convertRect(nav.navigationBar.frame, toView: nil)

@@ -12,8 +12,17 @@ import URBNSwiftCarousel
 
 class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, URBNSwCarouselTransitioning, URBNSynchronizingDelegate {
     
+    /*
+        The transitionController is declared in the view controller that is the source of the transition.
+    */
     let transitionController = URBNSwCarouselTransitionController()
+    
+    /*
+        Collection views nested inside the cells of a tableView are a fairly common jawn, so we demonstrate one here.
+    */
     let tableView = UITableView(frame: CGRectZero, style: .Plain)
+    
+    
     private var selectedCellForTransition: URBNCarouselZoomableCell?
     private var selectedCollectionViewForTransition: UICollectionView?
     
@@ -57,22 +66,55 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 4
     }
     
-    // MARK: URBNSwCarouselTransitioning
+    // MARK: Present the Destination View Controller
+    func presentDestinationViewController() {
+        
+        let destinationViewController = DestinationViewController()
+        
+        /*
+         The destinationViewController must be set as the transitioning delegate of the transitionController to trigger the transition controller's methods
+        */
+        destinationViewController.transitioningDelegate = transitionController
+        /*
+         In order to use URBNSwiftCarousel, the modalPresentationStyle must be set to .Custom
+         */
+        destinationViewController.modalPresentationStyle = .Custom
+        
+        presentViewController(destinationViewController, animated: true , completion: nil)
+        
+        destinationViewController.dismissCallback = { [weak self] in
+            self?.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
     
+    // MARK: URBNSwCarouselTransitioning
     /*
      Required methods for the custom zoom view controller transition
     */
-    
     func imageForGalleryTransition() -> UIImage {
         guard let img = selectedCellForTransition?.imageView.image else { return UIImage() }
         return img
     }
     
+    /*
+     When your SourceViewController calls presentViewController(destinationViewController), the SOURCE view controller calls this method.
+     
+     When dismissViewController is called by either the source or destination, the DESTINATION view controller calls this method.
+     
+     Calculate and return the frame you want the animating imageView to return to.
+     */
     func fromImageFrameForGalleryTransitionWithContainerView(containerView: UIView) -> CGRect {
         guard let imgFrame = selectedCellForTransition?.imageView.urbn_imageFrame() else { return CGRectZero }
         return containerView.convertRect(imgFrame, fromView: selectedCellForTransition)
     }
     
+    /*
+     When your SourceViewController calls presentViewController(destinationViewController), the DESTINATION view controller calls this method.
+     
+     When dismissViewController is called by either the source or destination, the SOURCE view controller calls this method.
+     
+     Calculate and return the frame you want the animating imageView to zoom out to.
+     */
     func toImageFrameForGalleryTransitionWithContainerView(containerView: UIView, sourceImageFrame: CGRect) -> CGRect {
         guard let frameToReturnTo = selectedCellForTransition?.imageView.frame, selectedCell = selectedCellForTransition else { return CGRectZero }
         let size = UIImageView.urbn_aspectFitSizeForImageSize(sourceImageFrame.size, rect: frameToReturnTo)
@@ -84,23 +126,7 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return CGRectMake(originX, originY, toImageWidth, toImageHeight)
     }
     
-    // MARK: Present the Destination View Controller
-    func presentDestinationViewController() {
-        let destinationViewController = DestinationViewController()
-        destinationViewController.transitioningDelegate = transitionController
-        /*
-            In order to use URBNSwiftCarousel, the modalPresentationStyle must be set to .Custom
-        */
-        destinationViewController.modalPresentationStyle = .Custom
-        
-        presentViewController(destinationViewController, animated: true , completion: nil)
-        
-        destinationViewController.dismissCallback = { [weak self] in
-            self?.dismissViewControllerAnimated(true, completion: nil)
-        }
-    }
-    
-    // MARK Sync Delegate
+    // MARK URBNSynchronizingDelegate Delegate
     func sourceIndexPath() -> NSIndexPath? {
         guard let cv = selectedCollectionViewForTransition, cell = selectedCellForTransition else { return nil }
         return cv.indexPathForCell(cell)

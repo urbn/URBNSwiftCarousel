@@ -20,34 +20,13 @@
 
 
 public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate {
-    private(set) var interactive = false
-    private var viewInteractionBlocks = [UIView: URBNCarouselViewInteractionBeganClosure]()
-    private var viewPinchTransitionGestureRecognizers = [UIView: UIPinchGestureRecognizer]()
     private weak var context: UIViewControllerContextTransitioning?
     private var transitionView = UIImageView()
     private var originalSelectedCellFrame = CGRectZero
-    private var startScale: CGFloat = -1.0
-    private var springCompletionSpeed: Double = 0.6
-    private var completionSpeed: Double = 0.2
+    private var springCompletionSpeed: CGFloat = 0.7
     private var sourceViewController = UIViewController()
-
-    public weak var interactiveDelegate: URBNSwCarouselInteractiveDelegate?
-
-    public func trueContextViewControllerFromContext(transitionContext: UIViewControllerContextTransitioning, key: String) -> UIViewController? {
-        
-        guard var vc = transitionContext.viewControllerForKey(key) else { return nil }
-        
-        if !vc.conformsToProtocol(URBNSwCarouselTransitioning) {
-            vc = sourceViewController
-        }
-        
-        if let topVC = vc.navigationController?.topViewController {
-            vc = topVC
-        }
-        return vc
-    }
     
-    // MARK: UIViewControllerAnimatedTransitioning - Non-Interactive
+    // MARK: UIViewControllerAnimatedTransitioning Delegate Methods - Non-Interactive
     public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.5
     }
@@ -65,19 +44,17 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         
         let duration = transitionDuration(transitionContext)
         
-        UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: {
+        UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: springCompletionSpeed, initialSpringVelocity: 0, options: [], animations: {
             fromView.alpha = 0.0
             toView.alpha = 1.0
             topToVC.configureAnimatingTransitionImageView?(self.transitionView)
             
             }) { (finished) in
-            self.startScale = -1
-            self.interactive = false
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         }
     }
     
-    // MARK: UIViewControllerTransitioningDelegate
+    // MARK: UIViewControllerTransitioningDelegate methods
     public func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
         return URBNPresentationController(presentedViewController: presented, presentingViewController: source)
     }
@@ -89,6 +66,22 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     
     public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self
+    }
+    
+    // MARK: Convenience
+    /* This method finds the true view controller for a given context's key - sometimes iOS will pick the rootview controller or navigation controller of a presenting view controller
+    */
+    public func trueContextViewControllerFromContext(transitionContext: UIViewControllerContextTransitioning, key: String) -> UIViewController? {
+        guard var vc = transitionContext.viewControllerForKey(key) else { return nil }
+        
+        if !vc.conformsToProtocol(URBNSwCarouselTransitioning) {
+            vc = sourceViewController
+        }
+        
+        if let topVC = vc.navigationController?.topViewController where vc .conformsToProtocol(URBNSwCarouselTransitioning) {
+            vc = topVC
+        }
+        return vc
     }
 
 }
