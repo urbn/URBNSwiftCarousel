@@ -12,12 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var mainNav: UINavigationController?
+    var mainNav = UINavigationController()
     var sourceVC = SourceViewController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        mainNav = UINavigationController()
-        mainNav?.pushViewController(sourceVC, animated: false)
+        mainNav.pushViewController(sourceVC, animated: false)
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = mainNav
         window?.makeKeyAndVisible()
