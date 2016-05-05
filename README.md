@@ -5,11 +5,19 @@
 [![License](https://img.shields.io/cocoapods/l/URBNSwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/URBNSwiftCarousel)
 [![Platform](https://img.shields.io/cocoapods/p/URBNSwiftCarousel.svg?style=flat)](http://cocoapods.org/pods/URBNSwiftCarousel)
 
+## About
+
+URBNSwiftCarousel is a pod that implements a custom view controller transition between two collection views.  
+
+URBNSwiftCarousel is based on an NSObject sublcass, URBNSwTransitionController, that implements the protocol methods of UIViewControllerAnimatedTransitioning and UIViewControllerTransitioningDelegate.  This NSObject subclass uses a subclass of UIPresentationController to manage the animation.
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+iOS 9 is the minimum recommended OS.
 
 ## Installation
 

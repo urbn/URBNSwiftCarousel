@@ -44,7 +44,7 @@ typealias URBNCarouselViewInteractionBeganClosure = (controller: URBNSwCarouselT
     
     // Required Methods
     /*
-     This method gets the image that is used in the imageView that is zoomed in and out
+     Detailed explanations can be found in the example project.
     */
     func imageForGalleryTransition() -> UIImage
     

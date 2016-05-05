@@ -8,12 +8,9 @@
 
 import UIKit
 
-class URBNPresentationController: UIPresentationController {
+public class URBNPresentationController: UIPresentationController {
     
     // MARK: Public Variables
-    /*
-     
-    */
     public var maskingNavBarColor: UIColor?
     
     // MARK: Private Variables
@@ -36,7 +33,7 @@ class URBNPresentationController: UIPresentationController {
     }
     
     // MARK: Public Overrides of UIPresentationController's view tracking methods
-    override func presentationTransitionWillBegin() {
+    override public func presentationTransitionWillBegin() {
         guard let destinationVC = presentedViewController as? URBNSwCarouselTransitioning, containingView = containerView, transitionCoordinator = presentingViewController.transitionCoordinator()
             else {
                 assertionFailure(assertionWarning)
@@ -71,7 +68,7 @@ class URBNPresentationController: UIPresentationController {
             }, completion: nil)
     }
     
-    override func presentationTransitionDidEnd(completed: Bool) {
+    override public func presentationTransitionDidEnd(completed: Bool) {
         guard let sourceVC = topFromVC, destinationVC = presentedViewController as? URBNSwCarouselTransitioning, containingView = containerView
             else {
                 assertionFailure(assertionWarning)
@@ -80,7 +77,7 @@ class URBNPresentationController: UIPresentationController {
         fireDelegatesAndReset(sourceVC, destinationVC: destinationVC, containingView: containingView)
     }
     
-    override func dismissalTransitionWillBegin() {
+    override public func dismissalTransitionWillBegin() {
         guard let sourceVC = presentedViewController as? URBNSwCarouselTransitioning, destinationVC = topFromVC, containingView = containerView, transitionCoordinator = presentingViewController.transitionCoordinator() else {
             assertionFailure(assertionWarning)
             return
@@ -103,7 +100,7 @@ class URBNPresentationController: UIPresentationController {
             }, completion: nil)
     }
     
-    override func dismissalTransitionDidEnd(completed: Bool) {
+    override public func dismissalTransitionDidEnd(completed: Bool) {
         guard let sourceVC = presentedViewController as? URBNSwCarouselTransitioning, destinationVC = topFromVC, containingView = containerView else {
             assertionFailure(assertionWarning)
             return
@@ -171,7 +168,8 @@ class URBNPresentationController: UIPresentationController {
     }
     
     /*
-     
+        Sometimes the presentingViewController will be the navigation controller of the presenting view controller.
+        If the selected collectionViewCell is underneath the navigation bar at the time of animation, upon return it will overlay the navigation bar.  We get a screen shot of the navigation bar and use it as part of the animation transition so that the animating image view goes behind it.
      */
     private func coverNavigationBarIfNecessary(containingView: UIView) {
         guard let navBar = navBarOfPresentingViewController, nav = presentingViewController as? UINavigationController else { return }

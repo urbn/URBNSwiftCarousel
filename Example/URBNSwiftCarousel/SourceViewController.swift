@@ -31,6 +31,8 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         title = "URBNSwifty Carousel"
         
+        navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        
         definesPresentationContext = true
         tableView.rowHeight = 250
         tableView.estimatedRowHeight = UIScreen.mainScreen().bounds.height/3
@@ -39,6 +41,7 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         
         let lbl = UILabel()
+        lbl.textAlignment = .Center
         lbl.text = "Touch a cell to see the transition animation"
         lbl.sizeToFit()
         tableView.tableHeaderView = lbl
@@ -69,7 +72,15 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: Present the Destination View Controller
     func presentDestinationViewController() {
         
+        /*
+         This is the view controller we are going to transition to.
+        */
         let destinationViewController = DestinationViewController()
+        
+        /*
+         Set this property if your view controller is a child of a navigation controller.  
+         */
+        transitionController.presentationController?.maskingNavBarColor = navigationController?.navigationBar.barTintColor
         
         /*
          The destinationViewController must be set as the transitioning delegate of the transitionController to trigger the transition controller's methods
@@ -126,7 +137,11 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return CGRectMake(originX, originY, toImageWidth, toImageHeight)
     }
     
-    // MARK URBNSynchronizingDelegate Delegate
+    // MARK URBNSynchronizingDelegate Delegate Methods
+    
+    /*
+     Here we tell the UIPresentationController that is managing the animation transitions what index path was the origin of the transition.  This path is passed to the destination collection view so it can scroll to the corresponding cell.
+    */
     func sourceIndexPath() -> NSIndexPath? {
         guard let cv = selectedCollectionViewForTransition, cell = selectedCellForTransition else { return nil }
         return cv.indexPathForCell(cell)

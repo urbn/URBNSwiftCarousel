@@ -19,12 +19,13 @@
  */
 
 
-public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate {
+public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
     private weak var context: UIViewControllerContextTransitioning?
     private var transitionView = UIImageView()
     private var originalSelectedCellFrame = CGRectZero
     private var springCompletionSpeed: CGFloat = 0.7
     private var sourceViewController = UIViewController()
+    public var presentationController: URBNPresentationController?
     
     // MARK: UIViewControllerAnimatedTransitioning Delegate Methods - Non-Interactive
     public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
@@ -56,7 +57,8 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     
     // MARK: UIViewControllerTransitioningDelegate methods
     public func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
-        return URBNPresentationController(presentedViewController: presented, presentingViewController: source)
+        presentationController = URBNPresentationController(presentedViewController: presented, presentingViewController: source)
+        return presentationController
     }
     
     public func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
