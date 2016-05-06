@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "URBNSwiftCarousel"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "A Carousel for use with Side Scrolling Collection Views."
   s.description      = <<-DESC
 

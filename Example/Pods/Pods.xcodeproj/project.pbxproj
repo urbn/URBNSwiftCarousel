@@ -1,1683 +1,699 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>02CC66FA2D191EFCEE87EF4EEC8D4453</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>5C3D3A97D1584F3BC1E1080C2549A2A2</string>
-			<key>remoteInfo</key>
-			<string>URBNSwiftCarousel</string>
-		</dict>
-		<key>0307E7E7E5E951EEB1275158F4574F52</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Tests-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>037CE1D483E7370F3363C34BEA2F7642</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>URBNSwiftCarousel</string>
-			<key>target</key>
-			<string>5C3D3A97D1584F3BC1E1080C2549A2A2</string>
-			<key>targetProxy</key>
-			<string>02CC66FA2D191EFCEE87EF4EEC8D4453</string>
-		</dict>
-		<key>06D40598FB930F724351103070FCFD9A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>543883BC13AF7A0A575F0DF5775E814B</string>
-				<string>FBA2D90AE61807C6499F5B7873BBDA22</string>
-				<string>8DB31097E13B349C27F084ED298ED81A</string>
-				<string>922D0C76695B999F85B0CCB250CD1D16</string>
-				<string>2D62DD60636E310AFDFECCA5D372139E</string>
-				<string>6B57F3B8C146F6AF0EE2DECE863BA744</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>Example/Pods/Target Support Files/URBNSwiftCarousel</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0825052842AF3086EBBF3CA37FCFEFDE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>577EFDE31C63A002A0EAA4D68D50492F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>118D05511B55EF038F824C40D8C5183B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>9413BA9E90CC124C20474E8F78D40026</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>12929C6695D2FE95EFCD20815094EBAC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>URBNSwCarouselTransitionController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>138366AD2D4B9CD0C4DF3622696C4109</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>3ABB4974519E587C287848142D59318D</string>
-				<string>3C0837A5CDF6B0C6B12CBB5BA29CF07F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1A2546DDC9B0BADB44C3B4513D0775D8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Tests-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1A7758195F0D4D94C3CB569A179E1D29</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A80CAD1DC2B4E214437769102B6E4BC7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>1CC659E8DFA1619ACECEB583C1F2EF2E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Tests-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D3FC668C0F051DCF0DA70A74E3B9BE1</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>5C3D3A97D1584F3BC1E1080C2549A2A2</string>
-			<key>remoteInfo</key>
-			<string>URBNSwiftCarousel</string>
-		</dict>
-		<key>2D53FA288F16BD3EBA658D26C70CF588</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Example-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D62DD60636E310AFDFECCA5D372139E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>URBNSwiftCarousel-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>5CE5176205D06FF3FFE3DDDA9291E44B</string>
-				<string>74857149DC1E0D599B8A01A78349A926</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>33DD12E632D16BA7333397DA441C7CFF</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>6FC71BA1694A0664036ACB8C05FDD0BC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>39BE23BC4C57649E5843F05909F17474</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6B57F3B8C146F6AF0EE2DECE863BA744</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>3ABB4974519E587C287848142D59318D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>9E348E193F683251C9D94029521A35DC</string>
-				<string>97E51A21C7CDFB2DD20F6A6AACE67975</string>
-				<string>D2E19B94FDCD171AEF5DE2D39F79BC37</string>
-				<string>782E632E8FDD23C6BF6AD1B7D7A96430</string>
-				<string>2D53FA288F16BD3EBA658D26C70CF588</string>
-				<string>90960DE051C85B19B2C8B4AA0469CE61</string>
-				<string>6E5F9497D359F172BB5ABCB346AC50A8</string>
-				<string>D68B04BCA7773BDB557BD2CC9C1D6398</string>
-				<string>54C3C95A6823BA73CFF87DA0B94A29AF</string>
-				<string>6EFDE9680007592C5F09541A8DF83876</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-URBNSwiftCarousel_Example</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-URBNSwiftCarousel_Example</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3BA15BDAE049DCFDEAB6304955882F79</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2D53FA288F16BD3EBA658D26C70CF588</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3BCF37CE49D431C0C533105A00EE9197</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>54C3C95A6823BA73CFF87DA0B94A29AF</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-URBNSwiftCarousel_Example/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-URBNSwiftCarousel_Example/Pods-URBNSwiftCarousel_Example.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_URBNSwiftCarousel_Example</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>3C0837A5CDF6B0C6B12CBB5BA29CF07F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>62032AA78AF40F759E743E8219F84C49</string>
-				<string>54933E95BC2CF95CF313DD58D6972D34</string>
-				<string>1CC659E8DFA1619ACECEB583C1F2EF2E</string>
-				<string>76035270F8FBD9A1424E79C1193084B3</string>
-				<string>A35BDE96ED311F77FD2B38EC6F65AEB6</string>
-				<string>D7ED23DA885C5CEEE0B4FA5B47D6AECC</string>
-				<string>0307E7E7E5E951EEB1275158F4574F52</string>
-				<string>1A2546DDC9B0BADB44C3B4513D0775D8</string>
-				<string>F3D7EA932A7858534BFF494BF06EB788</string>
-				<string>528E0678E2976B02709C73115EBE38AB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods-URBNSwiftCarousel_Tests</string>
-			<key>path</key>
-			<string>Target Support Files/Pods-URBNSwiftCarousel_Tests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3CCDF88D2B35F6EDAA839BB81F5C2F9E</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>8DB31097E13B349C27F084ED298ED81A</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/URBNSwiftCarousel/URBNSwiftCarousel-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/URBNSwiftCarousel/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/URBNSwiftCarousel/URBNSwiftCarousel.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>PRODUCT_NAME</key>
-				<string>URBNSwiftCarousel</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>3E4E89230EF59BC255123B67864ACF77</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>51CF5E08DED1DC39B850D1F3D648D04E</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>URBNSwiftCarousel.framework</string>
-			<key>path</key>
-			<string>URBNSwiftCarousel.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>528E0678E2976B02709C73115EBE38AB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Tests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>543883BC13AF7A0A575F0DF5775E814B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>54933E95BC2CF95CF313DD58D6972D34</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Tests.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>54C3C95A6823BA73CFF87DA0B94A29AF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Example.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>577EFDE31C63A002A0EAA4D68D50492F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1A2546DDC9B0BADB44C3B4513D0775D8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>5A64F569647D36ADA7A151106592482C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>URBNPresentationController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5C3D3A97D1584F3BC1E1080C2549A2A2</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>6295360D33AAA698BE4B42C1448D8A2C</string>
-			<key>buildPhases</key>
-			<array>
-				<string>FD80FEE81C1A274A8B2B9EB9CF550167</string>
-				<string>B8A693C8E52DE21D5B12061AF333B034</string>
-				<string>BA83285FB32E83C8ED652A547F83ABA8</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>URBNSwiftCarousel</string>
-			<key>productName</key>
-			<string>URBNSwiftCarousel</string>
-			<key>productReference</key>
-			<string>51CF5E08DED1DC39B850D1F3D648D04E</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>5CE5176205D06FF3FFE3DDDA9291E44B</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>5D1EF5F2534AAFF84CCBB9E9273966B7</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>8DB31097E13B349C27F084ED298ED81A</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>Target Support Files/URBNSwiftCarousel/URBNSwiftCarousel-prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/URBNSwiftCarousel/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/URBNSwiftCarousel/URBNSwiftCarousel.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>URBNSwiftCarousel</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>5F559DC9E33E8318E972A167739E6E04</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>URBNHorizontalPagedFlowLayout.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>62032AA78AF40F759E743E8219F84C49</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6295360D33AAA698BE4B42C1448D8A2C</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>5D1EF5F2534AAFF84CCBB9E9273966B7</string>
-				<string>3CCDF88D2B35F6EDAA839BB81F5C2F9E</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>630F307CE45181AF287ACD41ECA1DF85</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>742DB7EF2D1E98A8FF27C266BA70F84E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>URBNSwiftCarousel</string>
-			<key>path</key>
-			<string>URBNSwiftCarousel</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>67C96DEEF816933E351820EB158610A0</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods_URBNSwiftCarousel_Example.framework</string>
-			<key>path</key>
-			<string>Pods_URBNSwiftCarousel_Example.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>697117FC1C95DB5786ABE2C40CBF48BA</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>6EFDE9680007592C5F09541A8DF83876</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-URBNSwiftCarousel_Example/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-URBNSwiftCarousel_Example/Pods-URBNSwiftCarousel_Example.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_URBNSwiftCarousel_Example</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>6B57F3B8C146F6AF0EE2DECE863BA744</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>URBNSwiftCarousel-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6E5F9497D359F172BB5ABCB346AC50A8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Example-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6EFDE9680007592C5F09541A8DF83876</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Example.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6FC71BA1694A0664036ACB8C05FDD0BC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3E4E89230EF59BC255123B67864ACF77</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>742DB7EF2D1E98A8FF27C266BA70F84E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>80EE40C5E26268A19D401E1689434E02</string>
-				<string>D02B9F8703A0C319349AC7E130E7BDA9</string>
-				<string>5F559DC9E33E8318E972A167739E6E04</string>
-				<string>5A64F569647D36ADA7A151106592482C</string>
-				<string>12929C6695D2FE95EFCD20815094EBAC</string>
-				<string>C3CD266A4B44BE80D2551A2EC36B568F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Classes</string>
-			<key>path</key>
-			<string>Classes</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>74857149DC1E0D599B8A01A78349A926</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>RELEASE=1</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>76035270F8FBD9A1424E79C1193084B3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Tests-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>776F9B8E1AD8B19879166056695EC0E2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>80EE40C5E26268A19D401E1689434E02</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>782E632E8FDD23C6BF6AD1B7D7A96430</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Example-acknowledgements.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7DB346D0F39D3F0E887471402A8071AB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
-				<string>B8C18E65371AC8B3B7D0555D577ECD02</string>
-				<string>BC3CA7F9E30CC8F7E2DD044DD34432FC</string>
-				<string>E2BF697896D6FD9589CEA9EA3754BF12</string>
-				<string>138366AD2D4B9CD0C4DF3622696C4109</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>80EE40C5E26268A19D401E1689434E02</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>UIImageView+URBNImageFrame.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8A09F9AD2BD64B79F687B14A87DA90D3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3E4E89230EF59BC255123B67864ACF77</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8DB31097E13B349C27F084ED298ED81A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>URBNSwiftCarousel.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>90960DE051C85B19B2C8B4AA0469CE61</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Example-frameworks.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>90CEC5277ACB79714AD7CCDA8725C451</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>06D40598FB930F724351103070FCFD9A</string>
-				<string>630F307CE45181AF287ACD41ECA1DF85</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>URBNSwiftCarousel</string>
-			<key>path</key>
-			<string>../..</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>91C5B33CC1D8A7D6A1FAF08898B01175</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3E4E89230EF59BC255123B67864ACF77</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>922D0C76695B999F85B0CCB250CD1D16</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>URBNSwiftCarousel-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9413BA9E90CC124C20474E8F78D40026</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D68B04BCA7773BDB557BD2CC9C1D6398</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>97E51A21C7CDFB2DD20F6A6AACE67975</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Example.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>98725FC57E752DC4A10EE2E193CC205B</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>Pods_URBNSwiftCarousel_Tests.framework</string>
-			<key>path</key>
-			<string>Pods_URBNSwiftCarousel_Tests.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>995E495C211E84C63D709D03D1928879</key>
-		<dict>
-			<key>fileRef</key>
-			<string>922D0C76695B999F85B0CCB250CD1D16</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9E348E193F683251C9D94029521A35DC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9F68ECC5CE04E1804EFF076461119468</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>E4195112FF736D88D93F4CD3DB623BA3</string>
-			<key>buildPhases</key>
-			<array>
-				<string>1A7758195F0D4D94C3CB569A179E1D29</string>
-				<string>A2B4C432111E670E901CC995FBC71132</string>
-				<string>0825052842AF3086EBBF3CA37FCFEFDE</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>D62EFA809C6D3ECCA5458FD26100E0D8</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-URBNSwiftCarousel_Tests</string>
-			<key>productName</key>
-			<string>Pods-URBNSwiftCarousel_Tests</string>
-			<key>productReference</key>
-			<string>98725FC57E752DC4A10EE2E193CC205B</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>A20A0E4DAC2689617D8ECF1C61CF153D</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>528E0678E2976B02709C73115EBE38AB</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-URBNSwiftCarousel_Tests/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-URBNSwiftCarousel_Tests/Pods-URBNSwiftCarousel_Tests.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_URBNSwiftCarousel_Tests</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>A2B4C432111E670E901CC995FBC71132</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>8A09F9AD2BD64B79F687B14A87DA90D3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>A35BDE96ED311F77FD2B38EC6F65AEB6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Tests-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A80CAD1DC2B4E214437769102B6E4BC7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A35BDE96ED311F77FD2B38EC6F65AEB6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B369BCB5F97C3B33EA1730893C211007</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>3BCF37CE49D431C0C533105A00EE9197</string>
-				<string>697117FC1C95DB5786ABE2C40CBF48BA</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>B63461BDF9DB11E86F97D1386FB40E99</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>F3D7EA932A7858534BFF494BF06EB788</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-URBNSwiftCarousel_Tests/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-URBNSwiftCarousel_Tests/Pods-URBNSwiftCarousel_Tests.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_URBNSwiftCarousel_Tests</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B73B1CEA5F1B1E23E0A2A2B72A6D6B14</key>
-		<dict>
-			<key>fileRef</key>
-			<string>12929C6695D2FE95EFCD20815094EBAC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B8A693C8E52DE21D5B12061AF333B034</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>91C5B33CC1D8A7D6A1FAF08898B01175</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B8C18E65371AC8B3B7D0555D577ECD02</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>90CEC5277ACB79714AD7CCDA8725C451</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Development Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BA6428E9F66FD5A23C0A2E06ED26CD2F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>name</key>
-			<string>Podfile</string>
-			<key>path</key>
-			<string>../Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>BA83285FB32E83C8ED652A547F83ABA8</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>39BE23BC4C57649E5843F05909F17474</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BC3CA7F9E30CC8F7E2DD044DD34432FC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BF6342C8B29F4CEEA088EFF7AB4DE362</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BF6342C8B29F4CEEA088EFF7AB4DE362</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>3E4E89230EF59BC255123B67864ACF77</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>iOS</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C3CD266A4B44BE80D2551A2EC36B568F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>URBNSwiftCarouselProtocols.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C9108A8C332910EDE2400A31492AE4DA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5F559DC9E33E8318E972A167739E6E04</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CC465236D1559BA3148E99F89B03EF83</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>3BA15BDAE049DCFDEAB6304955882F79</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D02B9F8703A0C319349AC7E130E7BDA9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>URBNCarouselZoomableCellCollectionViewCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D2E19B94FDCD171AEF5DE2D39F79BC37</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Example-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D41D8CD98F00B204E9800998ECF8427E</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0700</string>
-				<key>LastUpgradeCheck</key>
-				<string>0700</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>2D8E8EC45A3A1A1D94AE762CB5028504</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>7DB346D0F39D3F0E887471402A8071AB</string>
-			<key>productRefGroup</key>
-			<string>E2BF697896D6FD9589CEA9EA3754BF12</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>D6C7F2BE15E978DB318BB87338483FA9</string>
-				<string>9F68ECC5CE04E1804EFF076461119468</string>
-				<string>5C3D3A97D1584F3BC1E1080C2549A2A2</string>
-			</array>
-		</dict>
-		<key>D62EFA809C6D3ECCA5458FD26100E0D8</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>URBNSwiftCarousel</string>
-			<key>target</key>
-			<string>5C3D3A97D1584F3BC1E1080C2549A2A2</string>
-			<key>targetProxy</key>
-			<string>2D3FC668C0F051DCF0DA70A74E3B9BE1</string>
-		</dict>
-		<key>D68B04BCA7773BDB557BD2CC9C1D6398</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Example-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D6C7F2BE15E978DB318BB87338483FA9</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>B369BCB5F97C3B33EA1730893C211007</string>
-			<key>buildPhases</key>
-			<array>
-				<string>CC465236D1559BA3148E99F89B03EF83</string>
-				<string>33DD12E632D16BA7333397DA441C7CFF</string>
-				<string>118D05511B55EF038F824C40D8C5183B</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>037CE1D483E7370F3363C34BEA2F7642</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Pods-URBNSwiftCarousel_Example</string>
-			<key>productName</key>
-			<string>Pods-URBNSwiftCarousel_Example</string>
-			<key>productReference</key>
-			<string>67C96DEEF816933E351820EB158610A0</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>D7ED23DA885C5CEEE0B4FA5B47D6AECC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.script.sh</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Tests-frameworks.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DC21467ACFF61C199FFEEEAF5AC020BD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3CD266A4B44BE80D2551A2EC36B568F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E2B51AA52BC51EC23F7A0F372E47452D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5A64F569647D36ADA7A151106592482C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E2BF697896D6FD9589CEA9EA3754BF12</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>67C96DEEF816933E351820EB158610A0</string>
-				<string>98725FC57E752DC4A10EE2E193CC205B</string>
-				<string>51CF5E08DED1DC39B850D1F3D648D04E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E4195112FF736D88D93F4CD3DB623BA3</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B63461BDF9DB11E86F97D1386FB40E99</string>
-				<string>A20A0E4DAC2689617D8ECF1C61CF153D</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>E84AD07B0A61AC9C573C20BBEC12FC44</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D02B9F8703A0C319349AC7E130E7BDA9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F3D7EA932A7858534BFF494BF06EB788</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Pods-URBNSwiftCarousel_Tests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FBA2D90AE61807C6499F5B7873BBDA22</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>URBNSwiftCarousel.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FD80FEE81C1A274A8B2B9EB9CF550167</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>776F9B8E1AD8B19879166056695EC0E2</string>
-				<string>E84AD07B0A61AC9C573C20BBEC12FC44</string>
-				<string>C9108A8C332910EDE2400A31492AE4DA</string>
-				<string>E2B51AA52BC51EC23F7A0F372E47452D</string>
-				<string>B73B1CEA5F1B1E23E0A2A2B72A6D6B14</string>
-				<string>995E495C211E84C63D709D03D1928879</string>
-				<string>DC21467ACFF61C199FFEEEAF5AC020BD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>D41D8CD98F00B204E9800998ECF8427E</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39BE23BC4C57649E5843F05909F17474 /* URBNSwiftCarousel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B57F3B8C146F6AF0EE2DECE863BA744 /* URBNSwiftCarousel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BA15BDAE049DCFDEAB6304955882F79 /* Pods-URBNSwiftCarousel_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D53FA288F16BD3EBA658D26C70CF588 /* Pods-URBNSwiftCarousel_Example-dummy.m */; };
+		577EFDE31C63A002A0EAA4D68D50492F /* Pods-URBNSwiftCarousel_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A2546DDC9B0BADB44C3B4513D0775D8 /* Pods-URBNSwiftCarousel_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FC71BA1694A0664036ACB8C05FDD0BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		776F9B8E1AD8B19879166056695EC0E2 /* UIImageView+URBNImageFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EE40C5E26268A19D401E1689434E02 /* UIImageView+URBNImageFrame.swift */; };
+		8A09F9AD2BD64B79F687B14A87DA90D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		91C5B33CC1D8A7D6A1FAF08898B01175 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		9413BA9E90CC124C20474E8F78D40026 /* Pods-URBNSwiftCarousel_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D68B04BCA7773BDB557BD2CC9C1D6398 /* Pods-URBNSwiftCarousel_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		995E495C211E84C63D709D03D1928879 /* URBNSwiftCarousel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 922D0C76695B999F85B0CCB250CD1D16 /* URBNSwiftCarousel-dummy.m */; };
+		A80CAD1DC2B4E214437769102B6E4BC7 /* Pods-URBNSwiftCarousel_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A35BDE96ED311F77FD2B38EC6F65AEB6 /* Pods-URBNSwiftCarousel_Tests-dummy.m */; };
+		B73B1CEA5F1B1E23E0A2A2B72A6D6B14 /* URBNSwCarouselTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12929C6695D2FE95EFCD20815094EBAC /* URBNSwCarouselTransitionController.swift */; };
+		C9108A8C332910EDE2400A31492AE4DA /* URBNHorizontalPagedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F559DC9E33E8318E972A167739E6E04 /* URBNHorizontalPagedFlowLayout.swift */; };
+		DC21467ACFF61C199FFEEEAF5AC020BD /* URBNSwiftCarouselProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CD266A4B44BE80D2551A2EC36B568F /* URBNSwiftCarouselProtocols.swift */; };
+		E2B51AA52BC51EC23F7A0F372E47452D /* URBNPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64F569647D36ADA7A151106592482C /* URBNPresentationController.swift */; };
+		E84AD07B0A61AC9C573C20BBEC12FC44 /* URBNCarouselZoomableCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02B9F8703A0C319349AC7E130E7BDA9 /* URBNCarouselZoomableCellCollectionViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		02CC66FA2D191EFCEE87EF4EEC8D4453 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C3D3A97D1584F3BC1E1080C2549A2A2;
+			remoteInfo = URBNSwiftCarousel;
+		};
+		2D3FC668C0F051DCF0DA70A74E3B9BE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C3D3A97D1584F3BC1E1080C2549A2A2;
+			remoteInfo = URBNSwiftCarousel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0307E7E7E5E951EEB1275158F4574F52 /* Pods-URBNSwiftCarousel_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftCarousel_Tests-resources.sh"; sourceTree = "<group>"; };
+		12929C6695D2FE95EFCD20815094EBAC /* URBNSwCarouselTransitionController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = URBNSwCarouselTransitionController.swift; sourceTree = "<group>"; };
+		1A2546DDC9B0BADB44C3B4513D0775D8 /* Pods-URBNSwiftCarousel_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-URBNSwiftCarousel_Tests-umbrella.h"; sourceTree = "<group>"; };
+		1CC659E8DFA1619ACECEB583C1F2EF2E /* Pods-URBNSwiftCarousel_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-URBNSwiftCarousel_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2D53FA288F16BD3EBA658D26C70CF588 /* Pods-URBNSwiftCarousel_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-URBNSwiftCarousel_Example-dummy.m"; sourceTree = "<group>"; };
+		2D62DD60636E310AFDFECCA5D372139E /* URBNSwiftCarousel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftCarousel-prefix.pch"; sourceTree = "<group>"; };
+		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		51CF5E08DED1DC39B850D1F3D648D04E /* URBNSwiftCarousel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URBNSwiftCarousel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		528E0678E2976B02709C73115EBE38AB /* Pods-URBNSwiftCarousel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftCarousel_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		543883BC13AF7A0A575F0DF5775E814B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54933E95BC2CF95CF313DD58D6972D34 /* Pods-URBNSwiftCarousel_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-URBNSwiftCarousel_Tests.modulemap"; sourceTree = "<group>"; };
+		54C3C95A6823BA73CFF87DA0B94A29AF /* Pods-URBNSwiftCarousel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftCarousel_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		5A64F569647D36ADA7A151106592482C /* URBNPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = URBNPresentationController.swift; sourceTree = "<group>"; };
+		5F559DC9E33E8318E972A167739E6E04 /* URBNHorizontalPagedFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = URBNHorizontalPagedFlowLayout.swift; sourceTree = "<group>"; };
+		62032AA78AF40F759E743E8219F84C49 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67C96DEEF816933E351820EB158610A0 /* Pods_URBNSwiftCarousel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URBNSwiftCarousel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B57F3B8C146F6AF0EE2DECE863BA744 /* URBNSwiftCarousel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftCarousel-umbrella.h"; sourceTree = "<group>"; };
+		6E5F9497D359F172BB5ABCB346AC50A8 /* Pods-URBNSwiftCarousel_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftCarousel_Example-resources.sh"; sourceTree = "<group>"; };
+		6EFDE9680007592C5F09541A8DF83876 /* Pods-URBNSwiftCarousel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftCarousel_Example.release.xcconfig"; sourceTree = "<group>"; };
+		76035270F8FBD9A1424E79C1193084B3 /* Pods-URBNSwiftCarousel_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-URBNSwiftCarousel_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		782E632E8FDD23C6BF6AD1B7D7A96430 /* Pods-URBNSwiftCarousel_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-URBNSwiftCarousel_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		80EE40C5E26268A19D401E1689434E02 /* UIImageView+URBNImageFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImageView+URBNImageFrame.swift"; sourceTree = "<group>"; };
+		8DB31097E13B349C27F084ED298ED81A /* URBNSwiftCarousel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URBNSwiftCarousel.xcconfig; sourceTree = "<group>"; };
+		90960DE051C85B19B2C8B4AA0469CE61 /* Pods-URBNSwiftCarousel_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftCarousel_Example-frameworks.sh"; sourceTree = "<group>"; };
+		922D0C76695B999F85B0CCB250CD1D16 /* URBNSwiftCarousel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "URBNSwiftCarousel-dummy.m"; sourceTree = "<group>"; };
+		97E51A21C7CDFB2DD20F6A6AACE67975 /* Pods-URBNSwiftCarousel_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-URBNSwiftCarousel_Example.modulemap"; sourceTree = "<group>"; };
+		98725FC57E752DC4A10EE2E193CC205B /* Pods_URBNSwiftCarousel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URBNSwiftCarousel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E348E193F683251C9D94029521A35DC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A35BDE96ED311F77FD2B38EC6F65AEB6 /* Pods-URBNSwiftCarousel_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-URBNSwiftCarousel_Tests-dummy.m"; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C3CD266A4B44BE80D2551A2EC36B568F /* URBNSwiftCarouselProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = URBNSwiftCarouselProtocols.swift; sourceTree = "<group>"; };
+		D02B9F8703A0C319349AC7E130E7BDA9 /* URBNCarouselZoomableCellCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = URBNCarouselZoomableCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		D2E19B94FDCD171AEF5DE2D39F79BC37 /* Pods-URBNSwiftCarousel_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-URBNSwiftCarousel_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D68B04BCA7773BDB557BD2CC9C1D6398 /* Pods-URBNSwiftCarousel_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-URBNSwiftCarousel_Example-umbrella.h"; sourceTree = "<group>"; };
+		D7ED23DA885C5CEEE0B4FA5B47D6AECC /* Pods-URBNSwiftCarousel_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftCarousel_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		F3D7EA932A7858534BFF494BF06EB788 /* Pods-URBNSwiftCarousel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftCarousel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		FBA2D90AE61807C6499F5B7873BBDA22 /* URBNSwiftCarousel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = URBNSwiftCarousel.modulemap; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33DD12E632D16BA7333397DA441C7CFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FC71BA1694A0664036ACB8C05FDD0BC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B4C432111E670E901CC995FBC71132 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A09F9AD2BD64B79F687B14A87DA90D3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8A693C8E52DE21D5B12061AF333B034 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91C5B33CC1D8A7D6A1FAF08898B01175 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06D40598FB930F724351103070FCFD9A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				543883BC13AF7A0A575F0DF5775E814B /* Info.plist */,
+				FBA2D90AE61807C6499F5B7873BBDA22 /* URBNSwiftCarousel.modulemap */,
+				8DB31097E13B349C27F084ED298ED81A /* URBNSwiftCarousel.xcconfig */,
+				922D0C76695B999F85B0CCB250CD1D16 /* URBNSwiftCarousel-dummy.m */,
+				2D62DD60636E310AFDFECCA5D372139E /* URBNSwiftCarousel-prefix.pch */,
+				6B57F3B8C146F6AF0EE2DECE863BA744 /* URBNSwiftCarousel-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/URBNSwiftCarousel";
+			sourceTree = "<group>";
+		};
+		138366AD2D4B9CD0C4DF3622696C4109 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3ABB4974519E587C287848142D59318D /* Pods-URBNSwiftCarousel_Example */,
+				3C0837A5CDF6B0C6B12CBB5BA29CF07F /* Pods-URBNSwiftCarousel_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3ABB4974519E587C287848142D59318D /* Pods-URBNSwiftCarousel_Example */ = {
+			isa = PBXGroup;
+			children = (
+				9E348E193F683251C9D94029521A35DC /* Info.plist */,
+				97E51A21C7CDFB2DD20F6A6AACE67975 /* Pods-URBNSwiftCarousel_Example.modulemap */,
+				D2E19B94FDCD171AEF5DE2D39F79BC37 /* Pods-URBNSwiftCarousel_Example-acknowledgements.markdown */,
+				782E632E8FDD23C6BF6AD1B7D7A96430 /* Pods-URBNSwiftCarousel_Example-acknowledgements.plist */,
+				2D53FA288F16BD3EBA658D26C70CF588 /* Pods-URBNSwiftCarousel_Example-dummy.m */,
+				90960DE051C85B19B2C8B4AA0469CE61 /* Pods-URBNSwiftCarousel_Example-frameworks.sh */,
+				6E5F9497D359F172BB5ABCB346AC50A8 /* Pods-URBNSwiftCarousel_Example-resources.sh */,
+				D68B04BCA7773BDB557BD2CC9C1D6398 /* Pods-URBNSwiftCarousel_Example-umbrella.h */,
+				54C3C95A6823BA73CFF87DA0B94A29AF /* Pods-URBNSwiftCarousel_Example.debug.xcconfig */,
+				6EFDE9680007592C5F09541A8DF83876 /* Pods-URBNSwiftCarousel_Example.release.xcconfig */,
+			);
+			name = "Pods-URBNSwiftCarousel_Example";
+			path = "Target Support Files/Pods-URBNSwiftCarousel_Example";
+			sourceTree = "<group>";
+		};
+		3C0837A5CDF6B0C6B12CBB5BA29CF07F /* Pods-URBNSwiftCarousel_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				62032AA78AF40F759E743E8219F84C49 /* Info.plist */,
+				54933E95BC2CF95CF313DD58D6972D34 /* Pods-URBNSwiftCarousel_Tests.modulemap */,
+				1CC659E8DFA1619ACECEB583C1F2EF2E /* Pods-URBNSwiftCarousel_Tests-acknowledgements.markdown */,
+				76035270F8FBD9A1424E79C1193084B3 /* Pods-URBNSwiftCarousel_Tests-acknowledgements.plist */,
+				A35BDE96ED311F77FD2B38EC6F65AEB6 /* Pods-URBNSwiftCarousel_Tests-dummy.m */,
+				D7ED23DA885C5CEEE0B4FA5B47D6AECC /* Pods-URBNSwiftCarousel_Tests-frameworks.sh */,
+				0307E7E7E5E951EEB1275158F4574F52 /* Pods-URBNSwiftCarousel_Tests-resources.sh */,
+				1A2546DDC9B0BADB44C3B4513D0775D8 /* Pods-URBNSwiftCarousel_Tests-umbrella.h */,
+				F3D7EA932A7858534BFF494BF06EB788 /* Pods-URBNSwiftCarousel_Tests.debug.xcconfig */,
+				528E0678E2976B02709C73115EBE38AB /* Pods-URBNSwiftCarousel_Tests.release.xcconfig */,
+			);
+			name = "Pods-URBNSwiftCarousel_Tests";
+			path = "Target Support Files/Pods-URBNSwiftCarousel_Tests";
+			sourceTree = "<group>";
+		};
+		630F307CE45181AF287ACD41ECA1DF85 /* URBNSwiftCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				742DB7EF2D1E98A8FF27C266BA70F84E /* Classes */,
+			);
+			path = URBNSwiftCarousel;
+			sourceTree = "<group>";
+		};
+		742DB7EF2D1E98A8FF27C266BA70F84E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				80EE40C5E26268A19D401E1689434E02 /* UIImageView+URBNImageFrame.swift */,
+				D02B9F8703A0C319349AC7E130E7BDA9 /* URBNCarouselZoomableCellCollectionViewCell.swift */,
+				5F559DC9E33E8318E972A167739E6E04 /* URBNHorizontalPagedFlowLayout.swift */,
+				5A64F569647D36ADA7A151106592482C /* URBNPresentationController.swift */,
+				12929C6695D2FE95EFCD20815094EBAC /* URBNSwCarouselTransitionController.swift */,
+				C3CD266A4B44BE80D2551A2EC36B568F /* URBNSwiftCarouselProtocols.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				B8C18E65371AC8B3B7D0555D577ECD02 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				E2BF697896D6FD9589CEA9EA3754BF12 /* Products */,
+				138366AD2D4B9CD0C4DF3622696C4109 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		90CEC5277ACB79714AD7CCDA8725C451 /* URBNSwiftCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				06D40598FB930F724351103070FCFD9A /* Support Files */,
+				630F307CE45181AF287ACD41ECA1DF85 /* URBNSwiftCarousel */,
+			);
+			name = URBNSwiftCarousel;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		B8C18E65371AC8B3B7D0555D577ECD02 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90CEC5277ACB79714AD7CCDA8725C451 /* URBNSwiftCarousel */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E2BF697896D6FD9589CEA9EA3754BF12 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67C96DEEF816933E351820EB158610A0 /* Pods_URBNSwiftCarousel_Example.framework */,
+				98725FC57E752DC4A10EE2E193CC205B /* Pods_URBNSwiftCarousel_Tests.framework */,
+				51CF5E08DED1DC39B850D1F3D648D04E /* URBNSwiftCarousel.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0825052842AF3086EBBF3CA37FCFEFDE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				577EFDE31C63A002A0EAA4D68D50492F /* Pods-URBNSwiftCarousel_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		118D05511B55EF038F824C40D8C5183B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9413BA9E90CC124C20474E8F78D40026 /* Pods-URBNSwiftCarousel_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA83285FB32E83C8ED652A547F83ABA8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39BE23BC4C57649E5843F05909F17474 /* URBNSwiftCarousel-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5C3D3A97D1584F3BC1E1080C2549A2A2 /* URBNSwiftCarousel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6295360D33AAA698BE4B42C1448D8A2C /* Build configuration list for PBXNativeTarget "URBNSwiftCarousel" */;
+			buildPhases = (
+				FD80FEE81C1A274A8B2B9EB9CF550167 /* Sources */,
+				B8A693C8E52DE21D5B12061AF333B034 /* Frameworks */,
+				BA83285FB32E83C8ED652A547F83ABA8 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = URBNSwiftCarousel;
+			productName = URBNSwiftCarousel;
+			productReference = 51CF5E08DED1DC39B850D1F3D648D04E /* URBNSwiftCarousel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9F68ECC5CE04E1804EFF076461119468 /* Pods-URBNSwiftCarousel_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4195112FF736D88D93F4CD3DB623BA3 /* Build configuration list for PBXNativeTarget "Pods-URBNSwiftCarousel_Tests" */;
+			buildPhases = (
+				1A7758195F0D4D94C3CB569A179E1D29 /* Sources */,
+				A2B4C432111E670E901CC995FBC71132 /* Frameworks */,
+				0825052842AF3086EBBF3CA37FCFEFDE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D62EFA809C6D3ECCA5458FD26100E0D8 /* PBXTargetDependency */,
+			);
+			name = "Pods-URBNSwiftCarousel_Tests";
+			productName = "Pods-URBNSwiftCarousel_Tests";
+			productReference = 98725FC57E752DC4A10EE2E193CC205B /* Pods_URBNSwiftCarousel_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D6C7F2BE15E978DB318BB87338483FA9 /* Pods-URBNSwiftCarousel_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B369BCB5F97C3B33EA1730893C211007 /* Build configuration list for PBXNativeTarget "Pods-URBNSwiftCarousel_Example" */;
+			buildPhases = (
+				CC465236D1559BA3148E99F89B03EF83 /* Sources */,
+				33DD12E632D16BA7333397DA441C7CFF /* Frameworks */,
+				118D05511B55EF038F824C40D8C5183B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				037CE1D483E7370F3363C34BEA2F7642 /* PBXTargetDependency */,
+			);
+			name = "Pods-URBNSwiftCarousel_Example";
+			productName = "Pods-URBNSwiftCarousel_Example";
+			productReference = 67C96DEEF816933E351820EB158610A0 /* Pods_URBNSwiftCarousel_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = E2BF697896D6FD9589CEA9EA3754BF12 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D6C7F2BE15E978DB318BB87338483FA9 /* Pods-URBNSwiftCarousel_Example */,
+				9F68ECC5CE04E1804EFF076461119468 /* Pods-URBNSwiftCarousel_Tests */,
+				5C3D3A97D1584F3BC1E1080C2549A2A2 /* URBNSwiftCarousel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A7758195F0D4D94C3CB569A179E1D29 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A80CAD1DC2B4E214437769102B6E4BC7 /* Pods-URBNSwiftCarousel_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC465236D1559BA3148E99F89B03EF83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BA15BDAE049DCFDEAB6304955882F79 /* Pods-URBNSwiftCarousel_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD80FEE81C1A274A8B2B9EB9CF550167 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				776F9B8E1AD8B19879166056695EC0E2 /* UIImageView+URBNImageFrame.swift in Sources */,
+				E84AD07B0A61AC9C573C20BBEC12FC44 /* URBNCarouselZoomableCellCollectionViewCell.swift in Sources */,
+				C9108A8C332910EDE2400A31492AE4DA /* URBNHorizontalPagedFlowLayout.swift in Sources */,
+				E2B51AA52BC51EC23F7A0F372E47452D /* URBNPresentationController.swift in Sources */,
+				B73B1CEA5F1B1E23E0A2A2B72A6D6B14 /* URBNSwCarouselTransitionController.swift in Sources */,
+				995E495C211E84C63D709D03D1928879 /* URBNSwiftCarousel-dummy.m in Sources */,
+				DC21467ACFF61C199FFEEEAF5AC020BD /* URBNSwiftCarouselProtocols.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		037CE1D483E7370F3363C34BEA2F7642 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = URBNSwiftCarousel;
+			target = 5C3D3A97D1584F3BC1E1080C2549A2A2 /* URBNSwiftCarousel */;
+			targetProxy = 02CC66FA2D191EFCEE87EF4EEC8D4453 /* PBXContainerItemProxy */;
+		};
+		D62EFA809C6D3ECCA5458FD26100E0D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = URBNSwiftCarousel;
+			target = 5C3D3A97D1584F3BC1E1080C2549A2A2 /* URBNSwiftCarousel */;
+			targetProxy = 2D3FC668C0F051DCF0DA70A74E3B9BE1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3BCF37CE49D431C0C533105A00EE9197 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54C3C95A6823BA73CFF87DA0B94A29AF /* Pods-URBNSwiftCarousel_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-URBNSwiftCarousel_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-URBNSwiftCarousel_Example/Pods-URBNSwiftCarousel_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_URBNSwiftCarousel_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3CCDF88D2B35F6EDAA839BB81F5C2F9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DB31097E13B349C27F084ED298ED81A /* URBNSwiftCarousel.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/URBNSwiftCarousel/URBNSwiftCarousel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/URBNSwiftCarousel/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/URBNSwiftCarousel/URBNSwiftCarousel.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = URBNSwiftCarousel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		5D1EF5F2534AAFF84CCBB9E9273966B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DB31097E13B349C27F084ED298ED81A /* URBNSwiftCarousel.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/URBNSwiftCarousel/URBNSwiftCarousel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/URBNSwiftCarousel/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/URBNSwiftCarousel/URBNSwiftCarousel.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = URBNSwiftCarousel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		697117FC1C95DB5786ABE2C40CBF48BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EFDE9680007592C5F09541A8DF83876 /* Pods-URBNSwiftCarousel_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-URBNSwiftCarousel_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-URBNSwiftCarousel_Example/Pods-URBNSwiftCarousel_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_URBNSwiftCarousel_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		74857149DC1E0D599B8A01A78349A926 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A20A0E4DAC2689617D8ECF1C61CF153D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 528E0678E2976B02709C73115EBE38AB /* Pods-URBNSwiftCarousel_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-URBNSwiftCarousel_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-URBNSwiftCarousel_Tests/Pods-URBNSwiftCarousel_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_URBNSwiftCarousel_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B63461BDF9DB11E86F97D1386FB40E99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3D7EA932A7858534BFF494BF06EB788 /* Pods-URBNSwiftCarousel_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-URBNSwiftCarousel_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-URBNSwiftCarousel_Tests/Pods-URBNSwiftCarousel_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_URBNSwiftCarousel_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */,
+				74857149DC1E0D599B8A01A78349A926 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6295360D33AAA698BE4B42C1448D8A2C /* Build configuration list for PBXNativeTarget "URBNSwiftCarousel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D1EF5F2534AAFF84CCBB9E9273966B7 /* Debug */,
+				3CCDF88D2B35F6EDAA839BB81F5C2F9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B369BCB5F97C3B33EA1730893C211007 /* Build configuration list for PBXNativeTarget "Pods-URBNSwiftCarousel_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BCF37CE49D431C0C533105A00EE9197 /* Debug */,
+				697117FC1C95DB5786ABE2C40CBF48BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4195112FF736D88D93F4CD3DB623BA3 /* Build configuration list for PBXNativeTarget "Pods-URBNSwiftCarousel_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B63461BDF9DB11E86F97D1386FB40E99 /* Debug */,
+				A20A0E4DAC2689617D8ECF1C61CF153D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
