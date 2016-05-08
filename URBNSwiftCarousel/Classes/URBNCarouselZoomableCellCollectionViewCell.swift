@@ -38,20 +38,22 @@ public class URBNCarouselZoomableCell: UICollectionViewCell, UIScrollViewDelegat
         scrollView.addSubview(imageView)
     }
     
-    // MARL: UIScrollView Delegate
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+}
+
+extension URBNCarouselZoomableCell {
+    // MARK: UIScrollView Delegate
     public func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
     }
     
     public func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
         guard let imgView = view else { return }
-        UIView.animateWithDuration(0.2) { 
+        UIView.animateWithDuration(0.2) {
             imgView.center = CGPointMake(scrollView.bounds.size.width / 2 * scale, scrollView.bounds.size.height/2 * scale)
         }
     }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
 }

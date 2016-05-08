@@ -20,10 +20,6 @@ typealias URBNCarouselViewInteractionBeganClosure = (controller: URBNSwCarouselT
     case end
 }
 
-@objc public protocol URBNSwCarouselInteractiveDelegate {
-    func shouldBeginInteractiveTransitionWithView(view: UIView, direction: TranstionDirection) -> Bool
-}
-
 @objc public protocol URBNSynchronizingDelegate {
     optional func updateSourceSelectedCell(cell: URBNCarouselZoomableCell)
     

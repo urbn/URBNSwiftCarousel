@@ -22,7 +22,6 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     */
     let tableView = UITableView(frame: CGRectZero, style: .Plain)
     
-    
     private var selectedCellForTransition: URBNCarouselZoomableCell?
     private var selectedCollectionViewForTransition: UICollectionView?
     

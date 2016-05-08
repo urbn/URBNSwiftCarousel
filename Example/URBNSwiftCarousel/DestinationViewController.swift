@@ -9,28 +9,42 @@
 import UIKit
 import URBNSwiftCarousel
 
+/*
+ This is an example class for a larger, "zoomed out" version of the image tapped in the source view controller.
+*/
+
 class DestinationViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, URBNSwCarouselTransitioning, URBNSynchronizingDelegate {
     
-    var destinationCollectionView: UICollectionView!
+    let destinationCollectionView: UICollectionView
     var selectedCellForTransition: URBNCarouselZoomableCell?
     var exampleData = UIImage.testingImages()
     var selectedPath: NSIndexPath?
     var dismissCallback: (Void -> Void)?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    
+    init() {
         let layout = URBNHorizontalPagedFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height)
         layout.scrollDirection = .Horizontal
         layout.minimumInteritemSpacing = 1.0
         layout.minimumLineSpacing = 1.0
- 
-        destinationCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        
+        destinationCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
         destinationCollectionView.registerClass(URBNCarouselZoomableCell.self, forCellWithReuseIdentifier: "desCell")
         destinationCollectionView.frame = view.bounds
         destinationCollectionView.delegate = self
         destinationCollectionView.dataSource = self
+        destinationCollectionView.frame = view.bounds
         view.addSubview(destinationCollectionView)
         destinationCollectionView.reloadData()
         
@@ -57,11 +71,18 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
     }
     
     // MARK URBNSwCarouselTransitioning Delegate
+    
+    /*
+     Required methods for transitioning
+    */
     func imageForGalleryTransition() -> UIImage {
         guard let img = selectedCellForTransition?.imageView.image else { return UIImage() }
         return img
     }
     
+    /*
+     This is called when the destination view controller is being presented.  Here we are specifying the frame of the image we want to zoom out to.
+     */
     func toImageFrameForGalleryTransitionWithContainerView(containerView: UIView, sourceImageFrame: CGRect) -> CGRect {
         let size = UIImageView.urbn_aspectFitSizeForImageSize(sourceImageFrame.size, rect: view.bounds)
         let originX = CGRectGetMidX(view.bounds) - size.width/2
@@ -70,6 +91,9 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
         return frame
     }
     
+    /*
+     This is called when the destination view controller is being dismissed.  here we are specifying the frame of the image we are zooming from.
+    */
     func fromImageFrameForGalleryTransitionWithContainerView(containerView: UIView) -> CGRect {
         guard let cell = selectedCellForTransition, img = selectedCellForTransition?.imageView, imgSize = img.image?.size else { return CGRectZero }
         let size = UIImageView.urbn_aspectFitSizeForImageSize(imgSize , rect: img.frame)

@@ -38,6 +38,7 @@ public class URBNHorizontalPagedFlowLayout: UICollectionViewFlowLayout {
         
         guard let unwrappedAttr = layoutAttributesForElementsInRect(targetRect) else { return CGPointZero }
         
+        // TODO Replace this with a better convenience method first(where:) when swift 3 comes out
         let attr = unwrappedAttr.filter{ $0.representedElementCategory == UICollectionElementCategory.Cell }.first
         if let attribute = attr {
             let itemOriginX = attribute.frame.origin.x
