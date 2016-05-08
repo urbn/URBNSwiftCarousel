@@ -79,7 +79,8 @@ public class URBNPresentationController: UIPresentationController {
                 assertionFailure(assertionWarning)
                 return
         }
-        fireDelegatesAndReset(sourceVC, destinationVC: destinationVC, containingView: containingView)
+        exposeTransitionViewtoViewControllersIfNecessary(sourceVC, destinationVC: destinationVC)
+        transitionView.removeFromSuperview()
     }
     
     override public func dismissalTransitionWillBegin() {
@@ -110,7 +111,8 @@ public class URBNPresentationController: UIPresentationController {
             assertionFailure(assertionWarning)
             return
         }
-        fireDelegatesAndReset(sourceVC, destinationVC: destinationVC, containingView: containingView)
+        exposeTransitionViewtoViewControllersIfNecessary(sourceVC, destinationVC: destinationVC)
+        transitionView.removeFromSuperview()
     }
     
     // MARK: Convenience
@@ -134,9 +136,6 @@ public class URBNPresentationController: UIPresentationController {
         transitionView.center = CGPointMake(CGRectGetMidX(convertedStartingFrame), CGRectGetMidY(convertedStartingFrame))
         
         containingView.addSubview(transitionView)
-        
-        sourceVC.willBeginGalleryTransitionWithImageView?(transitionView, isToVC: false)
-        destinationVC.willBeginGalleryTransitionWithImageView?(transitionView, isToVC: true)
     }
     
     private func setFinalTransformForImage(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning, containingView: UIView) {
@@ -151,12 +150,6 @@ public class URBNPresentationController: UIPresentationController {
         
         transitionView.center = center
         transitionView.transform = transForm
-    }
-    
-    private func fireDelegatesAndReset(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning, containingView: UIView) {
-        sourceVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: false)
-        destinationVC.didEndGalleryTransitionWithImageView?(transitionView, isToVC: true)
-        transitionView.removeFromSuperview()
     }
     
     /**
@@ -195,5 +188,14 @@ public class URBNPresentationController: UIPresentationController {
         NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[cover]|", options: [], metrics: nil, views: ["cover": navBarCoverView]))
         navBarCoverView.topAnchor.constraintEqualToAnchor(containingView.topAnchor).active = true
         navBarCoverView.heightAnchor.constraintEqualToConstant(20 + rect.height).active = true
+    }
+    
+    /*
+     Convenience
+    */
+    private func exposeTransitionViewtoViewControllersIfNecessary(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning) {
+        guard let svc = sourceVC as? URBNSwCarouselTransitioningImageView, dvc = destinationVC as? URBNSwCarouselTransitioningImageView else { return }
+        svc.willBeginGalleryTransitionWithImageView(transitionView, isToVC: false)
+        dvc.willBeginGalleryTransitionWithImageView(transitionView, isToVC: true)
     }
 }

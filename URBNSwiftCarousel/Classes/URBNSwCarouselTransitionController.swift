@@ -48,7 +48,9 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: springCompletionSpeed, initialSpringVelocity: 0, options: [], animations: {
             fromView.alpha = 0.0
             toView.alpha = 1.0
-            topToVC.configureAnimatingTransitionImageView?(self.transitionView)
+            if let vc = topToVC as? URBNSwCarouselTransitioningImageView {
+                vc.configureAnimatingTransitionImageView(self.transitionView)
+            }
             
             }) { (finished) in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
