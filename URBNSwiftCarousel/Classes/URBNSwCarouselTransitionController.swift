@@ -24,7 +24,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     private var transitionView = UIImageView()
     private var originalSelectedCellFrame = CGRectZero
     private var springCompletionSpeed: CGFloat = 0.7
-    private var sourceViewController = UIViewController()
+    private var sourceViewController: UIViewController?
     public var presentationController: URBNPresentationController?
     
     // MARK: UIViewControllerAnimatedTransitioning Delegate Methods - Non-Interactive
@@ -82,7 +82,8 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
             vc = topVC
         }
         else {
-            vc = sourceViewController
+            guard let capturedVC = sourceViewController else { return nil }
+            vc = capturedVC
         }
         
         return vc
