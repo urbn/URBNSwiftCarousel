@@ -32,7 +32,6 @@ typealias URBNCarouselViewInteractionBeganClosure = (controller: URBNSwCarouselT
  */
 @objc public protocol URBNSwCarouselTransitioning {
     
-    // Required Methods
     /*
      Detailed explanations can be found in the example project.
     */
@@ -49,6 +48,8 @@ typealias URBNCarouselViewInteractionBeganClosure = (controller: URBNSwCarouselT
 
 @objc public protocol URBNSwCarouselTransitioningImageView {
     func willBeginGalleryTransitionWithImageView(imageView: UIImageView, isToVC: Bool)
+    
     func didEndGalleryTransitionWithImageView(imageView: UIImageView, isToVC: Bool)
+    
     func configureAnimatingTransitionImageView(imageView: UIImageView)
 }

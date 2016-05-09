@@ -78,10 +78,10 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     public func trueContextViewControllerFromContext(transitionContext: UIViewControllerContextTransitioning, key: String) -> UIViewController? {
         guard var vc = transitionContext.viewControllerForKey(key) else { return nil }
         
-        if let topVC = vc.navigationController?.topViewController where vc.conformsToProtocol(URBNSwCarouselTransitioning) {
+        if let topVC = vc.navigationController?.topViewController {
             vc = topVC
         }
-        else if !vc.conformsToProtocol(URBNSwCarouselTransitioning) {
+        else {
             vc = sourceViewController
         }
         
