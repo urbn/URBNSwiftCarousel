@@ -41,6 +41,14 @@ import Foundation
 }
 
 /*
+ Optional protocol you can adopt in a UICollectionViewCell subclass to enable pinch to zoom
+ */
+
+@objc public protocol URBNSwCarouselZoomableCell {
+    
+}
+
+/*
  Optional Helper protocol you can adopt to adjust the image view being animated
 */
 
