@@ -41,7 +41,9 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         let fromView = fromVC.view
         let toView = toVC.view
         
-        guard let topToVC = trueContextViewControllerFromContext(transitionContext, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning else { return }
+        guard let topToVC = trueContextViewControllerFromContext(transitionContext, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning else {
+            assertionFailure("Warning - couldn't find the true destination view controller.")
+            return }
         
         let duration = transitionDuration(transitionContext)
         
