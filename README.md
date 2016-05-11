@@ -17,7 +17,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-iOS 9 is the minimum recommended OS.
+iOS 9.0 is the minimum recommended OS.
 
 ## Installation
 
