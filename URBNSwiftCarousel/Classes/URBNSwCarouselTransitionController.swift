@@ -76,13 +76,18 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     /** This method finds the true view controller for a given context's key - sometimes iOS will pick the rootview controller or navigation controller of a presenting view controller. Override if necessary if you find you are having trouble accessing the correct view controllers as source or destination.
     */
     public func trueContextViewControllerFromContext(transitionContext: UIViewControllerContextTransitioning, key: String) -> UIViewController? {
-        guard var vc = transitionContext.viewControllerForKey(key) else { return nil }
+        guard var vc = transitionContext.viewControllerForKey(key) else {
+            assertionFailure("Warning - passed in a bad key.")
+            return nil
+        }
         
         if let topVC = vc.navigationController?.topViewController {
             vc = topVC
         }
         else {
-            guard let capturedVC = sourceViewController else { return nil }
+            guard let capturedVC = sourceViewController else {
+                assertionFailure("Warning - A source view controller was not passed in.")
+                return nil }
             vc = capturedVC
         }
         

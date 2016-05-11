@@ -21,7 +21,7 @@ public class URBNPresentationController: UIPresentationController {
     // MARK: Private Variables
     private var transitionView = UIImageView()
     
-    private let assertionWarning = "Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol"
+    private let assertionWarningCarouselTransitioning = "Warning : make sure  all VC's being passed in conform to the URBNSwCarouselTransitioning protocol"
     
     lazy private var navBarCoverView = UIView()
     
@@ -41,7 +41,7 @@ public class URBNPresentationController: UIPresentationController {
     override public func presentationTransitionWillBegin() {
         guard let destinationVC = presentedViewController as? URBNSwCarouselTransitioning, containingView = containerView, transitionCoordinator = presentingViewController.transitionCoordinator()
             else {
-                assertionFailure(assertionWarning)
+                assertionFailure(assertionWarningCarouselTransitioning)
                 return
         }
         
@@ -51,7 +51,7 @@ public class URBNPresentationController: UIPresentationController {
         }
         else {
             guard let vc = presentingViewController as? URBNSwCarouselTransitioning else {
-                assertionFailure(assertionWarning)
+                assertionFailure(assertionWarningCarouselTransitioning)
                 return
             }
             sourceVC = vc
@@ -76,7 +76,7 @@ public class URBNPresentationController: UIPresentationController {
     override public func presentationTransitionDidEnd(completed: Bool) {
         guard let sourceVC = topFromVC, destinationVC = presentedViewController as? URBNSwCarouselTransitioning, containingView = containerView
             else {
-                assertionFailure(assertionWarning)
+                assertionFailure(assertionWarningCarouselTransitioning)
                 return
         }
         exposeTransitionViewtoViewControllersIfNecessary(sourceVC, destinationVC: destinationVC)
@@ -85,7 +85,7 @@ public class URBNPresentationController: UIPresentationController {
     
     override public func dismissalTransitionWillBegin() {
         guard let sourceVC = presentedViewController as? URBNSwCarouselTransitioning, destinationVC = topFromVC, containingView = containerView, transitionCoordinator = presentingViewController.transitionCoordinator() else {
-            assertionFailure(assertionWarning)
+            assertionFailure(assertionWarningCarouselTransitioning)
             return
         }
         
@@ -108,7 +108,7 @@ public class URBNPresentationController: UIPresentationController {
     
     override public func dismissalTransitionDidEnd(completed: Bool) {
         guard let sourceVC = presentedViewController as? URBNSwCarouselTransitioning, destinationVC = topFromVC, containingView = containerView else {
-            assertionFailure(assertionWarning)
+            assertionFailure(assertionWarningCarouselTransitioning)
             return
         }
         exposeTransitionViewtoViewControllersIfNecessary(sourceVC, destinationVC: destinationVC)
@@ -157,7 +157,9 @@ public class URBNPresentationController: UIPresentationController {
     *    That index path is sent to the destination collection view which scrolls to that index path.
     */
     private func synchronizeCollectionViews(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning) {
-        guard let destSyncVC = destinationVC as? URBNSynchronizingDelegate, sourceSyncVC = sourceVC as? URBNSynchronizingDelegate, path = sourceSyncVC.sourceIndexPath(), cv = destSyncVC.toCollectionView() else { return }
+        guard let destSyncVC = destinationVC as? URBNSynchronizingDelegate, sourceSyncVC = sourceVC as? URBNSynchronizingDelegate, path = sourceSyncVC.sourceIndexPath(), cv = destSyncVC.toCollectionView() else {
+            assertionFailure(assertionWarningCarouselTransitioning)
+            return }
         
         cv.scrollToItemAtIndexPath(path, atScrollPosition: .None, animated: false)
         cv.reloadItemsAtIndexPaths([path])
@@ -172,7 +174,9 @@ public class URBNPresentationController: UIPresentationController {
     *     We get a screen shot of the navigation bar and use it as part of the animation transition so that the animating image view goes behind it.
     */
     private func coverNavigationBarIfNecessary(containingView: UIView) {
-        guard let navBar = navBarOfPresentingViewController, nav = presentingViewController as? UINavigationController else { return }
+        guard let navBar = navBarOfPresentingViewController, nav = presentingViewController as? UINavigationController else {
+            assertionFailure(assertionWarningCarouselTransitioning)
+            return }
         let rect = nav.view.convertRect(nav.navigationBar.frame, toView: nil)
         if let color = maskingNavBarColor {
             navBar.backgroundColor = color
@@ -194,7 +198,9 @@ public class URBNPresentationController: UIPresentationController {
      Convenience
     */
     private func exposeTransitionViewtoViewControllersIfNecessary(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning) {
-        guard let svc = sourceVC as? URBNSwCarouselTransitioningImageView, dvc = destinationVC as? URBNSwCarouselTransitioningImageView else { return }
+        guard let svc = sourceVC as? URBNSwCarouselTransitioningImageView, dvc = destinationVC as? URBNSwCarouselTransitioningImageView else {
+            assertionFailure(assertionWarningCarouselTransitioning)
+            return }
         svc.willBeginGalleryTransitionWithImageView(transitionView, isToVC: false)
         dvc.willBeginGalleryTransitionWithImageView(transitionView, isToVC: true)
     }
