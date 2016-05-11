@@ -26,6 +26,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     private var springCompletionSpeed: CGFloat = 0.7
     private var sourceViewController: UIViewController?
     public var presentationController: URBNPresentationController?
+    private var isDismissing = false
     
     // MARK: UIViewControllerAnimatedTransitioning Delegate Methods - Non-Interactive
     public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
@@ -40,6 +41,7 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         
         let fromView = fromVC.view
         let toView = toVC.view
+        toView.alpha = 0.0
         
         guard let topToVC = trueContextViewControllerFromContext(transitionContext, key: UITransitionContextToViewControllerKey) as? URBNSwCarouselTransitioning else {
             assertionFailure("Warning - couldn't find the true destination view controller.")
@@ -48,13 +50,14 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         let duration = transitionDuration(transitionContext)
         
         UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: springCompletionSpeed, initialSpringVelocity: 0, options: [], animations: {
-            fromView.alpha = 0.0
-            toView.alpha = 1.0
+            fromView.alpha = 0
+            toView.alpha = self.isDismissing ? 1.0 : 0.0
             if let vc = topToVC as? URBNSwCarouselTransitioningImageView {
                 vc.configureAnimatingTransitionImageView(self.transitionView)
             }
             
             }) { (finished) in
+            toView.alpha = 1.0
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         }
     }
@@ -67,10 +70,12 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
     
     public func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         sourceViewController = source
+        isDismissing = false
         return self
     }
     
     public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        isDismissing = true
         return self
     }
     

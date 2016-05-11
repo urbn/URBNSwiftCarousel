@@ -148,6 +148,10 @@ public class URBNPresentationController: UIPresentationController {
         transForm = CGAffineTransformIdentity
         center = CGPointMake(CGRectGetMidX(convertedEndingFrame), CGRectGetMidY(convertedEndingFrame))
         
+        // TODO REMOVE: THIS IS FOR DEBUGGING AND TESTING ONLY
+        transitionView.layer.borderColor = UIColor.greenColor().CGColor
+        transitionView.layer.borderWidth = 10.0
+        
         transitionView.center = center
         transitionView.transform = transForm
     }
@@ -199,7 +203,6 @@ public class URBNPresentationController: UIPresentationController {
     */
     private func exposeTransitionViewtoViewControllersIfNecessary(sourceVC: URBNSwCarouselTransitioning, destinationVC: URBNSwCarouselTransitioning) {
         guard let svc = sourceVC as? URBNSwCarouselTransitioningImageView, dvc = destinationVC as? URBNSwCarouselTransitioningImageView else {
-            assertionFailure(assertionWarningCarouselTransitioning)
             return }
         svc.willBeginGalleryTransitionWithImageView(transitionView, isToVC: false)
         dvc.willBeginGalleryTransitionWithImageView(transitionView, isToVC: true)
