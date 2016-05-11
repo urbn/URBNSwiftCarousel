@@ -37,7 +37,9 @@ public class URBNSwCarouselTransitionController: NSObject, UIViewControllerAnima
         
         guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
             toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-            else { return }
+            else {
+                assertionFailure("Warning - transition context couldn't find view controllers..")
+                return }
         
         let fromView = fromVC.view
         let toView = toVC.view
