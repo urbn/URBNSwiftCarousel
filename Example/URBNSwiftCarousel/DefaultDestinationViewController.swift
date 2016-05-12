@@ -1,5 +1,5 @@
 //
-//  DestinationViewController.swift
+//  DefaultDestinationViewController.swift
 //  URBNSwiftCarousel
 //
 //  Created by Kevin Taniguchi on 4/25/16.
@@ -13,35 +13,14 @@ import URBNSwiftCarousel
  This is an example class for a larger, "zoomed out" version of the image tapped in the source view controller.
 */
 
-class DestinationViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, URBNSwCarouselTransitioning, URBNSynchronizingDelegate {
+class DefaultDestinationViewController: BaseDestinationViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, URBNSwCarouselTransitioning {
     
-    let destinationCollectionView: UICollectionView
     var selectedCellForTransition: URBNCarouselZoomableCell?
-    var exampleData = UIImage.testingImages()
-    var selectedPath: NSIndexPath?
-    var dismissCallback: (Void -> Void)?
-    
-    init() {
-        let layout = URBNHorizontalPagedFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height)
-        layout.scrollDirection = .Horizontal
-        layout.minimumInteritemSpacing = 1.0
-        layout.minimumLineSpacing = 1.0
-        
-        destinationCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
-        
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         destinationCollectionView.registerClass(URBNCarouselZoomableCell.self, forCellWithReuseIdentifier: "desCell")
-        destinationCollectionView.frame = view.bounds
         destinationCollectionView.delegate = self
         destinationCollectionView.dataSource = self
         destinationCollectionView.frame = view.bounds
@@ -57,6 +36,10 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
         selectedCellForTransition = cell
         selectedPath = destinationCollectionView.indexPathForCell(cell)
         dismissCallback?()
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -104,15 +87,5 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
         let originY = CGRectGetMidY(frame) - size.height/2
         let xframe = CGRectMake(originX, originY, size.width, size.height)
         return xframe
-    }
-    
-    // MARK Sync Delegate
-    func sourceIndexPath() -> NSIndexPath? {
-        guard let path = selectedPath else { return NSIndexPath(forItem: 0, inSection: 0) }
-        return path
-    }
-    
-    func toCollectionView() -> UICollectionView? {
-        return destinationCollectionView
     }
 }

@@ -53,3 +53,36 @@ class SampleCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+class NonZoomingCustomLayoutCollectionViewCell: UICollectionViewCell {
+    let imageView = UIImageView()
+    let customLabel = UILabel()
+    let imgSide: CGFloat = 167
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        let views = ["imageView": imageView, "customLabel": customLabel]
+        
+        for view in views.values {
+            view.translatesAutoresizingMaskIntoConstraints = false
+            contentView.addSubview(view)
+        }
+        
+        imageView.contentMode = .ScaleToFill
+        customLabel.textAlignment = .Center
+        customLabel.textColor = UIColor.whiteColor()
+        let metrics = ["imgSide": imgSide]
+        NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[imageView(410)]-30-[customLabel]|", options: [.AlignAllCenterX], metrics: metrics, views: views))
+        imageView.widthAnchor.constraintEqualToConstant(imgSide).active = true
+        imageView.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor).active = true
+    }
+    
+    func configure(customText: String, customImage: UIImage) {
+        customLabel.text = customText
+        imageView.image = customImage
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}

@@ -20,7 +20,7 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     /*
         Collection views nested inside the cells of a tableView are a fairly common jawn, so we demonstrate one here.
     */
-    let tableView = UITableView(frame: CGRectZero, style: .Plain)
+    let tableView = UITableView(frame: CGRectZero, style: .Grouped)
     
     private var selectedCellForTransition: URBNCarouselZoomableCell?
     private var selectedCollectionViewForTransition: UICollectionView?
@@ -54,27 +54,57 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("tbvCell", forIndexPath: indexPath) as? SampleCell else { return SampleCell() }
+        
         cell.cellSelectedCallback = {[weak self] selectedCell in
             guard let weakSelf = self else { return }
             weakSelf.selectedCollectionViewForTransition = cell.sourceCV
             weakSelf.selectedCellForTransition = selectedCell
-            weakSelf.presentDestinationViewController()
+            
+            switch indexPath.section {
+            case 1:
+                weakSelf.presentCustomDestinationViewController()
+            default:
+                weakSelf.presentDefaultDestinationViewController()
+            }
         }
         
         return cell
     }
     
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerLabel = UILabel()
+        headerLabel.textAlignment = .Center
+        switch section {
+        case 0:
+            headerLabel.text = "Zoomable Carousel Cell"
+        case 1:
+            headerLabel.text = "Custom layout destination cell"
+        default:
+            headerLabel.text = "Zoomable Carousel Cell"
+        }
+        
+        return headerLabel
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 1
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 3
     }
     
     // MARK: Present the Destination View Controller
-    func presentDestinationViewController() {
+    func presentDefaultDestinationViewController() {
         
         /**
         * This is the view controller we are going to transition to.
         */
-        let destinationViewController = DestinationViewController()
+        let destinationViewController = DefaultDestinationViewController()
         
         /**
         * Set this property if your view controller is a child of a navigation controller.
@@ -93,6 +123,18 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         presentViewController(destinationViewController, animated: true , completion: nil)
         
         destinationViewController.dismissCallback = { [weak self] in
+            self?.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    
+    func presentCustomDestinationViewController() {
+        let customDestinationViewController = CustomDestinationViewController()
+        transitionController.presentationController?.maskingNavBarColor = navigationController?.navigationBar.barTintColor
+        customDestinationViewController.transitioningDelegate = transitionController
+        customDestinationViewController.modalPresentationStyle = .Custom
+        presentViewController(customDestinationViewController, animated: true, completion: nil)
+        
+        customDestinationViewController.dismissCallback = { [weak self] in
             self?.dismissViewControllerAnimated(true, completion: nil)
         }
     }

@@ -14,7 +14,9 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		86ACF660331DD8C95CD8C66C /* Pods_URBNSwiftCarousel_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7523C5D589BB17F70BDD6AD8 /* Pods_URBNSwiftCarousel_Tests.framework */; };
 		A71738BFB7FF0FB7AEEF985F /* Pods_URBNSwiftCarousel_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8124564AF2716A1526B30F00 /* Pods_URBNSwiftCarousel_Example.framework */; };
-		F65E8E751CCE99A100220844 /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65E8E741CCE99A100220844 /* DestinationViewController.swift */; };
+		F637F1031CE4EFC400B98E19 /* BaseDestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F637F1021CE4EFC400B98E19 /* BaseDestinationViewController.swift */; };
+		F637F1051CE4F38000B98E19 /* CustomDestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F637F1041CE4F38000B98E19 /* CustomDestinationViewController.swift */; };
+		F65E8E751CCE99A100220844 /* DefaultDestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65E8E741CCE99A100220844 /* DefaultDestinationViewController.swift */; };
 		F6F31FDF1CD068D900174A57 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F31FDE1CD068D900174A57 /* Convenience.swift */; };
 		F6F31FE11CD0695800174A57 /* Subclasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F31FE01CD0695800174A57 /* Subclasses.swift */; };
 /* End PBXBuildFile section */
@@ -49,7 +51,9 @@
 		AAFC04CCFDBCC5935A85BA14 /* URBNSwiftCarousel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = URBNSwiftCarousel.podspec; path = ../URBNSwiftCarousel.podspec; sourceTree = "<group>"; };
 		BE3A60D13E41C4A3D5375228 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F6354F111CD0132700104B4D /* URBNSwiftCarousel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URBNSwiftCarousel.framework; path = "../../../Library/Developer/Xcode/DerivedData/URBNSwiftCarousel-dfrsqnsqurkneebgxjipsaswhrhm/Build/Products/Debug-iphoneos/URBNSwiftCarousel.framework"; sourceTree = "<group>"; };
-		F65E8E741CCE99A100220844 /* DestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
+		F637F1021CE4EFC400B98E19 /* BaseDestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDestinationViewController.swift; sourceTree = "<group>"; };
+		F637F1041CE4F38000B98E19 /* CustomDestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDestinationViewController.swift; sourceTree = "<group>"; };
+		F65E8E741CCE99A100220844 /* DefaultDestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultDestinationViewController.swift; sourceTree = "<group>"; };
 		F6F31FDE1CD068D900174A57 /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		F6F31FE01CD0695800174A57 /* Subclasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subclasses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,12 +104,14 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* SourceViewController.swift */,
-				F65E8E741CCE99A100220844 /* DestinationViewController.swift */,
+				F65E8E741CCE99A100220844 /* DefaultDestinationViewController.swift */,
 				F6F31FDE1CD068D900174A57 /* Convenience.swift */,
 				F6F31FE01CD0695800174A57 /* Subclasses.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				F637F1021CE4EFC400B98E19 /* BaseDestinationViewController.swift */,
+				F637F1041CE4F38000B98E19 /* CustomDestinationViewController.swift */,
 			);
 			name = "Example for URBNSwiftCarousel";
 			path = URBNSwiftCarousel;
@@ -367,9 +373,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* SourceViewController.swift in Sources */,
+				F637F1051CE4F38000B98E19 /* CustomDestinationViewController.swift in Sources */,
 				F6F31FDF1CD068D900174A57 /* Convenience.swift in Sources */,
+				F637F1031CE4EFC400B98E19 /* BaseDestinationViewController.swift in Sources */,
 				F6F31FE11CD0695800174A57 /* Subclasses.swift in Sources */,
-				F65E8E751CCE99A100220844 /* DestinationViewController.swift in Sources */,
+				F65E8E751CCE99A100220844 /* DefaultDestinationViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
