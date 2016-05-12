@@ -33,7 +33,7 @@ import Foundation
     /*
      Detailed explanations can be found in the example project.
     */
-    func imageForGalleryTransition() -> UIImage
+    func imageForGalleryTransition() -> UIImage?
     
     func fromImageFrameForGalleryTransitionWithContainerView(containerView: UIView) -> CGRect
     

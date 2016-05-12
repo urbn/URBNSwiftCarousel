@@ -101,8 +101,8 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     /**
     * Required methods for the custom zoom view controller transition
     */
-    func imageForGalleryTransition() -> UIImage {
-        guard let img = selectedCellForTransition?.imageView.image else { return UIImage() }
+    func imageForGalleryTransition() -> UIImage? {
+        guard let img = selectedCellForTransition?.imageView.image else { return nil }
         return img
     }
     

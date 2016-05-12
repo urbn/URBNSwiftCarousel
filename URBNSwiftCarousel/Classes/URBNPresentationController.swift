@@ -126,7 +126,13 @@ public class URBNPresentationController: UIPresentationController {
         // Set the view's frame to the final dimensions and transform it down to match starting dimensions.
         transitionView = UIImageView(frame: convertedEndingFrame)
         transitionView.contentMode = .ScaleToFill
-        transitionView.image = sourceVC.imageForGalleryTransition()
+        
+        guard let img = sourceVC.imageForGalleryTransition() else {
+            assertionFailure("Your sourceVC must supply an image through this protocol")
+            return
+        }
+        
+        transitionView.image = img
         
         let scaleX = convertedStartingFrame.width / convertedEndingFrame.width
         let scaleY = convertedStartingFrame.height / convertedEndingFrame.height

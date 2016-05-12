@@ -75,8 +75,8 @@ class DestinationViewController: UIViewController, UICollectionViewDelegateFlowL
     /*
      Required methods for transitioning
     */
-    func imageForGalleryTransition() -> UIImage {
-        guard let img = selectedCellForTransition?.imageView.image else { return UIImage() }
+    func imageForGalleryTransition() -> UIImage? {
+        guard let img = selectedCellForTransition?.imageView.image else { return nil }
         return img
     }
     

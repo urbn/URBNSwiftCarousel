@@ -20,8 +20,6 @@ public class URBNCarouselZoomableCell: UICollectionViewCell, UIScrollViewDelegat
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
-        
-        // TODO move all this configuration to the outside in a protocol method the user syuppplies the shiz for
         scrollView.userInteractionEnabled = false
         scrollView.maximumZoomScale = 2.0
         scrollView.minimumZoomScale = 1.0
@@ -45,8 +43,6 @@ public class URBNCarouselZoomableCell: UICollectionViewCell, UIScrollViewDelegat
     }
 
 }
-
-// TODO add preotocol methods for configuring the
 
 extension URBNCarouselZoomableCell {
     // MARK: UIScrollView Delegate
