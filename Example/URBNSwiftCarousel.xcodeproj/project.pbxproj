@@ -12,8 +12,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		86ACF660331DD8C95CD8C66C /* Pods_URBNSwiftCarousel_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7523C5D589BB17F70BDD6AD8 /* Pods_URBNSwiftCarousel_Tests.framework */; };
-		A71738BFB7FF0FB7AEEF985F /* Pods_URBNSwiftCarousel_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8124564AF2716A1526B30F00 /* Pods_URBNSwiftCarousel_Example.framework */; };
+		9924A9F85013AB3AF865877C /* Pods_URBNSwiftCarousel_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463A1C2669C15A183E2926B3 /* Pods_URBNSwiftCarousel_Example.framework */; };
+		BEFDC03BB469F58A2890CA40 /* Pods_URBNSwiftCarousel_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAB3FA419AF634D8E4B991E /* Pods_URBNSwiftCarousel_Tests.framework */; };
 		F637F1031CE4EFC400B98E19 /* BaseDestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F637F1021CE4EFC400B98E19 /* BaseDestinationViewController.swift */; };
 		F637F1051CE4F38000B98E19 /* CustomDestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F637F1041CE4F38000B98E19 /* CustomDestinationViewController.swift */; };
 		F65E8E751CCE99A100220844 /* DefaultDestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65E8E741CCE99A100220844 /* DefaultDestinationViewController.swift */; };
@@ -33,7 +33,8 @@
 
 /* Begin PBXFileReference section */
 		096FFA235F3150C0D738E7D3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		551AB677C8912C2E9847BCA1 /* Pods-URBNSwiftCarousel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URBNSwiftCarousel_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-URBNSwiftCarousel_Tests/Pods-URBNSwiftCarousel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		3AAB3FA419AF634D8E4B991E /* Pods_URBNSwiftCarousel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URBNSwiftCarousel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		463A1C2669C15A183E2926B3 /* Pods_URBNSwiftCarousel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URBNSwiftCarousel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* URBNSwiftCarousel_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URBNSwiftCarousel_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,12 +44,11 @@
 		607FACE51AFB9204008FA782 /* URBNSwiftCarousel_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URBNSwiftCarousel_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		6A114B9FAE41D898B446FBD9 /* Pods-URBNSwiftCarousel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URBNSwiftCarousel_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-URBNSwiftCarousel_Example/Pods-URBNSwiftCarousel_Example.release.xcconfig"; sourceTree = "<group>"; };
-		6DE02DFD94E8AF52F1ABEC05 /* Pods-URBNSwiftCarousel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URBNSwiftCarousel_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-URBNSwiftCarousel_Tests/Pods-URBNSwiftCarousel_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		6FA0F57C93BB9EAE1CAB965B /* Pods-URBNSwiftCarousel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URBNSwiftCarousel_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-URBNSwiftCarousel_Example/Pods-URBNSwiftCarousel_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		7523C5D589BB17F70BDD6AD8 /* Pods_URBNSwiftCarousel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URBNSwiftCarousel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8124564AF2716A1526B30F00 /* Pods_URBNSwiftCarousel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URBNSwiftCarousel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		865C1472476B5B0C2436AB11 /* Pods-URBNSwiftCarousel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URBNSwiftCarousel_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-URBNSwiftCarousel_Tests/Pods-URBNSwiftCarousel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		A54240A58108A9777B833412 /* Pods-URBNSwiftCarousel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URBNSwiftCarousel_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-URBNSwiftCarousel_Example/Pods-URBNSwiftCarousel_Example.release.xcconfig"; sourceTree = "<group>"; };
 		AAFC04CCFDBCC5935A85BA14 /* URBNSwiftCarousel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = URBNSwiftCarousel.podspec; path = ../URBNSwiftCarousel.podspec; sourceTree = "<group>"; };
+		AB95E73891C7A87880F65490 /* Pods-URBNSwiftCarousel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URBNSwiftCarousel_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-URBNSwiftCarousel_Tests/Pods-URBNSwiftCarousel_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		AEB48AC7024DACBC9364439C /* Pods-URBNSwiftCarousel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URBNSwiftCarousel_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-URBNSwiftCarousel_Example/Pods-URBNSwiftCarousel_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BE3A60D13E41C4A3D5375228 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F6354F111CD0132700104B4D /* URBNSwiftCarousel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URBNSwiftCarousel.framework; path = "../../../Library/Developer/Xcode/DerivedData/URBNSwiftCarousel-dfrsqnsqurkneebgxjipsaswhrhm/Build/Products/Debug-iphoneos/URBNSwiftCarousel.framework"; sourceTree = "<group>"; };
 		F637F1021CE4EFC400B98E19 /* BaseDestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDestinationViewController.swift; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A71738BFB7FF0FB7AEEF985F /* Pods_URBNSwiftCarousel_Example.framework in Frameworks */,
+				9924A9F85013AB3AF865877C /* Pods_URBNSwiftCarousel_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86ACF660331DD8C95CD8C66C /* Pods_URBNSwiftCarousel_Tests.framework in Frameworks */,
+				BEFDC03BB469F58A2890CA40 /* Pods_URBNSwiftCarousel_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,8 +85,8 @@
 				607FACD21AFB9204008FA782 /* Example for URBNSwiftCarousel */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				E18CEF0790A56962B7C5E10F /* Pods */,
 				E6A7EB0CBE530A5984594DB0 /* Frameworks */,
+				8F1BB973CE35AEA2EB81499E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,13 +152,13 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		E18CEF0790A56962B7C5E10F /* Pods */ = {
+		8F1BB973CE35AEA2EB81499E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6FA0F57C93BB9EAE1CAB965B /* Pods-URBNSwiftCarousel_Example.debug.xcconfig */,
-				6A114B9FAE41D898B446FBD9 /* Pods-URBNSwiftCarousel_Example.release.xcconfig */,
-				551AB677C8912C2E9847BCA1 /* Pods-URBNSwiftCarousel_Tests.debug.xcconfig */,
-				6DE02DFD94E8AF52F1ABEC05 /* Pods-URBNSwiftCarousel_Tests.release.xcconfig */,
+				AEB48AC7024DACBC9364439C /* Pods-URBNSwiftCarousel_Example.debug.xcconfig */,
+				A54240A58108A9777B833412 /* Pods-URBNSwiftCarousel_Example.release.xcconfig */,
+				865C1472476B5B0C2436AB11 /* Pods-URBNSwiftCarousel_Tests.debug.xcconfig */,
+				AB95E73891C7A87880F65490 /* Pods-URBNSwiftCarousel_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -167,8 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				F6354F111CD0132700104B4D /* URBNSwiftCarousel.framework */,
-				8124564AF2716A1526B30F00 /* Pods_URBNSwiftCarousel_Example.framework */,
-				7523C5D589BB17F70BDD6AD8 /* Pods_URBNSwiftCarousel_Tests.framework */,
+				463A1C2669C15A183E2926B3 /* Pods_URBNSwiftCarousel_Example.framework */,
+				3AAB3FA419AF634D8E4B991E /* Pods_URBNSwiftCarousel_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -180,12 +180,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "URBNSwiftCarousel_Example" */;
 			buildPhases = (
-				BFC6DA861645EC3BBF7FBC7B /* Check Pods Manifest.lock */,
+				3AE4AAA0A2A931C2E734EA79 /* 📦 Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				D50168ABAD77E204E1BB0CB5 /* Embed Pods Frameworks */,
-				E6CF54FE0E43972B90181D0F /* Copy Pods Resources */,
+				EEB34A78CD7BD1F01DDF0B94 /* 📦 Embed Pods Frameworks */,
+				3EB2E6C4FEE86513C4C799F1 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,12 +200,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "URBNSwiftCarousel_Tests" */;
 			buildPhases = (
-				8B6C7AF3B52093D59951F942 /* Check Pods Manifest.lock */,
+				1D914E26B9B4DF233F500C7C /* 📦 Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				4F1C930F975203A4225A82A7 /* Embed Pods Frameworks */,
-				B920F105CE4B7453E3AD93CA /* Copy Pods Resources */,
+				E76759D168554B4DA3986578 /* 📦 Embed Pods Frameworks */,
+				CBD3FC54A86A0725C75ADFFC /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,29 +275,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4F1C930F975203A4225A82A7 /* Embed Pods Frameworks */ = {
+		1D914E26B9B4DF233F500C7C /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URBNSwiftCarousel_Tests/Pods-URBNSwiftCarousel_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8B6C7AF3B52093D59951F942 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,14 +290,44 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B920F105CE4B7453E3AD93CA /* Copy Pods Resources */ = {
+		3AE4AAA0A2A931C2E734EA79 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3EB2E6C4FEE86513C4C799F1 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URBNSwiftCarousel_Example/Pods-URBNSwiftCarousel_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBD3FC54A86A0725C75ADFFC /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,49 +335,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URBNSwiftCarousel_Tests/Pods-URBNSwiftCarousel_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BFC6DA861645EC3BBF7FBC7B /* Check Pods Manifest.lock */ = {
+		E76759D168554B4DA3986578 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URBNSwiftCarousel_Tests/Pods-URBNSwiftCarousel_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D50168ABAD77E204E1BB0CB5 /* Embed Pods Frameworks */ = {
+		EEB34A78CD7BD1F01DDF0B94 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URBNSwiftCarousel_Example/Pods-URBNSwiftCarousel_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E6CF54FE0E43972B90181D0F /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URBNSwiftCarousel_Example/Pods-URBNSwiftCarousel_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -496,7 +496,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6FA0F57C93BB9EAE1CAB965B /* Pods-URBNSwiftCarousel_Example.debug.xcconfig */;
+			baseConfigurationReference = AEB48AC7024DACBC9364439C /* Pods-URBNSwiftCarousel_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = URBNSwiftCarousel/Info.plist;
@@ -511,7 +511,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A114B9FAE41D898B446FBD9 /* Pods-URBNSwiftCarousel_Example.release.xcconfig */;
+			baseConfigurationReference = A54240A58108A9777B833412 /* Pods-URBNSwiftCarousel_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = URBNSwiftCarousel/Info.plist;
@@ -526,9 +526,8 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 551AB677C8912C2E9847BCA1 /* Pods-URBNSwiftCarousel_Tests.debug.xcconfig */;
+			baseConfigurationReference = 865C1472476B5B0C2436AB11 /* Pods-URBNSwiftCarousel_Tests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -543,9 +542,8 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6DE02DFD94E8AF52F1ABEC05 /* Pods-URBNSwiftCarousel_Tests.release.xcconfig */;
+			baseConfigurationReference = AB95E73891C7A87880F65490 /* Pods-URBNSwiftCarousel_Tests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

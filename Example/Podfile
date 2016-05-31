@@ -1,11 +1,10 @@
 use_frameworks!
 
-target 'URBNSwiftCarousel_Example', :exclusive => true do
-  pod 'URBNSwiftCarousel', :path => '../'
-end
-
-target 'URBNSwiftCarousel_Tests', :exclusive => true do
+target 'URBNSwiftCarousel_Example' do
   pod 'URBNSwiftCarousel', :path => '../'
 
-  
+  target 'URBNSwiftCarousel_Tests' do
+    inherit! :search_paths
+  end
+
 end
